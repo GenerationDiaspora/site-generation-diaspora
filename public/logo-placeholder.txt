@@ -1,0 +1,2 @@
+Note: Veuillez remplacer ce fichier par votre logo.png
+Pour le moment, le site utilise logo.svg comme placeholder.
