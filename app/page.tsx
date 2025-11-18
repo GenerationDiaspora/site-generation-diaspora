@@ -103,9 +103,9 @@ export default function Home() {
                 <p className="text-gray-600 mb-4">
                   Des sessions pour mettre en lumière les talents marocains, encourager le dialogue et explorer des sujets liés au sport, à la culture et à la société.
                 </p>
-                <Link href="/news" className="text-primary-600 font-semibold hover:text-primary-700 inline-flex items-center gap-1">
+                {/* <Link href="/news" className="text-primary-600 font-semibold hover:text-primary-700 inline-flex items-center gap-1">
                   En savoir plus <ArrowRight className="w-4 h-4" />
-                </Link>
+                </Link> */}
               </div>
             </div>
             <div className="bg-beige rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
@@ -115,9 +115,9 @@ export default function Home() {
                 <p className="text-gray-600 mb-4">
                   Un événement célébrant la mode et la créativité des talents MRE, où tradition et innovation se rencontrent pour mettre en valeur notre patrimoine.
                 </p>
-                <Link href="/news" className="text-primary-600 font-semibold hover:text-primary-700 inline-flex items-center gap-1">
+                {/* <Link href="/news" className="text-primary-600 font-semibold hover:text-primary-700 inline-flex items-center gap-1">
                   En savoir plus <ArrowRight className="w-4 h-4" />
-                </Link>
+                </Link> */}
               </div>
             </div>
             <div className="bg-beige rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
@@ -127,9 +127,9 @@ export default function Home() {
                 <p className="text-gray-600 mb-4">
                   Des initiatives humanitaires et sociales pour créer des passerelles durables entre les jeunes de France, du Maroc et d'ailleurs.
                 </p>
-                <Link href="/news" className="text-primary-600 font-semibold hover:text-primary-700 inline-flex items-center gap-1">
+                {/* <Link href="/news" className="text-primary-600 font-semibold hover:text-primary-700 inline-flex items-center gap-1">
                   En savoir plus <ArrowRight className="w-4 h-4" />
-                </Link>
+                </Link> */}
               </div>
             </div>
           </div>
@@ -154,13 +154,13 @@ export default function Home() {
                 pleinement intégrée dans son présent et tournée vers l'avenir, tout en favorisant le rapprochement
                 entre les deux rives de la Méditerranée.
               </p>
-              <Link
+              {/* <Link
                 href="/about"
                 className="inline-flex items-center gap-2 bg-primary-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-700 transition-colors"
               >
                 Découvrir notre histoire
                 <ArrowRight className="w-5 h-5" />
-              </Link>
+              </Link> */}
             </div>
             <div className="relative h-96 rounded-2xl overflow-hidden shadow-2xl">
               <div className="absolute inset-0 bg-gradient-to-br from-primary-400 to-secondary-500 flex items-center justify-center">
