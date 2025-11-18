@@ -9,10 +9,10 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navigation = [
-    { name: "Accueil", href: "/" },
-    { name: "À propos", href: "/about" },
-    { name: "Actualités", href: "/news" },
-    { name: "Contact", href: "/contact" },
+    { name: "Accueil", href: "/", active: true },
+    { name: "À propos", href: "#", active: true },
+    { name: "Actualités", href: "#", active: true },
+    { name: "Contact", href: "#", active: true },
   ];
 
   return (
@@ -35,14 +35,24 @@ export default function Header() {
           {/* Navigation Desktop */}
           <div className="hidden md:flex items-center gap-8">
             {navigation.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className="text-gray-700 hover:text-primary-600 font-medium transition-colors relative group"
-              >
-                {item.name}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-600 group-hover:w-full transition-all duration-300"></span>
-              </Link>
+              item.active ? (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className="text-gray-700 hover:text-primary-600 font-medium transition-colors relative group"
+                >
+                  {item.name}
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-600 group-hover:w-full transition-all duration-300"></span>
+                </Link>
+              ) : (
+                <span
+                  key={item.name}
+                  className="text-gray-400 font-medium cursor-not-allowed"
+                  title="Bientôt disponible"
+                >
+                  {item.name}
+                </span>
+              )
             ))}
             <Link
               href="/#newsletter"
@@ -71,14 +81,23 @@ export default function Header() {
           <div className="md:hidden py-4 border-t border-gray-100">
             <div className="flex flex-col gap-4">
               {navigation.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className="text-gray-700 hover:text-primary-600 font-medium transition-colors py-2"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  {item.name}
-                </Link>
+                item.active ? (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    className="text-gray-700 hover:text-primary-600 font-medium transition-colors py-2"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {item.name}
+                  </Link>
+                ) : (
+                  <span
+                    key={item.name}
+                    className="text-gray-400 font-medium py-2 cursor-not-allowed"
+                  >
+                    {item.name} (Bientôt)
+                  </span>
+                )
               ))}
               <Link
                 href="/#newsletter"
