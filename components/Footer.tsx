@@ -28,7 +28,7 @@ export default function Footer() {
   return (
     <footer className="bg-gray-900 text-white">
       <div className="container mx-auto px-4 py-12">
-        <div className="grid md:grid-cols-3 gap-8 mb-8">
+        <div className="grid md:grid-cols-4 gap-8 mb-8">
           {/* Logo et description */}
           <div className="md:col-span-2">
             <Link href="/" className="flex items-center gap-3 mb-4">
@@ -63,7 +63,7 @@ export default function Footer() {
           </div>
 
           {/* Liens rapides */}
-          {/* <div>
+          <div>
             <h3 className="font-semibold text-lg mb-4">Navigation</h3>
             <ul className="space-y-2">
               {footerLinks.association.map((link) => (
@@ -77,7 +77,7 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-          </div> */}
+          </div>
 
           {/* Informations légales */}
           <div>
