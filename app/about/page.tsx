@@ -110,25 +110,18 @@ export default function AboutPage() {
               <div className="w-32 h-32 mx-auto mb-4 rounded-full bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center">
                 <Users className="w-16 h-16 text-white" />
               </div>
-              <h3 className="text-2xl font-bold mb-2 text-gray-900">Mehdi HAZGUER</h3>
+              <h3 className="text-2xl font-bold mb-2 text-gray-900">Hamid LAFREDI</h3>
               <p className="text-primary-600 font-semibold mb-2">Président</p>
             </div>
 
             {/* Vice-Présidents */}
-            <div className="grid md:grid-cols-3 gap-8 mb-12">
+            <div className="grid md:grid-cols-2 gap-8 mb-12">
               <div className="text-center">
                 <div className="w-24 h-24 mx-auto mb-4 rounded-full bg-gradient-to-br from-primary-400 to-primary-600 flex items-center justify-center">
                   <Users className="w-12 h-12 text-white" />
                 </div>
                 <h3 className="text-xl font-semibold mb-2 text-gray-900">Hiba DADDA</h3>
                 <p className="text-primary-600 font-medium">Vice-Présidente</p>
-              </div>
-              <div className="text-center">
-                <div className="w-24 h-24 mx-auto mb-4 rounded-full bg-gradient-to-br from-primary-400 to-primary-600 flex items-center justify-center">
-                  <Users className="w-12 h-12 text-white" />
-                </div>
-                <h3 className="text-xl font-semibold mb-2 text-gray-900">Hamid LAFREDI</h3>
-                <p className="text-primary-600 font-medium">Vice-Président</p>
               </div>
               <div className="text-center">
                 <div className="w-24 h-24 mx-auto mb-4 rounded-full bg-gradient-to-br from-primary-400 to-primary-600 flex items-center justify-center">
@@ -171,27 +164,16 @@ export default function AboutPage() {
               </div>
             </div>
 
-            {/* Porte-parole */}
-            <div className="mb-12 text-center">
-              <div className="w-24 h-24 mx-auto mb-4 rounded-full bg-gradient-to-br from-primary-500 to-secondary-500 flex items-center justify-center">
-                <Users className="w-12 h-12 text-white" />
-              </div>
-              <h3 className="text-xl font-semibold mb-2 text-gray-900">Ilyan BERRADI</h3>
-              <p className="text-primary-600 font-medium">Porte-parole</p>
-            </div>
-
             {/* Conseillers */}
             <div className="bg-gray-50 rounded-2xl p-8">
               <h3 className="text-2xl font-bold mb-6 text-center text-gray-900">Conseillers</h3>
               <div className="grid md:grid-cols-3 gap-4 text-center">
-                <p className="text-gray-700">Eliav AMOUYAL</p>
                 <p className="text-gray-700">Mohamed BOUTAMRA</p>
                 <p className="text-gray-700">Ayoub DADDA</p>
                 <p className="text-gray-700">Youness DRISSI SLIMANI</p>
                 <p className="text-gray-700">Taoufik EL GALAI</p>
                 <p className="text-gray-700">Aya GOUZMI</p>
                 <p className="text-gray-700">Imane KAAOUCHE</p>
-                <p className="text-gray-700">Nehoray MOYAL</p>
                 <p className="text-gray-700">Zirar SIRAR</p>
               </div>
             </div>
@@ -210,19 +192,11 @@ export default function AboutPage() {
             </p>
             <div className="space-y-4">
               <a
-                href="mailto:contact@generation-diaspora.com"
+                href="mailto:contact@generationdiaspora.com"
                 className="inline-block bg-primary-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-primary-700 transition-colors"
               >
-                contact@generation-diaspora.com
+                contact@generationdiaspora.com
               </a>
-              <p className="text-gray-600">
-                <strong>Téléphone :</strong> +33 7 45 89 63 08
-              </p>
-              <p className="text-gray-600">
-                <strong>Adresse :</strong><br />
-                72 Avenue Kléber<br />
-                75016 Paris, France
-              </p>
             </div>
           </div>
         </div>

@@ -48,5 +48,5 @@ echo "  - Vérifiez votre site sur l'URL fournie"
 echo "  - Configurez un domaine personnalisé si besoin"
 echo "  - Ajoutez les variables d'environnement pour la newsletter"
 echo ""
-echo "📧 Contact : contact@generation-diaspora.com"
+echo "📧 Contact : contact@generationdiaspora.com"
 

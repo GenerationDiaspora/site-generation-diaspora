@@ -51,14 +51,12 @@ export default function Footer() {
               <div className="flex items-center gap-2">
                 <Mail className="w-4 h-4" />
                 <a
-                  href="mailto:contact@generation-diaspora.com"
+                  href="mailto:contact@generationdiaspora.com"
                   className="hover:text-white transition-colors"
                 >
-                  contact@generation-diaspora.com
+                  contact@generationdiaspora.com
                 </a>
               </div>
-              <p>Téléphone : +33 7 45 89 63 08</p>
-              <p>72 Avenue Kléber, 75016 Paris</p>
             </div>
           </div>
 

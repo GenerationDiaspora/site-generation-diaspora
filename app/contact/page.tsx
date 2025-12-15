@@ -186,17 +186,9 @@ export default function ContactPage() {
               <div className="flex flex-col items-center gap-4">
                 <div className="flex items-center gap-2 text-gray-600">
                   <Mail className="w-5 h-5 text-primary-600" />
-                  <a href="mailto:contact@generation-diaspora.com" className="hover:text-primary-600 transition-colors">
-                    contact@generation-diaspora.com
+                  <a href="mailto:contact@generationdiaspora.com" className="hover:text-primary-600 transition-colors">
+                    contact@generationdiaspora.com
                   </a>
-                </div>
-                <p className="text-gray-600">
-                  <strong>Téléphone :</strong> +33 7 45 89 63 08
-                </p>
-                <div className="text-gray-600 text-center">
-                  <strong>Adresse :</strong><br />
-                  72 Avenue Kléber<br />
-                  75016 Paris, France
                 </div>
               </div>
             </div>
