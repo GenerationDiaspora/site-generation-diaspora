@@ -1,0 +1,22 @@
+{
+  "name": "Génération Diaspora",
+  "short_name": "Gen Diaspora",
+  "description": "Association dédiée à l'épanouissement de la jeunesse marocaine en France",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#006233",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
+
