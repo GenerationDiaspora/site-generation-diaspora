@@ -2,7 +2,7 @@
 
 import { Metadata } from "next";
 import { useState, FormEvent } from "react";
-import { Mail, User, MessageSquare, Send } from "lucide-react";
+import { Mail, User, MessageSquare, Send, Facebook, Instagram, Linkedin } from "lucide-react";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -183,12 +183,45 @@ export default function ContactPage() {
             {/* Informations de contact */}
             <div className="mt-12 text-center">
               <h3 className="text-2xl font-bold mb-4 text-gray-900">Autres moyens de nous contacter</h3>
-              <div className="flex flex-col items-center gap-4">
+              <div className="flex flex-col items-center gap-6">
                 <div className="flex items-center gap-2 text-gray-600">
                   <Mail className="w-5 h-5 text-primary-600" />
                   <a href="mailto:contact@generationdiaspora.com" className="hover:text-primary-600 transition-colors">
                     contact@generationdiaspora.com
                   </a>
+                </div>
+
+                <div>
+                  <p className="text-gray-600 mb-4 font-semibold">Suivez-nous sur les réseaux sociaux :</p>
+                  <div className="flex justify-center gap-4">
+                    <a
+                      href="https://www.facebook.com/groups/1013728587602196"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-12 h-12 bg-primary-600 rounded-full flex items-center justify-center hover:bg-primary-700 transition-colors"
+                      aria-label="Facebook"
+                    >
+                      <Facebook className="w-6 h-6 text-white" />
+                    </a>
+                    <a
+                      href="https://www.instagram.com/generation.diaspora.ma"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-12 h-12 bg-primary-600 rounded-full flex items-center justify-center hover:bg-primary-700 transition-colors"
+                      aria-label="Instagram"
+                    >
+                      <Instagram className="w-6 h-6 text-white" />
+                    </a>
+                    <a
+                      href="https://linkedin.com/company/génération-diaspora/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-12 h-12 bg-primary-600 rounded-full flex items-center justify-center hover:bg-primary-700 transition-colors"
+                      aria-label="LinkedIn"
+                    >
+                      <Linkedin className="w-6 h-6 text-white" />
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>

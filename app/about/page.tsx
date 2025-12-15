@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import Image from "next/image";
-import { Mail, Users, Target, Heart, Globe } from "lucide-react";
+import { Mail, Users, Target, Heart, Globe, Facebook, Instagram, Linkedin } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "À propos - Génération Diaspora",
@@ -190,13 +190,46 @@ export default function AboutPage() {
             <p className="text-gray-600 mb-6">
               Pour toute question ou demande d'information, n'hésitez pas à nous contacter
             </p>
-            <div className="space-y-4">
+            <div className="space-y-6">
               <a
                 href="mailto:contact@generationdiaspora.com"
                 className="inline-block bg-primary-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-primary-700 transition-colors"
               >
                 contact@generationdiaspora.com
               </a>
+
+              <div>
+                <p className="text-gray-600 mb-4 font-semibold">Suivez-nous sur les réseaux sociaux :</p>
+                <div className="flex justify-center gap-4">
+                  <a
+                    href="https://www.facebook.com/groups/1013728587602196"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-12 h-12 bg-primary-600 rounded-full flex items-center justify-center hover:bg-primary-700 transition-colors"
+                    aria-label="Facebook"
+                  >
+                    <Facebook className="w-6 h-6 text-white" />
+                  </a>
+                  <a
+                    href="https://www.instagram.com/generation.diaspora.ma"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-12 h-12 bg-primary-600 rounded-full flex items-center justify-center hover:bg-primary-700 transition-colors"
+                    aria-label="Instagram"
+                  >
+                    <Instagram className="w-6 h-6 text-white" />
+                  </a>
+                  <a
+                    href="https://linkedin.com/company/génération-diaspora/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-12 h-12 bg-primary-600 rounded-full flex items-center justify-center hover:bg-primary-700 transition-colors"
+                    aria-label="LinkedIn"
+                  >
+                    <Linkedin className="w-6 h-6 text-white" />
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </div>

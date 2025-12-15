@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Facebook, Twitter, Instagram, Linkedin, Mail } from "lucide-react";
+import { Facebook, Instagram, Linkedin, Mail } from "lucide-react";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -19,10 +19,9 @@ export default function Footer() {
   };
 
   const socialLinks = [
-    { name: "Facebook", icon: Facebook, href: "#" },
-    { name: "Twitter", icon: Twitter, href: "#" },
-    { name: "Instagram", icon: Instagram, href: "#" },
-    { name: "LinkedIn", icon: Linkedin, href: "#" },
+    { name: "Facebook", icon: Facebook, href: "https://www.facebook.com/groups/1013728587602196" },
+    { name: "Instagram", icon: Instagram, href: "https://www.instagram.com/generation.diaspora.ma" },
+    { name: "LinkedIn", icon: Linkedin, href: "https://linkedin.com/company/génération-diaspora/" },
   ];
 
   return (
@@ -107,6 +106,8 @@ export default function Footer() {
                 <a
                   key={social.name}
                   href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary-600 transition-colors"
                   aria-label={social.name}
                 >
