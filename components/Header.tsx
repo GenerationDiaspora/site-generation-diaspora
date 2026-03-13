@@ -12,6 +12,7 @@ export default function Header() {
     { name: "Accueil", href: "/" },
     { name: "À propos", href: "/about" },
     { name: "Actualités", href: "/news" },
+    { name: "Webinaire", href: "/webinaire", live: true },
     { name: "Contact", href: "/contact" },
   ];
 
@@ -38,9 +39,15 @@ export default function Header() {
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-gray-700 hover:text-primary-600 font-medium transition-colors relative group"
+                className="text-gray-700 hover:text-primary-600 font-medium transition-colors relative group inline-flex items-center gap-1.5"
               >
                 {item.name}
+                {"live" in item && item.live && (
+                  <span className="inline-flex items-center gap-1 bg-red-100 text-red-600 text-xs font-semibold px-2 py-0.5 rounded-full">
+                    <span className="w-1.5 h-1.5 bg-red-500 rounded-full animate-pulse" />
+                    Live
+                  </span>
+                )}
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-600 group-hover:w-full transition-all duration-300"></span>
               </Link>
             ))}
@@ -74,10 +81,16 @@ export default function Header() {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="text-gray-700 hover:text-primary-600 font-medium transition-colors py-2"
+                  className="text-gray-700 hover:text-primary-600 font-medium transition-colors py-2 inline-flex items-center gap-2"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {item.name}
+                  {"live" in item && item.live && (
+                    <span className="inline-flex items-center gap-1 bg-red-100 text-red-600 text-xs font-semibold px-2 py-0.5 rounded-full">
+                      <span className="w-1.5 h-1.5 bg-red-500 rounded-full animate-pulse" />
+                      Live
+                    </span>
+                  )}
                 </Link>
               ))}
               <Link

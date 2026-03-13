@@ -18,21 +18,23 @@ export default function ContactPage() {
     setIsSubmitting(true);
     setSubmitStatus("idle");
 
-    // Simulation d'envoi (log dans la console)
-    console.log("📧 Formulaire de contact soumis:", formData);
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
 
-    // Simuler un délai d'envoi
-    setTimeout(() => {
-      setIsSubmitting(false);
+      if (!response.ok) throw new Error("Erreur envoi");
+
       setSubmitStatus("success");
-      // Réinitialiser le formulaire
       setFormData({ name: "", email: "", message: "" });
-
-      // Réinitialiser le message de succès après 5 secondes
-      setTimeout(() => {
-        setSubmitStatus("idle");
-      }, 5000);
-    }, 1000);
+      setTimeout(() => setSubmitStatus("idle"), 5000);
+    } catch {
+      setSubmitStatus("error");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {

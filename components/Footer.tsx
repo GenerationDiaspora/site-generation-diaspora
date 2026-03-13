@@ -43,8 +43,8 @@ export default function Footer() {
               <span className="font-bold text-xl">Génération Diaspora</span>
             </Link>
             <p className="text-gray-400 mb-4 max-w-md">
-              Association dédiée à l'épanouissement et au développement de la jeunesse marocaine en France.
-              Créée le 6 septembre 2025 conformément à la loi du 1er juillet 1901.
+              Association dédiée à l'épanouissement de la jeunesse franco-marocaine en France.
+              Outil au service des deux rives de la Méditerranée, fondée sur la proximité, l'humanité, la solidarité et la fraternité.
             </p>
             <div className="space-y-2 text-gray-400 text-sm">
               <div className="flex items-center gap-2">

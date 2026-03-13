@@ -6,6 +6,23 @@ import Newsletter from "@/components/Newsletter";
 export default function Home() {
   return (
     <>
+      {/* Bannière webinaire */}
+      <div className="bg-gradient-to-r from-red-700 via-slate-800 to-primary-800 text-white py-3 px-4">
+        <div className="container mx-auto flex flex-col sm:flex-row items-center justify-center gap-2 text-center text-sm sm:text-base">
+          <span>
+            <span className="font-bold">🎙️ Webinaire LIVE · 26 Mars · 20h30</span>
+            <span className="mx-2 opacity-60">—</span>
+            <span className="opacity-90">Diaspora Marocaine : Entre perception, contribution et avenir commun</span>
+          </span>
+          <Link
+            href="/webinaire"
+            className="flex-shrink-0 bg-white/20 hover:bg-white/30 border border-white/30 text-white font-bold px-4 py-1 rounded-full text-sm transition-colors"
+          >
+            S&apos;inscrire →
+          </Link>
+        </div>
+      </div>
+
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-primary-600 to-primary-800 text-white">
         <div className="container mx-auto px-4 py-20 md:py-32">
@@ -95,43 +112,71 @@ export default function Home() {
               Des activités régulières dans les domaines sportif, culturel, social, civique et humanitaire
             </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {/* Webinaire — À venir */}
             <div className="bg-beige rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-              <div className="h-48 bg-gradient-to-br from-primary-400 to-primary-600"></div>
+              <div className="relative h-48 overflow-hidden">
+                <Image
+                  src="/images/events/webinaire-diaspora-mars-2026/affiche.jpeg"
+                  alt="Webinaire Diaspora Marocaine"
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute top-3 left-3">
+                  <span className="inline-flex items-center gap-1.5 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full">
+                    <span className="w-1.5 h-1.5 bg-white rounded-full animate-pulse" />
+                    À venir · 26 mars
+                  </span>
+                </div>
+              </div>
               <div className="p-6">
-                <h3 className="text-2xl font-bold mb-3 text-gray-900">Webinaires Thématiques</h3>
-                <p className="text-gray-600 mb-4">
-                  Des sessions pour mettre en lumière les talents marocains, encourager le dialogue et explorer des sujets liés au sport, à la culture et à la société.
+                <span className="text-xs font-semibold text-primary-600 uppercase tracking-wide">Webinaire</span>
+                <h3 className="text-xl font-bold mt-1 mb-3 text-gray-900">
+                  Diaspora Marocaine : Entre perception, contribution et avenir commun
+                </h3>
+                <p className="text-gray-600 mb-4 text-sm">
+                  Un live streaming le 26 mars à 20h30 autour de la jeunesse MRE, avec deux invités et un débat ouvert.
                 </p>
-                <Link href="/news" className="text-primary-600 font-semibold hover:text-primary-700 inline-flex items-center gap-1">
-                  En savoir plus <ArrowRight className="w-4 h-4" />
+                <Link href="/webinaire" className="text-primary-600 font-semibold hover:text-primary-700 inline-flex items-center gap-1">
+                  Je m&apos;inscris <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
             </div>
+
+            {/* Ftour Pluriel — Passé */}
             <div className="bg-beige rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-              <div className="h-48 bg-gradient-to-br from-secondary-400 to-secondary-600"></div>
+              <div className="relative h-48 overflow-hidden">
+                <Image
+                  src="/images/events/ftour-pluriel-2026/main-ftour.jpg"
+                  alt="Ftour Pluriel 2026"
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute top-3 left-3">
+                  <span className="bg-gray-800/70 text-white text-xs font-semibold px-3 py-1 rounded-full">
+                    1 mars 2026
+                  </span>
+                </div>
+              </div>
               <div className="p-6">
-                <h3 className="text-2xl font-bold mb-3 text-gray-900">Nhar l'Fashion</h3>
-                <p className="text-gray-600 mb-4">
-                  Un événement célébrant la mode et la créativité des talents MRE, où tradition et innovation se rencontrent pour mettre en valeur notre patrimoine.
+                <span className="text-xs font-semibold text-primary-600 uppercase tracking-wide">Événement</span>
+                <h3 className="text-xl font-bold mt-1 mb-3 text-gray-900">
+                  Génération Diaspora au Ftour Pluriel — 16ème édition
+                </h3>
+                <p className="text-gray-600 mb-4 text-sm">
+                  180 invités réunis à Casablanca pour célébrer la jeunesse marocaine et le vivre-ensemble.
                 </p>
-                <Link href="/news" className="text-primary-600 font-semibold hover:text-primary-700 inline-flex items-center gap-1">
-                  En savoir plus <ArrowRight className="w-4 h-4" />
+                <Link href="/news/ftour-pluriel-2026" className="text-primary-600 font-semibold hover:text-primary-700 inline-flex items-center gap-1">
+                  Voir l&apos;événement <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
             </div>
-            <div className="bg-beige rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-              <div className="h-48 bg-gradient-to-br from-primary-500 to-secondary-500"></div>
-              <div className="p-6">
-                <h3 className="text-2xl font-bold mb-3 text-gray-900">Actions Solidaires</h3>
-                <p className="text-gray-600 mb-4">
-                  Des initiatives humanitaires et sociales pour créer des passerelles durables entre les jeunes de France, du Maroc et d'ailleurs.
-                </p>
-                <Link href="/news" className="text-primary-600 font-semibold hover:text-primary-700 inline-flex items-center gap-1">
-                  En savoir plus <ArrowRight className="w-4 h-4" />
-                </Link>
-              </div>
-            </div>
+          </div>
+
+          <div className="text-center mt-10">
+            <Link href="/news" className="inline-flex items-center gap-2 text-primary-600 hover:text-primary-700 font-semibold transition-colors">
+              Voir toutes les actualités <ArrowRight className="w-4 h-4" />
+            </Link>
           </div>
         </div>
       </section>
@@ -163,9 +208,12 @@ export default function Home() {
               </Link>
             </div>
             <div className="relative h-96 rounded-2xl overflow-hidden shadow-2xl">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary-400 to-secondary-500 flex items-center justify-center">
-                <Users className="w-32 h-32 text-white opacity-50" />
-              </div>
+              <Image
+                src="/images/about/team.jpg"
+                alt="L'équipe Génération Diaspora"
+                fill
+                className="object-cover"
+              />
             </div>
           </div>
         </div>
