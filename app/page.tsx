@@ -6,23 +6,6 @@ import Newsletter from "@/components/Newsletter";
 export default function Home() {
   return (
     <>
-      {/* Bannière webinaire */}
-      <div className="bg-gradient-to-r from-red-700 via-slate-800 to-primary-800 text-white py-3 px-4">
-        <div className="container mx-auto flex flex-col sm:flex-row items-center justify-center gap-2 text-center text-sm sm:text-base">
-          <span>
-            <span className="font-bold">🎙️ Webinaire LIVE · 26 Mars · 20h30</span>
-            <span className="mx-2 opacity-60">—</span>
-            <span className="opacity-90">Diaspora Marocaine : Entre perception, contribution et avenir commun</span>
-          </span>
-          <Link
-            href="/webinaire"
-            className="flex-shrink-0 bg-white/20 hover:bg-white/30 border border-white/30 text-white font-bold px-4 py-1 rounded-full text-sm transition-colors"
-          >
-            S&apos;inscrire →
-          </Link>
-        </div>
-      </div>
-
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-primary-600 to-primary-800 text-white">
         <div className="container mx-auto px-4 py-20 md:py-32">
@@ -113,7 +96,7 @@ export default function Home() {
             </p>
           </div>
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {/* Webinaire — À venir */}
+            {/* Webinaire — Passé */}
             <div className="bg-beige rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
               <div className="relative h-48 overflow-hidden">
                 <Image
@@ -123,9 +106,8 @@ export default function Home() {
                   className="object-cover"
                 />
                 <div className="absolute top-3 left-3">
-                  <span className="inline-flex items-center gap-1.5 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full">
-                    <span className="w-1.5 h-1.5 bg-white rounded-full animate-pulse" />
-                    À venir · 26 mars
+                  <span className="bg-gray-800/70 text-white text-xs font-semibold px-3 py-1 rounded-full">
+                    26 mars 2026
                   </span>
                 </div>
               </div>
@@ -135,15 +117,15 @@ export default function Home() {
                   Diaspora Marocaine : Entre perception, contribution et avenir commun
                 </h3>
                 <p className="text-gray-600 mb-4 text-sm">
-                  Un live streaming le 26 mars à 20h30 autour de la jeunesse MRE, avec deux invités et un débat ouvert.
+                  Plus de 2h de débat en live sur l&apos;engagement de la jeunesse MRE, avec Ahmed Ghayet et Mehdi Heurteloup.
                 </p>
-                <Link href="/webinaire" className="text-primary-600 font-semibold hover:text-primary-700 inline-flex items-center gap-1">
-                  Je m&apos;inscris <ArrowRight className="w-4 h-4" />
+                <Link href="/news/webinaire-diaspora-mars-2026" className="text-primary-600 font-semibold hover:text-primary-700 inline-flex items-center gap-1">
+                  Voir l&apos;événement <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
             </div>
 
-            {/* Ftour Pluriel — Passé */}
+            {/* Ftour Pluriel */}
             <div className="bg-beige rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
               <div className="relative h-48 overflow-hidden">
                 <Image

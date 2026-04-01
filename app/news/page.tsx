@@ -16,10 +16,9 @@ const newsItems = [
     date: "2026-03-26",
     category: "Webinaire",
     excerpt:
-      "Génération Diaspora organise un live streaming le 26 mars à 20h30 (Paris) autour de la jeunesse MRE. Deux invités, vos questions, et un débat ouvert sur la perception, la contribution et l'avenir commun.",
+      "Plus de 2 heures de débat, d'échanges et de prises de parole pour fédérer les jeunesses de la diaspora et du Royaume autour d'un idéal commun. Ahmed Ghayet et Mehdi Heurteloup parmi les intervenants.",
     imageSrc: "/images/events/webinaire-diaspora-mars-2026/affiche.jpeg",
-    href: "/webinaire",
-    upcoming: true,
+    href: "/news/webinaire-diaspora-mars-2026",
   },
   {
     id: 0,
