@@ -141,12 +141,6 @@ export default function NewsPage() {
 
                       <div className="p-6">
                         <div className="flex flex-wrap items-center gap-2 mb-3 text-sm">
-                          {"upcoming" in item && item.upcoming && (
-                            <span className="inline-flex items-center gap-1 bg-red-100 text-red-700 px-3 py-1 rounded-full font-semibold">
-                              <span className="w-1.5 h-1.5 bg-red-500 rounded-full animate-pulse" />
-                              À venir
-                            </span>
-                          )}
                           <span className="bg-primary-100 text-primary-700 px-3 py-1 rounded-full font-medium">
                             {item.category}
                           </span>
