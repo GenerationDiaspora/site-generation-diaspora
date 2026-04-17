@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     "Retour sur le webinaire du 26 mars 2026 : Diaspora Marocaine entre perception, contribution et avenir commun. Plus de 2 heures d'échanges, de débats et de prises de parole pour fédérer les deux jeunesses.",
 };
 
-const galleryPhotos = [
+const galleryPhotos: { src: string; alt: string }[] = [
   // Ajouter ici les photos du webinaire une fois disponibles
   // { src: "/images/events/webinaire-diaspora-mars-2026/photo-1.jpg", alt: "Webinaire Diaspora Mars 2026 — Photo 1" },
 ];
