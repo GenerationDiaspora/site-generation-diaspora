@@ -18,14 +18,14 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50">
-      {/* Barre d'annonce — Ciné Talk */}
+      {/* Barre d'annonce — Diaspora Ciné Talk */}
       {announcementVisible && (
         <div className="bg-gradient-to-r from-orange-900 via-amber-700 to-orange-600 text-white">
           <div className="container mx-auto px-4 py-2 flex items-center justify-between gap-3">
             <div className="flex items-center gap-2 min-w-0">
               <Clapperboard className="w-4 h-4 flex-shrink-0 text-amber-200" />
               <p className="text-xs sm:text-sm font-medium truncate">
-                <span className="font-bold">Ciné Talk — Mon Oriental</span>
+                <span className="font-bold">Diaspora Ciné Talk — Mon Oriental</span>
                 <span className="hidden sm:inline text-white/80"> · Samedi 10 Mai 2026 · Paris</span>
               </p>
             </div>

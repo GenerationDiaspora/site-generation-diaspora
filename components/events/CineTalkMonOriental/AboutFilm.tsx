@@ -25,7 +25,7 @@ export default function AboutFilm() {
           <div className="mt-12 grid sm:grid-cols-3 gap-6 text-center">
             <div className="bg-white/5 rounded-xl p-6">
               <p className="text-3xl font-bold text-amber-400 mb-1">2026</p>
-              <p className="text-gray-400 text-sm">Avant-première à Paris</p>
+              <p className="text-gray-400 text-sm">Paris, 10 Mai</p>
             </div>
             <div className="bg-white/5 rounded-xl p-6">
               <p className="text-3xl font-bold text-amber-400 mb-1">Documentaire</p>

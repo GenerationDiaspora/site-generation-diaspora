@@ -10,6 +10,8 @@ interface FormData {
   email: string;
   telephone: string;
   ville: string;
+  source: string;
+  contactFutur: string;
   newsletter: boolean;
 }
 
@@ -21,20 +23,33 @@ const initialForm: FormData = {
   email: "",
   telephone: "",
   ville: "",
+  source: "",
+  contactFutur: "",
   newsletter: false,
 };
+
+const SOURCE_OPTIONS = [
+  "Instagram",
+  "Facebook",
+  "LinkedIn",
+  "Recommandation d'un proche",
+  "Newsletter Génération Diaspora",
+  "Recherche sur Internet",
+  "Autre",
+];
 
 export default function RegistrationForm() {
   const [form, setForm] = useState<FormData>(initialForm);
   const [status, setStatus] = useState<FormStatus>("idle");
   const [errorMessage, setErrorMessage] = useState("");
 
-  function handleChange(e: ChangeEvent<HTMLInputElement>) {
-    const { name, value, type, checked } = e.target;
-    setForm((prev) => ({
-      ...prev,
-      [name]: type === "checkbox" ? checked : value,
-    }));
+  function handleChange(e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) {
+    const target = e.target;
+    const value =
+      target instanceof HTMLInputElement && target.type === "checkbox"
+        ? target.checked
+        : target.value;
+    setForm((prev) => ({ ...prev, [target.name]: value }));
   }
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
@@ -85,7 +100,7 @@ export default function RegistrationForm() {
         Réserver ma place
       </h3>
       <p className="text-gray-500 text-sm mb-8">
-        Inscription obligatoire — places limitées
+        Inscription obligatoire — places très limitées
       </p>
 
       {status === "error" && (
@@ -95,6 +110,7 @@ export default function RegistrationForm() {
       )}
 
       <form onSubmit={handleSubmit} noValidate className="space-y-5">
+        {/* Prénom / Nom */}
         <div className="grid sm:grid-cols-2 gap-4">
           <div className="space-y-1.5">
             <label htmlFor="prenom" className="text-sm font-medium text-gray-700">
@@ -130,6 +146,7 @@ export default function RegistrationForm() {
           </div>
         </div>
 
+        {/* Email */}
         <div className="space-y-1.5">
           <label htmlFor="email" className="text-sm font-medium text-gray-700">
             Email <span className="text-secondary-500">*</span>
@@ -147,6 +164,7 @@ export default function RegistrationForm() {
           />
         </div>
 
+        {/* Téléphone / Ville */}
         <div className="grid sm:grid-cols-2 gap-4">
           <div className="space-y-1.5">
             <label htmlFor="telephone" className="text-sm font-medium text-gray-700">
@@ -180,6 +198,60 @@ export default function RegistrationForm() {
           </div>
         </div>
 
+        {/* Comment avez-vous entendu parler de cet événement ? */}
+        <div className="space-y-1.5">
+          <label htmlFor="source" className="text-sm font-medium text-gray-700">
+            Comment avez-vous entendu parler de cet événement ?
+          </label>
+          <select
+            id="source"
+            name="source"
+            value={form.source}
+            onChange={handleChange}
+            disabled={status === "loading"}
+            className="flex h-10 w-full rounded-lg border border-gray-300 bg-beige px-3 py-2 text-sm transition-colors focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-0 disabled:cursor-not-allowed disabled:opacity-50 text-gray-700"
+          >
+            <option value="">— Sélectionner —</option>
+            {SOURCE_OPTIONS.map((opt) => (
+              <option key={opt} value={opt}>{opt}</option>
+            ))}
+          </select>
+        </div>
+
+        {/* Voulez-vous être contacté pour les futurs événements ? */}
+        <div className="space-y-2">
+          <p className="text-sm font-medium text-gray-700">
+            Souhaitez-vous être contacté(e) par Génération Diaspora pour les futurs événements et activités ?
+          </p>
+          <div className="flex gap-6">
+            <label className="flex items-center gap-2 cursor-pointer">
+              <input
+                type="radio"
+                name="contactFutur"
+                value="oui"
+                checked={form.contactFutur === "oui"}
+                onChange={handleChange}
+                disabled={status === "loading"}
+                className="h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300"
+              />
+              <span className="text-sm text-gray-700">Oui</span>
+            </label>
+            <label className="flex items-center gap-2 cursor-pointer">
+              <input
+                type="radio"
+                name="contactFutur"
+                value="non"
+                checked={form.contactFutur === "non"}
+                onChange={handleChange}
+                disabled={status === "loading"}
+                className="h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300"
+              />
+              <span className="text-sm text-gray-700">Non</span>
+            </label>
+          </div>
+        </div>
+
+        {/* RGPD */}
         <label className="flex items-start gap-3 cursor-pointer group">
           <input
             type="checkbox"

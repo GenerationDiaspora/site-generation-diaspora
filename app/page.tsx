@@ -96,12 +96,12 @@ export default function Home() {
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {/* Ciné Talk — À venir */}
+            {/* Diaspora Ciné Talk — À venir */}
             <div className="bg-beige rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow relative">
               <div className="relative h-48 overflow-hidden bg-gradient-to-b from-amber-950 via-orange-900 to-amber-800">
                 <Image
                   src="/images/events/cine-talk-mon-oriental/poster.webp"
-                  alt="Ciné Talk Mon Oriental"
+                  alt="Diaspora Ciné Talk Mon Oriental"
                   fill
                   className="object-cover"
                 />
@@ -112,7 +112,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="p-6">
-                <span className="text-xs font-semibold text-amber-700 uppercase tracking-wide">Ciné Talk</span>
+                <span className="text-xs font-semibold text-amber-700 uppercase tracking-wide">Diaspora Ciné Talk</span>
                 <h3 className="text-xl font-bold mt-1 mb-3 text-gray-900">
                   Mon Oriental — Entre mémoire et identité
                 </h3>

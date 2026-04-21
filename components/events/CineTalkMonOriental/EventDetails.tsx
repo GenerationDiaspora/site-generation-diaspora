@@ -40,7 +40,7 @@ export default function EventDetails({ registrationUrl }: EventDetailsProps) {
                   <p className="text-xs font-semibold uppercase tracking-wide text-gray-500 mb-0.5">Lieu</p>
                   <p className="text-gray-900 font-semibold">
                     Paris{" "}
-                    <span className="text-gray-400 font-normal text-sm">[LIEU À COMPLÉTER]</span>
+                    <span className="text-gray-400 font-normal text-sm italic">— adresse à recevoir dans l&apos;invitation après inscription</span>
                   </p>
                 </div>
               </li>
@@ -59,9 +59,9 @@ export default function EventDetails({ registrationUrl }: EventDetailsProps) {
                 </span>
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-wide text-gray-500 mb-0.5">Invité</p>
-                  <p className="text-gray-900 font-semibold">
-                    Khalid Zaouche,{" "}
-                    <span className="font-normal text-gray-600">réalisateur</span>
+                  <p className="text-gray-900 font-semibold leading-snug">
+                    Khalid Zaouche et Jawad Zaouche{" "}
+                    <span className="font-normal text-gray-600">ainsi que l&apos;équipe du film</span>
                   </p>
                 </div>
               </li>

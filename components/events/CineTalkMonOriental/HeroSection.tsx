@@ -24,7 +24,7 @@ export default function HeroSection() {
 
           {/* Titre */}
           <h1 className="text-6xl md:text-8xl font-black uppercase tracking-tight leading-none mb-2 text-balance">
-            Ciné Talk
+            Diaspora Ciné Talk
           </h1>
           <h2 className="text-3xl md:text-5xl font-bold uppercase tracking-widest mb-6 text-amber-200 text-balance">
             Mon Oriental
@@ -37,8 +37,16 @@ export default function HeroSection() {
 
           {/* Sous-info */}
           <p className="text-sm md:text-base text-white/70 mt-4 tracking-wide uppercase">
-            Projection &amp; Débat · En présence du réalisateur Khalid Zaouche
+            Projection &amp; Débat · Khalid Zaouche &amp; Jawad Zaouche
           </p>
+
+          {/* Places limitées */}
+          <div className="mt-6 inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-5 py-2">
+            <span className="w-2 h-2 rounded-full bg-amber-300 animate-pulse flex-shrink-0" />
+            <p className="text-sm font-semibold text-white/95 tracking-wide">
+              Sur inscription — places très limitées
+            </p>
+          </div>
 
           {/* Séparateur */}
           <div className="mt-8 w-16 h-1 rounded-full bg-amber-300/60" />

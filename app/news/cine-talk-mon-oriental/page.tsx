@@ -10,11 +10,11 @@ import RegistrationForm from "@/components/events/CineTalkMonOriental/Registrati
 const PAGE_URL = "https://www.generationdiaspora.com/news/cine-talk-mon-oriental";
 
 export const metadata: Metadata = {
-  title: "Ciné Talk — Mon Oriental | Génération Diaspora",
+  title: "Diaspora Ciné Talk — Mon Oriental | Génération Diaspora",
   description:
     "Projection & débat autour du film Mon Oriental de Khalid Zaouche. 10 Mai 2026 à 15h — Paris. Organisé par Génération Diaspora.",
   openGraph: {
-    title: "Ciné Talk — Mon Oriental | Génération Diaspora",
+    title: "Diaspora Ciné Talk — Mon Oriental | Génération Diaspora",
     description:
       "Projection & débat autour du film Mon Oriental de Khalid Zaouche. 10 Mai 2026 à 15h — Paris. Organisé par Génération Diaspora.",
     url: PAGE_URL,
@@ -105,7 +105,7 @@ export default function CineTalkMonOrientalPage() {
             <div className="flex items-center gap-3 pt-2">
               <p className="text-white/40 text-xs uppercase tracking-widest">Partager :</p>
               <a
-                href={`https://wa.me/?text=${encodeURIComponent("Ciné Talk — Mon Oriental le 10 Mai 2026 à Paris. Organisé par Génération Diaspora : " + PAGE_URL)}`}
+                href={`https://wa.me/?text=${encodeURIComponent("Diaspora Ciné Talk — Mon Oriental le 10 Mai 2026 à Paris. Organisé par Génération Diaspora : " + PAGE_URL)}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Partager sur WhatsApp"
@@ -127,7 +127,7 @@ export default function CineTalkMonOrientalPage() {
                 Facebook
               </a>
               <a
-                href={`https://twitter.com/intent/tweet?text=${encodeURIComponent("Ciné Talk — Mon Oriental · 10 Mai 2026 · Paris @GenerationDiaspora")}&url=${encodeURIComponent(PAGE_URL)}`}
+                href={`https://twitter.com/intent/tweet?text=${encodeURIComponent("Diaspora Ciné Talk — Mon Oriental · 10 Mai 2026 · Paris @GenerationDiaspora")}&url=${encodeURIComponent(PAGE_URL)}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Partager sur X / Twitter"
