@@ -64,7 +64,7 @@ export default function CineTalkMonOrientalPage() {
               Réservez votre place
             </h2>
             <p className="text-gray-500 mt-3">
-              Événement gratuit sur inscription obligatoire — places limitées.
+              Événement gratuit sur inscription obligatoire.
             </p>
           </div>
           <RegistrationForm />

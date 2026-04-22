@@ -29,7 +29,7 @@ export default function EventDetails({ registrationUrl }: EventDetailsProps) {
                 </span>
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-wide text-gray-500 mb-0.5">Date &amp; heure</p>
-                  <p className="text-gray-900 font-semibold">Samedi 10 Mai 2026 — 15h00</p>
+                  <p className="text-gray-900 font-semibold">Dimanche 10 Mai 2026 — 15h00</p>
                 </div>
               </li>
               <li className="flex items-start gap-4">
@@ -89,7 +89,7 @@ export default function EventDetails({ registrationUrl }: EventDetailsProps) {
             </div>
 
             <p className="text-xs text-gray-500 mt-3">
-              Entrée sur inscription obligatoire — places limitées
+              Entrée sur inscription obligatoire
             </p>
           </div>
 

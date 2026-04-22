@@ -83,12 +83,15 @@ export default function RegistrationForm() {
   if (status === "success") {
     return (
       <div className="bg-green-50 border border-green-200 rounded-2xl p-8 text-center max-w-xl mx-auto">
-        <p className="text-2xl mb-2">✅</p>
-        <p className="text-green-800 font-semibold text-lg mb-1">
+        <p className="text-3xl mb-3">✅</p>
+        <p className="text-green-800 font-bold text-lg mb-2">
           Inscription confirmée !
         </p>
-        <p className="text-green-700 text-sm">
-          Un email de confirmation vous a été envoyé.
+        <p className="text-green-700 text-sm mb-3">
+          Un email de confirmation vient de vous être envoyé.
+        </p>
+        <p className="text-green-600 text-xs bg-green-100 rounded-lg px-4 py-2">
+          📬 Si vous ne le recevez pas dans quelques minutes, pensez à vérifier votre dossier <strong>Spam</strong> ou <strong>Courriers indésirables</strong>.
         </p>
       </div>
     );
@@ -100,7 +103,7 @@ export default function RegistrationForm() {
         Réserver ma place
       </h3>
       <p className="text-gray-500 text-sm mb-8">
-        Inscription obligatoire — places très limitées
+        Inscription obligatoire
       </p>
 
       {status === "error" && (

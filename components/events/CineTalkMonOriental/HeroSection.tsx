@@ -44,7 +44,7 @@ export default function HeroSection() {
           <div className="mt-6 inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-5 py-2">
             <span className="w-2 h-2 rounded-full bg-amber-300 animate-pulse flex-shrink-0" />
             <p className="text-sm font-semibold text-white/95 tracking-wide">
-              Sur inscription — places très limitées
+              Sur inscription obligatoire
             </p>
           </div>
 

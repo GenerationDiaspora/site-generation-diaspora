@@ -153,7 +153,7 @@ export async function POST(request: Request) {
             PRENOM: prenom,
             NOM: nom,
             EVENT_NAME: "Diaspora Ciné Talk — Mon Oriental",
-            EVENT_DATE: "Samedi 10 Mai 2026 à 15h",
+            EVENT_DATE: "Dimanche 10 Mai 2026 à 15h",
           },
         }
       : {
@@ -172,7 +172,7 @@ export async function POST(request: Request) {
                 <p style="color: #374151;">Votre inscription au <strong>Diaspora Ciné Talk — Mon Oriental</strong> est bien enregistrée !</p>
 
                 <div style="background: #fff7ed; border: 1px solid #fed7aa; border-radius: 8px; padding: 16px; margin: 20px 0;">
-                  <p style="margin: 0 0 8px; color: #9a3412; font-weight: 600;">📅 Samedi 10 Mai 2026 à 15h00</p>
+                  <p style="margin: 0 0 8px; color: #9a3412; font-weight: 600;">📅 Dimanche 10 Mai 2026 à 15h00</p>
                   <p style="margin: 0 0 8px; color: #9a3412;">📍 Paris — adresse transmise dans l'invitation</p>
                   <p style="margin: 0; color: #9a3412;">🎬 Projection &amp; Débat · Khalid Zaouche, Jawad Zaouche &amp; l'équipe du film</p>
                 </div>

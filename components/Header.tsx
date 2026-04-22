@@ -26,7 +26,7 @@ export default function Header() {
               <Clapperboard className="w-4 h-4 flex-shrink-0 text-amber-200" />
               <p className="text-xs sm:text-sm font-medium truncate">
                 <span className="font-bold">Diaspora Ciné Talk — Mon Oriental</span>
-                <span className="hidden sm:inline text-white/80"> · Samedi 10 Mai 2026 · Paris</span>
+                <span className="hidden sm:inline text-white/80"> · Dimanche 10 Mai 2026 · Paris</span>
               </p>
             </div>
             <div className="flex items-center gap-2 flex-shrink-0">
