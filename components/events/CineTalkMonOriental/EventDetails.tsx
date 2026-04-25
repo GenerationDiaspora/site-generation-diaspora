@@ -39,8 +39,8 @@ export default function EventDetails({ registrationUrl }: EventDetailsProps) {
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-wide text-gray-500 mb-0.5">Lieu</p>
                   <p className="text-gray-900 font-semibold">
-                    Paris{" "}
-                    <span className="text-gray-400 font-normal text-sm italic">— adresse à recevoir dans l&apos;invitation après inscription</span>
+                    TSF, le Cercle Rouge
+                    <span className="block text-gray-600 font-normal text-sm">30 avenue Georges Sand, 93210 Saint-Denis</span>
                   </p>
                 </div>
               </li>
