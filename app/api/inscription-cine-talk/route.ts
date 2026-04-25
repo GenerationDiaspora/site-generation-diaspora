@@ -173,15 +173,8 @@ export async function POST(request: Request) {
 
                 <div style="background: #fff7ed; border: 1px solid #fed7aa; border-radius: 8px; padding: 16px; margin: 20px 0;">
                   <p style="margin: 0 0 8px; color: #9a3412; font-weight: 600;">📅 Dimanche 10 Mai 2026 à 15h00</p>
-                  <p style="margin: 0 0 8px; color: #9a3412;">📍 Paris — adresse transmise dans l'invitation</p>
+                  <p style="margin: 0 0 8px; color: #9a3412;">📍 TSF, le Cercle Rouge — 30 avenue Georges Sand, 93210 Saint-Denis</p>
                   <p style="margin: 0; color: #9a3412;">🎬 Projection &amp; Débat · Khalid Zaouche, Jawad Zaouche &amp; l'équipe du film</p>
-                </div>
-
-                <div style="background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; padding: 14px; margin: 20px 0;">
-                  <p style="margin: 0; color: #166534; font-size: 13px;">
-                    📬 Vous recevrez prochainement un email avec l'<strong>adresse exacte du lieu</strong>
-                    et toutes les informations pratiques pour la soirée.
-                  </p>
                 </div>
 
                 <p style="color: #6b7280; font-size: 13px;">
