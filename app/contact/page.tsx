@@ -1,7 +1,6 @@
 "use client";
 
-import { Metadata } from "next";
-import { useState, FormEvent } from "react";
+import { useState, FormEvent, useEffect } from "react";
 import { Mail, User, MessageSquare, Send, Facebook, Instagram, Linkedin } from "lucide-react";
 
 export default function ContactPage() {
@@ -12,17 +11,28 @@ export default function ContactPage() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
+  const [loadedAt, setLoadedAt] = useState(0);
 
-  const handleSubmit = async (e: FormEvent) => {
+  useEffect(() => {
+    setLoadedAt(Date.now());
+  }, []);
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus("idle");
+
+    const honeypot = (e.currentTarget.elements.namedItem("_hp") as HTMLInputElement)?.value;
 
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...formData,
+          _hp: honeypot,
+          _t: loadedAt,
+        }),
       });
 
       if (!response.ok) throw new Error("Erreur envoi");
@@ -38,10 +48,7 @@ export default function ContactPage() {
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   return (
@@ -65,6 +72,13 @@ export default function ContactPage() {
           <div className="max-w-3xl mx-auto">
             <div className="bg-beige rounded-2xl shadow-xl p-8 md:p-12">
               <form onSubmit={handleSubmit} className="space-y-6">
+
+                {/* Honeypot — invisible pour les humains, rempli par les bots */}
+                <div aria-hidden="true" style={{ position: "absolute", left: "-9999px", height: 0, overflow: "hidden" }}>
+                  <label htmlFor="_hp">Ne pas remplir</label>
+                  <input type="text" id="_hp" name="_hp" tabIndex={-1} autoComplete="off" />
+                </div>
+
                 {/* Nom */}
                 <div>
                   <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-2">
@@ -134,11 +148,9 @@ export default function ContactPage() {
                 {/* Messages de statut */}
                 {submitStatus === "success" && (
                   <div className="bg-green-50 border border-green-200 rounded-lg p-4 flex items-center gap-3">
-                    <div className="flex-shrink-0">
-                      <svg className="h-5 w-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                      </svg>
-                    </div>
+                    <svg className="h-5 w-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    </svg>
                     <p className="text-sm text-green-700">
                       Merci pour votre message ! Nous vous répondrons dans les plus brefs délais.
                     </p>
@@ -147,11 +159,9 @@ export default function ContactPage() {
 
                 {submitStatus === "error" && (
                   <div className="bg-red-50 border border-red-200 rounded-lg p-4 flex items-center gap-3">
-                    <div className="flex-shrink-0">
-                      <svg className="h-5 w-5 text-red-500" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
-                      </svg>
-                    </div>
+                    <svg className="h-5 w-5 text-red-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                    </svg>
                     <p className="text-sm text-red-700">
                       Une erreur est survenue. Veuillez réessayer.
                     </p>
@@ -167,8 +177,8 @@ export default function ContactPage() {
                   {isSubmitting ? (
                     <>
                       <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
                       </svg>
                       Envoi en cours...
                     </>
@@ -192,35 +202,19 @@ export default function ContactPage() {
                     contact@generationdiaspora.com
                   </a>
                 </div>
-
                 <div>
                   <p className="text-gray-600 mb-4 font-semibold">Suivez-nous sur les réseaux sociaux :</p>
                   <div className="flex justify-center gap-4">
-                    <a
-                      href="https://www.facebook.com/groups/1013728587602196"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-12 h-12 bg-primary-600 rounded-full flex items-center justify-center hover:bg-primary-700 transition-colors"
-                      aria-label="Facebook"
-                    >
+                    <a href="https://www.facebook.com/groups/1013728587602196" target="_blank" rel="noopener noreferrer"
+                      className="w-12 h-12 bg-primary-600 rounded-full flex items-center justify-center hover:bg-primary-700 transition-colors" aria-label="Facebook">
                       <Facebook className="w-6 h-6 text-white" />
                     </a>
-                    <a
-                      href="https://www.instagram.com/generation.diaspora.ma"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-12 h-12 bg-primary-600 rounded-full flex items-center justify-center hover:bg-primary-700 transition-colors"
-                      aria-label="Instagram"
-                    >
+                    <a href="https://www.instagram.com/generation.diaspora.ma" target="_blank" rel="noopener noreferrer"
+                      className="w-12 h-12 bg-primary-600 rounded-full flex items-center justify-center hover:bg-primary-700 transition-colors" aria-label="Instagram">
                       <Instagram className="w-6 h-6 text-white" />
                     </a>
-                    <a
-                      href="https://linkedin.com/company/génération-diaspora/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-12 h-12 bg-primary-600 rounded-full flex items-center justify-center hover:bg-primary-700 transition-colors"
-                      aria-label="LinkedIn"
-                    >
+                    <a href="https://linkedin.com/company/génération-diaspora/" target="_blank" rel="noopener noreferrer"
+                      className="w-12 h-12 bg-primary-600 rounded-full flex items-center justify-center hover:bg-primary-700 transition-colors" aria-label="LinkedIn">
                       <Linkedin className="w-6 h-6 text-white" />
                     </a>
                   </div>
@@ -233,4 +227,3 @@ export default function ContactPage() {
     </div>
   );
 }
-

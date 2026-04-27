@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type FormEvent, type ChangeEvent } from "react";
+import { useState, useEffect, type FormEvent, type ChangeEvent } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
@@ -42,6 +42,9 @@ export default function RegistrationForm() {
   const [form, setForm] = useState<FormData>(initialForm);
   const [status, setStatus] = useState<FormStatus>("idle");
   const [errorMessage, setErrorMessage] = useState("");
+  const [loadedAt, setLoadedAt] = useState(0);
+
+  useEffect(() => { setLoadedAt(Date.now()); }, []);
 
   function handleChange(e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) {
     const target = e.target;
@@ -57,11 +60,13 @@ export default function RegistrationForm() {
     setStatus("loading");
     setErrorMessage("");
 
+    const honeypot = (e.currentTarget.elements.namedItem("_hp") as HTMLInputElement)?.value;
+
     try {
       const res = await fetch("/api/inscription-cine-talk", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+        body: JSON.stringify({ ...form, _hp: honeypot, _t: loadedAt }),
       });
 
       const data: { success?: boolean; error?: string } = await res.json();
@@ -113,6 +118,12 @@ export default function RegistrationForm() {
       )}
 
       <form onSubmit={handleSubmit} noValidate className="space-y-5">
+        {/* Honeypot — invisible pour les humains, rempli par les bots */}
+        <div aria-hidden="true" style={{ position: "absolute", left: "-9999px", height: 0, overflow: "hidden" }}>
+          <label htmlFor="_hp">Ne pas remplir</label>
+          <input type="text" id="_hp" name="_hp" tabIndex={-1} autoComplete="off" />
+        </div>
+
         {/* Prénom / Nom */}
         <div className="grid sm:grid-cols-2 gap-4">
           <div className="space-y-1.5">

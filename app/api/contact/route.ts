@@ -1,8 +1,23 @@
 import { NextResponse } from "next/server";
 
+const MIN_FILL_MS = 3000; // moins de 3 secondes = bot
+
 export async function POST(request: Request) {
   try {
-    const { name, email, message } = await request.json();
+    const { name, email, message, _hp, _t } = await request.json();
+
+    // ── Protection anti-bot ──────────────────────────────────────────────────
+    // 1. Honeypot : un humain laisse ce champ vide
+    if (_hp && _hp.trim() !== "") {
+      console.warn("Bot détecté (honeypot rempli) — contact ignoré");
+      return NextResponse.json({ message: "Message envoyé" }, { status: 200 });
+    }
+    // 2. Timing : soumission trop rapide
+    if (_t && typeof _t === "number" && Date.now() - _t < MIN_FILL_MS) {
+      console.warn("Bot détecté (soumission trop rapide) — contact ignoré");
+      return NextResponse.json({ message: "Message envoyé" }, { status: 200 });
+    }
+    // ────────────────────────────────────────────────────────────────────────
 
     if (!name || !email || !message) {
       return NextResponse.json(
@@ -32,16 +47,8 @@ export async function POST(request: Request) {
           name: `${name} via Génération Diaspora`,
           email: "contact@generationdiaspora.com",
         },
-        to: [
-          {
-            email: "contact@generationdiaspora.com",
-            name: "Génération Diaspora",
-          },
-        ],
-        replyTo: {
-          email: email,
-          name: name,
-        },
+        to: [{ email: "contact@generationdiaspora.com", name: "Génération Diaspora" }],
+        replyTo: { email, name },
         subject: `[Contact] Message de ${name}`,
         htmlContent: `
           <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
@@ -67,18 +74,12 @@ export async function POST(request: Request) {
     if (!response.ok) {
       const error = await response.json();
       console.error("Erreur Brevo:", error);
-      return NextResponse.json(
-        { error: "Erreur lors de l'envoi" },
-        { status: 500 }
-      );
+      return NextResponse.json({ error: "Erreur lors de l'envoi" }, { status: 500 });
     }
 
     return NextResponse.json({ message: "Message envoyé" }, { status: 200 });
   } catch (error) {
     console.error("Erreur API contact:", error);
-    return NextResponse.json(
-      { error: "Erreur lors de l'envoi" },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: "Erreur lors de l'envoi" }, { status: 500 });
   }
 }

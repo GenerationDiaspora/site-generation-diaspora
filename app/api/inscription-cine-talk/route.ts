@@ -16,6 +16,8 @@ import { NextResponse } from "next/server";
 //   EVENEMENT        | Texte   | Nom de l'événement concerné
 // ─────────────────────────────────────────────────────────────────────────────
 
+const MIN_FILL_MS = 3000;
+
 interface RegistrationBody {
   prenom: string;
   nom: string;
@@ -25,6 +27,8 @@ interface RegistrationBody {
   source?: string;
   contactFutur?: string;
   newsletter?: boolean;
+  _hp?: string;
+  _t?: number;
 }
 
 /**
@@ -53,7 +57,18 @@ function toE164(raw: string): string | null {
 export async function POST(request: Request) {
   try {
     const body: RegistrationBody = await request.json();
-    const { prenom, nom, email, telephone, ville, source, contactFutur, newsletter } = body;
+    const { prenom, nom, email, telephone, ville, source, contactFutur, newsletter, _hp, _t } = body;
+
+    // ── Protection anti-bot ────────────────────────────────────────────────
+    if (_hp && _hp.trim() !== "") {
+      console.warn("Bot détecté (honeypot) — inscription ignorée");
+      return NextResponse.json({ success: true }, { status: 200 });
+    }
+    if (_t && typeof _t === "number" && Date.now() - _t < MIN_FILL_MS) {
+      console.warn("Bot détecté (timing) — inscription ignorée");
+      return NextResponse.json({ success: true }, { status: 200 });
+    }
+    // ──────────────────────────────────────────────────────────────────────
 
     if (!prenom || !nom || !email || !email.includes("@")) {
       return NextResponse.json(
