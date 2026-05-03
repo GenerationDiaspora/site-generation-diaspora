@@ -17,6 +17,7 @@ import { NextResponse } from "next/server";
 // ─────────────────────────────────────────────────────────────────────────────
 
 const MIN_FILL_MS = 3000;
+const MAX_CAPACITY = parseInt(process.env.BREVO_CINE_TALK_MAX_CAPACITY ?? "140", 10);
 
 interface RegistrationBody {
   prenom: string;
@@ -87,8 +88,26 @@ export async function POST(request: Request) {
       );
     }
 
-    // 1. Créer / mettre à jour le contact dans Brevo avec tous les champs
-    const listId = parseInt(process.env.BREVO_LIST_CINE_TALK_ID ?? "0", 10);
+    // 1. Vérifier la capacité — orienter vers liste d'attente si complet
+    const mainListId = parseInt(process.env.BREVO_LIST_CINE_TALK_ID ?? "0", 10);
+    const waitlistId = parseInt(process.env.BREVO_LIST_CINE_TALK_WAITLIST_ID ?? "0", 10);
+
+    let isWaitlist = false;
+    try {
+      const capacityRes = await fetch(`https://api.brevo.com/v3/contacts/lists/${mainListId}`, {
+        headers: { "api-key": apiKey },
+      });
+      if (capacityRes.ok) {
+        const capacityData = await capacityRes.json() as { totalSubscribers?: number };
+        if ((capacityData.totalSubscribers ?? 0) >= MAX_CAPACITY) {
+          isWaitlist = true;
+        }
+      }
+    } catch (e) {
+      console.warn("Impossible de vérifier la capacité, inscription normale par défaut:", e);
+    }
+
+    const listId = isWaitlist ? waitlistId : mainListId;
 
     // Normaliser le téléphone — skip si format invalide
     const smsFormatted = telephone ? toE164(telephone) : null;
@@ -152,12 +171,16 @@ export async function POST(request: Request) {
       }
     }
 
-    // 2. Envoyer l'email de confirmation
+    // 2. Envoyer l'email de confirmation ou liste d'attente
     const senderEmail = process.env.BREVO_SENDER_EMAIL ?? "contact@generationdiaspora.com";
     const senderName = process.env.BREVO_SENDER_NAME ?? "Génération Diaspora";
-    const templateId = process.env.BREVO_TEMPLATE_CONFIRMATION_ID
+    const confirmationTemplateId = process.env.BREVO_TEMPLATE_CONFIRMATION_ID
       ? parseInt(process.env.BREVO_TEMPLATE_CONFIRMATION_ID, 10)
       : null;
+    const waitlistTemplateId = process.env.BREVO_TEMPLATE_WAITLIST_ID
+      ? parseInt(process.env.BREVO_TEMPLATE_WAITLIST_ID, 10)
+      : null;
+    const templateId = isWaitlist ? waitlistTemplateId : confirmationTemplateId;
 
     const emailPayload = templateId
       ? {
@@ -221,7 +244,7 @@ export async function POST(request: Request) {
       // Contact créé mais email échoué — on retourne quand même success
     }
 
-    return NextResponse.json({ success: true }, { status: 200 });
+    return NextResponse.json({ success: true, waitlist: isWaitlist }, { status: 200 });
   } catch (error) {
     console.error("Erreur API inscription-cine-talk:", error);
     return NextResponse.json(
