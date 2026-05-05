@@ -15,7 +15,7 @@ interface FormData {
   newsletter: boolean;
 }
 
-type FormStatus = "idle" | "loading" | "success" | "error";
+type FormStatus = "idle" | "loading" | "success" | "waitlist" | "error";
 
 const initialForm: FormData = {
   prenom: "",
@@ -69,13 +69,13 @@ export default function RegistrationForm() {
         body: JSON.stringify({ ...form, _hp: honeypot, _t: loadedAt }),
       });
 
-      const data: { success?: boolean; error?: string } = await res.json();
+      const data: { success?: boolean; error?: string; waitlist?: boolean } = await res.json();
 
       if (!res.ok || data.error) {
         throw new Error(data.error ?? "Une erreur est survenue.");
       }
 
-      setStatus("success");
+      setStatus(data.waitlist ? "waitlist" : "success");
       setForm(initialForm);
     } catch (err) {
       setStatus("error");
@@ -97,6 +97,23 @@ export default function RegistrationForm() {
         </p>
         <p className="text-green-600 text-xs bg-green-100 rounded-lg px-4 py-2">
           📬 Si vous ne le recevez pas dans quelques minutes, pensez à vérifier votre dossier <strong>Spam</strong> ou <strong>Courriers indésirables</strong>.
+        </p>
+      </div>
+    );
+  }
+
+  if (status === "waitlist") {
+    return (
+      <div className="bg-amber-50 border border-amber-200 rounded-2xl p-8 text-center max-w-xl mx-auto">
+        <p className="text-3xl mb-3">⏳</p>
+        <p className="text-amber-800 font-bold text-lg mb-2">
+          Vous êtes sur liste d&apos;attente
+        </p>
+        <p className="text-amber-700 text-sm mb-3">
+          L&apos;événement affiche complet pour le moment. Vous avez été ajouté(e) à la liste d&apos;attente et serez contacté(e) dès qu&apos;une place se libère.
+        </p>
+        <p className="text-amber-600 text-xs bg-amber-100 rounded-lg px-4 py-2">
+          📬 Un email de confirmation de votre inscription sur liste d&apos;attente vient de vous être envoyé.
         </p>
       </div>
     );
