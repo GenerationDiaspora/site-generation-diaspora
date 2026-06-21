@@ -125,30 +125,30 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Webinaire — Passé */}
+            {/* Diaspora Ciné Talk — Passé */}
             <div className="bg-beige rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-              <div className="relative h-48 overflow-hidden">
+              <div className="relative h-48 overflow-hidden bg-gradient-to-b from-amber-950 via-orange-900 to-amber-800">
                 <Image
-                  src="/images/events/webinaire-diaspora-mars-2026/affiche.jpeg"
-                  alt="Webinaire Diaspora Marocaine"
+                  src="/images/events/cine-talk-mon-oriental/poster.webp"
+                  alt="Diaspora Ciné Talk Mon Oriental"
                   fill
                   className="object-cover"
                 />
                 <div className="absolute top-3 left-3">
                   <span className="bg-gray-800/70 text-white text-xs font-semibold px-3 py-1 rounded-full">
-                    26 mars 2026
+                    10 mai 2026
                   </span>
                 </div>
               </div>
               <div className="p-6">
-                <span className="text-xs font-semibold text-primary-600 uppercase tracking-wide">Webinaire</span>
+                <span className="text-xs font-semibold text-amber-700 uppercase tracking-wide">Diaspora Ciné Talk</span>
                 <h3 className="text-xl font-bold mt-1 mb-3 text-gray-900">
-                  Diaspora Marocaine : Entre perception, contribution et avenir commun
+                  Mon Oriental — Entre mémoire et identité
                 </h3>
                 <p className="text-gray-600 mb-4 text-sm">
-                  Plus de 2h de débat en live sur l&apos;engagement de la jeunesse MRE, avec Ahmed Ghayet et Mehdi Heurteloup.
+                  Projection & débat du film de Khalid Zaouche. En sa présence, à Paris.
                 </p>
-                <Link href="/news/webinaire-diaspora-mars-2026" className="text-primary-600 font-semibold hover:text-primary-700 inline-flex items-center gap-1">
+                <Link href="/news/cine-talk-mon-oriental" className="text-primary-600 font-semibold hover:text-primary-700 inline-flex items-center gap-1">
                   Voir l&apos;événement <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
