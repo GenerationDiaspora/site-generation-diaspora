@@ -96,30 +96,30 @@ export default function Home() {
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {/* Diaspora Ciné Talk — À venir */}
+            {/* Webinaire Retour Estival MRE — À venir */}
             <div className="bg-beige rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow relative">
-              <div className="relative h-48 overflow-hidden bg-gradient-to-b from-amber-950 via-orange-900 to-amber-800">
+              <div className="relative h-48 overflow-hidden bg-gradient-to-b from-red-950 via-red-900 to-orange-800">
                 <Image
-                  src="/images/events/cine-talk-mon-oriental/poster.webp"
-                  alt="Diaspora Ciné Talk Mon Oriental"
+                  src="/images/events/webinaire-retour-mre/poster.jpg"
+                  alt="Webinaire Retour Estival des MRE"
                   fill
                   className="object-cover"
                 />
                 <div className="absolute top-3 left-3">
-                  <span className="bg-amber-500 text-white text-xs font-bold px-3 py-1 rounded-full animate-pulse">
-                    10 mai 2026
+                  <span className="bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full animate-pulse">
+                    25 juin 2026
                   </span>
                 </div>
               </div>
               <div className="p-6">
-                <span className="text-xs font-semibold text-amber-700 uppercase tracking-wide">Diaspora Ciné Talk</span>
+                <span className="text-xs font-semibold text-red-700 uppercase tracking-wide">Webinaire · Gratuit</span>
                 <h3 className="text-xl font-bold mt-1 mb-3 text-gray-900">
-                  Mon Oriental — Entre mémoire et identité
+                  Retour Estival des MRE — 25 juin à 21h
                 </h3>
                 <p className="text-gray-600 mb-4 text-sm">
-                  Projection & débat du film de Khalid Zaouche. En sa présence, à Paris. Sur inscription.
+                  Deux jeunesses qui se croisent. Comment améliorer la perception mutuelle ? En partenariat avec Oxy&apos;Jeunes.
                 </p>
-                <Link href="/news/cine-talk-mon-oriental" className="text-primary-600 font-semibold hover:text-primary-700 inline-flex items-center gap-1">
+                <Link href="/news/webinaire-retour-mre" className="text-primary-600 font-semibold hover:text-primary-700 inline-flex items-center gap-1">
                   Je m&apos;inscris <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>

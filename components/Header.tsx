@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
-import { Menu, X, Clapperboard } from "lucide-react";
+import { Menu, X, Monitor } from "lucide-react";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -18,21 +18,21 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50">
-      {/* Barre d'annonce — Diaspora Ciné Talk */}
+      {/* Barre d'annonce — Webinaire Retour Estival MRE */}
       {announcementVisible && (
-        <div className="bg-gradient-to-r from-orange-900 via-amber-700 to-orange-600 text-white">
+        <div className="bg-gradient-to-r from-red-900 via-red-700 to-orange-700 text-white">
           <div className="container mx-auto px-4 py-2 flex items-center justify-between gap-3">
             <div className="flex items-center gap-2 min-w-0">
-              <Clapperboard className="w-4 h-4 flex-shrink-0 text-amber-200" />
+              <Monitor className="w-4 h-4 flex-shrink-0 text-red-200" />
               <p className="text-xs sm:text-sm font-medium truncate">
-                <span className="font-bold">Diaspora Ciné Talk — Mon Oriental</span>
-                <span className="hidden sm:inline text-white/80"> · Dimanche 10 Mai 2026 · Paris</span>
+                <span className="font-bold">Webinaire — Retour Estival des MRE</span>
+                <span className="hidden sm:inline text-white/80"> · Jeudi 25 Juin 2026 · 21h · Gratuit</span>
               </p>
             </div>
             <div className="flex items-center gap-2 flex-shrink-0">
               <Link
-                href="/news/cine-talk-mon-oriental#inscription"
-                className="bg-white text-amber-900 text-xs font-bold px-3 py-1 rounded-full hover:bg-amber-50 transition-colors whitespace-nowrap"
+                href="/news/webinaire-retour-mre#inscription"
+                className="bg-white text-red-900 text-xs font-bold px-3 py-1 rounded-full hover:bg-red-50 transition-colors whitespace-nowrap"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Je m&apos;inscris →
