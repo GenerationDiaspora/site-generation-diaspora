@@ -51,7 +51,7 @@ export default function Header() {
       )}
 
       {/* Navbar principale */}
-      <div className="shadow-sm" style={{ backgroundColor: '#F3F1EF' }}>
+      <div className="shadow-sm" style={{ backgroundColor: '#F7F4EE' }}>
       <nav className="container mx-auto px-4">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}

@@ -52,7 +52,7 @@ export async function POST(request: Request) {
         subject: `[Contact] Message de ${name}`,
         htmlContent: `
           <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-            <div style="background: #004e35; color: white; padding: 24px; border-radius: 8px 8px 0 0;">
+            <div style="background: #0B5D3B; color: white; padding: 24px; border-radius: 8px 8px 0 0;">
               <h2 style="margin: 0;">Nouveau message — Génération Diaspora</h2>
             </div>
             <div style="background: #f9f9f9; padding: 24px; border-radius: 0 0 8px 8px; border: 1px solid #e0e0e0;">

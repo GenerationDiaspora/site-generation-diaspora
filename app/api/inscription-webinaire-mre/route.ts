@@ -183,7 +183,7 @@ export async function POST(request: Request) {
             <hr style="border: none; border-top: 1px solid #e5e7eb; margin: 24px 0;" />
             <p style="color: #9ca3af; font-size: 12px; text-align: center;">
               Association Génération Diaspora ·
-              <a href="https://www.generationdiaspora.com" style="color: #004e35;">www.generationdiaspora.com</a>
+              <a href="https://www.generationdiaspora.com" style="color: #0B5D3B;">www.generationdiaspora.com</a>
             </p>
           </div>
         </div>
