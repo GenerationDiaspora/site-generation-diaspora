@@ -96,35 +96,6 @@ export default function Home() {
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {/* Diaspora Ciné Talk — À venir */}
-            <div className="bg-beige rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow relative">
-              <div className="relative h-48 overflow-hidden bg-gradient-to-b from-primary-900 via-primary-800 to-primary-700">
-                <Image
-                  src="/images/events/cine-talk-mon-oriental/poster.webp"
-                  alt="Diaspora Ciné Talk Mon Oriental"
-                  fill
-                  className="object-cover"
-                />
-                <div className="absolute top-3 left-3">
-                  <span className="bg-secondary-500 text-white text-xs font-bold px-3 py-1 rounded-full animate-pulse">
-                    10 mai 2026
-                  </span>
-                </div>
-              </div>
-              <div className="p-6">
-                <span className="text-xs font-semibold text-gold-600 uppercase tracking-wide">Diaspora Ciné Talk</span>
-                <h3 className="text-xl font-bold mt-1 mb-3 text-gray-900">
-                  Mon Oriental — Entre mémoire et identité
-                </h3>
-                <p className="text-gray-600 mb-4 text-sm">
-                  Projection & débat du film de Khalid Zaouche. En sa présence, à Paris. Sur inscription.
-                </p>
-                <Link href="/news/cine-talk-mon-oriental" className="text-primary-600 font-semibold hover:text-primary-700 inline-flex items-center gap-1">
-                  Je m&apos;inscris <ArrowRight className="w-4 h-4" />
-                </Link>
-              </div>
-            </div>
-
             {/* Webinaire — Passé */}
             <div className="bg-beige rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
               <div className="relative h-48 overflow-hidden">

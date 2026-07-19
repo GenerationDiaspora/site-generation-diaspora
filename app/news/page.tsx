@@ -11,16 +11,6 @@ export const metadata: Metadata = {
 
 const newsItems = [
   {
-    id: -2,
-    title: "Diaspora Ciné Talk — Mon Oriental : Entre mémoire et identité",
-    date: "2026-05-10",
-    category: "Diaspora Ciné Talk",
-    excerpt:
-      "Projection & débat autour du film documentaire Mon Oriental de Khalid Zaouche. Le 10 mai 2026 à 15h à Paris. En présence du réalisateur. Inscription obligatoire.",
-    imageSrc: "/images/events/cine-talk-mon-oriental/poster.webp",
-    href: "/news/cine-talk-mon-oriental",
-  },
-  {
     id: -1,
     title: "Webinaire : Diaspora Marocaine — Entre perception, contribution et avenir commun",
     date: "2026-03-26",

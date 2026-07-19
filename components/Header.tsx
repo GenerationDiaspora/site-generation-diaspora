@@ -3,11 +3,10 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
-import { Menu, X, Clapperboard } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [announcementVisible, setAnnouncementVisible] = useState(true);
 
   const navigation = [
     { name: "Accueil", href: "/" },
@@ -18,38 +17,6 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50">
-      {/* Barre d'annonce — Diaspora Ciné Talk */}
-      {announcementVisible && (
-        <div className="bg-gradient-to-r from-gold-700 via-gold-600 to-gold-500 text-white">
-          <div className="container mx-auto px-4 py-2 flex items-center justify-between gap-3">
-            <div className="flex items-center gap-2 min-w-0">
-              <Clapperboard className="w-4 h-4 flex-shrink-0 text-white" />
-              <p className="text-xs sm:text-sm font-medium truncate">
-                <span className="font-bold">Diaspora Ciné Talk — Mon Oriental</span>
-                <span className="hidden sm:inline text-white/80"> · Dimanche 10 Mai 2026 · Paris</span>
-              </p>
-            </div>
-            <div className="flex items-center gap-2 flex-shrink-0">
-              <Link
-                href="/news/cine-talk-mon-oriental#inscription"
-                className="bg-white text-gold-700 text-xs font-bold px-3 py-1 rounded-full hover:bg-gold-50 transition-colors whitespace-nowrap"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Je m&apos;inscris →
-              </Link>
-              <button
-                type="button"
-                aria-label="Fermer l'annonce"
-                onClick={() => setAnnouncementVisible(false)}
-                className="p-1 rounded-full hover:bg-white/20 transition-colors"
-              >
-                <X className="w-3.5 h-3.5" />
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-
       {/* Navbar principale */}
       <div className="shadow-sm" style={{ backgroundColor: '#F7F4EE' }}>
       <nav className="container mx-auto px-4">
