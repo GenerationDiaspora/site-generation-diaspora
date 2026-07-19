@@ -4,8 +4,8 @@
   "description": "Association dédiée à l'épanouissement de la jeunesse marocaine en France",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#006233",
+  "background_color": "#F7F4EE",
+  "theme_color": "#0B5E3C",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",

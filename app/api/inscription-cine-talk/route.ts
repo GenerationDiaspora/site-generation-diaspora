@@ -17,7 +17,6 @@ import { NextResponse } from "next/server";
 // ─────────────────────────────────────────────────────────────────────────────
 
 const MIN_FILL_MS = 3000;
-const MAX_CAPACITY = parseInt(process.env.BREVO_CINE_TALK_MAX_CAPACITY ?? "140", 10);
 
 interface RegistrationBody {
   prenom: string;
@@ -88,26 +87,8 @@ export async function POST(request: Request) {
       );
     }
 
-    // 1. Vérifier la capacité — orienter vers liste d'attente si complet
-    const mainListId = parseInt(process.env.BREVO_LIST_CINE_TALK_ID ?? "0", 10);
-    const waitlistId = parseInt(process.env.BREVO_LIST_CINE_TALK_WAITLIST_ID ?? "0", 10);
-
-    let isWaitlist = false;
-    try {
-      const capacityRes = await fetch(`https://api.brevo.com/v3/contacts/lists/${mainListId}`, {
-        headers: { "api-key": apiKey },
-      });
-      if (capacityRes.ok) {
-        const capacityData = await capacityRes.json() as { totalSubscribers?: number };
-        if ((capacityData.totalSubscribers ?? 0) >= MAX_CAPACITY) {
-          isWaitlist = true;
-        }
-      }
-    } catch (e) {
-      console.warn("Impossible de vérifier la capacité, inscription normale par défaut:", e);
-    }
-
-    const listId = isWaitlist ? waitlistId : mainListId;
+    // 1. Créer / mettre à jour le contact dans Brevo avec tous les champs
+    const listId = parseInt(process.env.BREVO_LIST_CINE_TALK_ID ?? "0", 10);
 
     // Normaliser le téléphone — skip si format invalide
     const smsFormatted = telephone ? toE164(telephone) : null;
@@ -171,16 +152,12 @@ export async function POST(request: Request) {
       }
     }
 
-    // 2. Envoyer l'email de confirmation ou liste d'attente
+    // 2. Envoyer l'email de confirmation
     const senderEmail = process.env.BREVO_SENDER_EMAIL ?? "contact@generationdiaspora.com";
     const senderName = process.env.BREVO_SENDER_NAME ?? "Génération Diaspora";
-    const confirmationTemplateId = process.env.BREVO_TEMPLATE_CONFIRMATION_ID
+    const templateId = process.env.BREVO_TEMPLATE_CONFIRMATION_ID
       ? parseInt(process.env.BREVO_TEMPLATE_CONFIRMATION_ID, 10)
       : null;
-    const waitlistTemplateId = process.env.BREVO_TEMPLATE_WAITLIST_ID
-      ? parseInt(process.env.BREVO_TEMPLATE_WAITLIST_ID, 10)
-      : null;
-    const templateId = isWaitlist ? waitlistTemplateId : confirmationTemplateId;
 
     const emailPayload = templateId
       ? {
@@ -200,7 +177,7 @@ export async function POST(request: Request) {
           subject: "✅ Inscription confirmée — Diaspora Ciné Talk · Mon Oriental",
           htmlContent: `
             <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-              <div style="background: linear-gradient(135deg, #7c2d12, #b45309, #f97316); color: white; padding: 32px 24px; border-radius: 12px 12px 0 0; text-align: center;">
+              <div style="background: linear-gradient(135deg, #042518, #0B5E3C, #1e7850); color: white; padding: 32px 24px; border-radius: 12px 12px 0 0; text-align: center;">
                 <p style="margin: 0 0 4px; font-size: 11px; letter-spacing: 4px; opacity: 0.8; text-transform: uppercase;">Génération Diaspora</p>
                 <h1 style="margin: 0 0 6px; font-size: 24px; font-weight: 900; letter-spacing: 2px; text-transform: uppercase;">Diaspora Ciné Talk</h1>
                 <p style="margin: 0; font-size: 15px; opacity: 0.9; letter-spacing: 3px; text-transform: uppercase;">Mon Oriental</p>
@@ -209,10 +186,10 @@ export async function POST(request: Request) {
                 <p style="font-size: 16px; color: #374151;">Bonjour <strong>${prenom}</strong>,</p>
                 <p style="color: #374151;">Votre inscription au <strong>Diaspora Ciné Talk — Mon Oriental</strong> est bien enregistrée !</p>
 
-                <div style="background: #fff7ed; border: 1px solid #fed7aa; border-radius: 8px; padding: 16px; margin: 20px 0;">
-                  <p style="margin: 0 0 8px; color: #9a3412; font-weight: 600;">📅 Dimanche 10 Mai 2026 à 15h00</p>
-                  <p style="margin: 0 0 8px; color: #9a3412;">📍 TSF, le Cercle Rouge — 30 avenue Georges Sand, 93210 Saint-Denis</p>
-                  <p style="margin: 0; color: #9a3412;">🎬 Projection &amp; Débat · Khalid Zaouche, Jawad Zaouche &amp; l'équipe du film</p>
+                <div style="background: #faf6ee; border: 1px solid #e9dbbd; border-radius: 8px; padding: 16px; margin: 20px 0;">
+                  <p style="margin: 0 0 8px; color: #0B5E3C; font-weight: 600;">📅 Dimanche 10 Mai 2026 à 15h00</p>
+                  <p style="margin: 0 0 8px; color: #0B5E3C;">📍 TSF, le Cercle Rouge — 30 avenue Georges Sand, 93210 Saint-Denis</p>
+                  <p style="margin: 0; color: #0B5E3C;">🎬 Projection &amp; Débat · Khalid Zaouche, Jawad Zaouche &amp; l'équipe du film</p>
                 </div>
 
                 <p style="color: #6b7280; font-size: 13px;">
@@ -222,7 +199,7 @@ export async function POST(request: Request) {
                 <hr style="border: none; border-top: 1px solid #e5e7eb; margin: 24px 0;" />
                 <p style="color: #9ca3af; font-size: 12px; text-align: center;">
                   Association Génération Diaspora ·
-                  <a href="https://www.generationdiaspora.com" style="color: #004e35;">www.generationdiaspora.com</a>
+                  <a href="https://www.generationdiaspora.com" style="color: #0B5E3C;">www.generationdiaspora.com</a>
                 </p>
               </div>
             </div>
@@ -244,7 +221,7 @@ export async function POST(request: Request) {
       // Contact créé mais email échoué — on retourne quand même success
     }
 
-    return NextResponse.json({ success: true, waitlist: isWaitlist }, { status: 200 });
+    return NextResponse.json({ success: true }, { status: 200 });
   } catch (error) {
     console.error("Erreur API inscription-cine-talk:", error);
     return NextResponse.json(

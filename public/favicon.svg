@@ -1,8 +1,11 @@
-<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="32" height="32" rx="6" fill="#004e35"/>
-  <circle cx="11" cy="13" r="3" fill="white"/>
-  <circle cx="21" cy="13" r="3" fill="white"/>
-  <circle cx="16" cy="19" r="3" fill="#d01012"/>
-  <path d="M8 22 Q16 26 24 22" stroke="#d01012" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0.5 47.5 450 450">
+  <title>Génération Diaspora</title>
+  <!-- Vert Héritage -->
+  <path fill="#0B5E3C" d="M 204.02 400.97 A 171 171 0 1 1 295.08 82.42 L 278.08 110.71 A 138 138 0 1 0 204.59 366.98 Z"/>
+  <!-- Rouge Engagement -->
+  <path fill="#C8102E" d="M 212 184.63 A 155 155 0 1 1 212 479.37 L 212 445.24 A 123 123 0 1 0 212 218.76 Z"/>
+  <rect fill="#C8102E" x="212" y="177" width="32" height="45"/>
+  <rect fill="#C8102E" x="212" y="368" width="32" height="119"/>
+  <!-- Étoile marocaine — Or Prestige -->
+  <path fill="none" stroke="#C8A55A" stroke-width="5.5" d="M 228.5 247 L 253.77 324.79 L 187.6 276.71 L 269.4 276.71 L 203.23 324.79 Z"/>
 </svg>
-

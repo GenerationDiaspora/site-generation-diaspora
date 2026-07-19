@@ -15,7 +15,7 @@ interface FormData {
   newsletter: boolean;
 }
 
-type FormStatus = "idle" | "loading" | "success" | "waitlist" | "error";
+type FormStatus = "idle" | "loading" | "success" | "error";
 
 const initialForm: FormData = {
   prenom: "",
@@ -69,13 +69,13 @@ export default function RegistrationForm() {
         body: JSON.stringify({ ...form, _hp: honeypot, _t: loadedAt }),
       });
 
-      const data: { success?: boolean; error?: string; waitlist?: boolean } = await res.json();
+      const data: { success?: boolean; error?: string } = await res.json();
 
       if (!res.ok || data.error) {
         throw new Error(data.error ?? "Une erreur est survenue.");
       }
 
-      setStatus(data.waitlist ? "waitlist" : "success");
+      setStatus("success");
       setForm(initialForm);
     } catch (err) {
       setStatus("error");
@@ -87,33 +87,16 @@ export default function RegistrationForm() {
 
   if (status === "success") {
     return (
-      <div className="bg-green-50 border border-green-200 rounded-2xl p-8 text-center max-w-xl mx-auto">
+      <div className="bg-primary-50 border border-primary-200 rounded-2xl p-8 text-center max-w-xl mx-auto">
         <p className="text-3xl mb-3">✅</p>
-        <p className="text-green-800 font-bold text-lg mb-2">
+        <p className="text-primary-800 font-bold text-lg mb-2">
           Inscription confirmée !
         </p>
-        <p className="text-green-700 text-sm mb-3">
+        <p className="text-primary-700 text-sm mb-3">
           Un email de confirmation vient de vous être envoyé.
         </p>
-        <p className="text-green-600 text-xs bg-green-100 rounded-lg px-4 py-2">
+        <p className="text-primary-600 text-xs bg-primary-100 rounded-lg px-4 py-2">
           📬 Si vous ne le recevez pas dans quelques minutes, pensez à vérifier votre dossier <strong>Spam</strong> ou <strong>Courriers indésirables</strong>.
-        </p>
-      </div>
-    );
-  }
-
-  if (status === "waitlist") {
-    return (
-      <div className="bg-amber-50 border border-amber-200 rounded-2xl p-8 text-center max-w-xl mx-auto">
-        <p className="text-3xl mb-3">⏳</p>
-        <p className="text-amber-800 font-bold text-lg mb-2">
-          Vous êtes sur liste d&apos;attente
-        </p>
-        <p className="text-amber-700 text-sm mb-3">
-          L&apos;événement affiche complet pour le moment. Vous avez été ajouté(e) à la liste d&apos;attente et serez contacté(e) dès qu&apos;une place se libère.
-        </p>
-        <p className="text-amber-600 text-xs bg-amber-100 rounded-lg px-4 py-2">
-          📬 Un email de confirmation de votre inscription sur liste d&apos;attente vient de vous être envoyé.
         </p>
       </div>
     );
@@ -129,7 +112,7 @@ export default function RegistrationForm() {
       </p>
 
       {status === "error" && (
-        <div className="bg-red-50 border border-red-200 rounded-lg px-4 py-3 mb-6 text-red-700 text-sm">
+        <div className="bg-secondary-50 border border-secondary-200 rounded-lg px-4 py-3 mb-6 text-secondary-700 text-sm">
           {errorMessage}
         </div>
       )}

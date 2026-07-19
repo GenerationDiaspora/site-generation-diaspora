@@ -3,14 +3,14 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
-import { Menu, X, Monitor } from "lucide-react";
+import { Menu, X, Clapperboard } from "lucide-react";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [announcementVisible, setAnnouncementVisible] = useState(true);
 
   const navigation = [
-    { name: "Accueil.", href: "/" },
+    { name: "Accueil", href: "/" },
     { name: "À propos", href: "/about" },
     { name: "Actualités", href: "/news" },
     { name: "Contact", href: "/contact" },
@@ -18,21 +18,21 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50">
-      {/* Barre d'annonce — Webinaire Retour Estival MRE */}
+      {/* Barre d'annonce — Diaspora Ciné Talk */}
       {announcementVisible && (
-        <div className="bg-gradient-to-r from-red-900 via-red-700 to-orange-700 text-white">
+        <div className="bg-gradient-to-r from-gold-700 via-gold-600 to-gold-500 text-white">
           <div className="container mx-auto px-4 py-2 flex items-center justify-between gap-3">
             <div className="flex items-center gap-2 min-w-0">
-              <Monitor className="w-4 h-4 flex-shrink-0 text-red-200" />
+              <Clapperboard className="w-4 h-4 flex-shrink-0 text-white" />
               <p className="text-xs sm:text-sm font-medium truncate">
-                <span className="font-bold">Webinaire — Retour Estival des MRE</span>
-                <span className="hidden sm:inline text-white/80"> · Jeudi 25 Juin 2026 · 21h · Gratuit</span>
+                <span className="font-bold">Diaspora Ciné Talk — Mon Oriental</span>
+                <span className="hidden sm:inline text-white/80"> · Dimanche 10 Mai 2026 · Paris</span>
               </p>
             </div>
             <div className="flex items-center gap-2 flex-shrink-0">
               <Link
-                href="/news/webinaire-retour-mre#inscription"
-                className="bg-white text-red-900 text-xs font-bold px-3 py-1 rounded-full hover:bg-red-50 transition-colors whitespace-nowrap"
+                href="/news/cine-talk-mon-oriental#inscription"
+                className="bg-white text-gold-700 text-xs font-bold px-3 py-1 rounded-full hover:bg-gold-50 transition-colors whitespace-nowrap"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Je m&apos;inscris →
@@ -51,17 +51,18 @@ export default function Header() {
       )}
 
       {/* Navbar principale */}
-      <div className="shadow-sm" style={{ backgroundColor: '#F3F1EF' }}>
+      <div className="shadow-sm" style={{ backgroundColor: '#F7F4EE' }}>
       <nav className="container mx-auto px-4">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center group">
-            <div className="relative w-20 h-20">
+            <div className="relative w-20 h-20 flex items-center justify-center">
               <Image
-                src="/logo.png"
+                src="/logo-symbol.svg"
                 alt="Logo Génération Diaspora"
-                width={75}
-                height={75}
+                width={60}
+                height={68}
+                unoptimized
                 className="object-contain transition-transform"
               />
             </div>

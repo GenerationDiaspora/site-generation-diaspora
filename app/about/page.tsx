@@ -47,8 +47,8 @@ function InitialsAvatar({
   const gradients = {
     primary: "from-primary-500 to-primary-700",
     secondary: "from-secondary-400 to-secondary-600",
-    gold: "from-amber-400 to-amber-600",
-    teal: "from-teal-500 to-teal-700",
+    gold: "from-gold-400 to-gold-600",
+    teal: "from-primary-500 to-primary-700",
   };
   return (
     <div
@@ -75,7 +75,7 @@ function BureauCard({
       <p
         className={`text-sm font-medium ${
           variant === "gold"
-            ? "text-amber-600"
+            ? "text-gold-600"
             : variant === "secondary"
             ? "text-secondary-600"
             : "text-primary-600"

@@ -15,7 +15,7 @@ export default function EventDetails({ registrationUrl }: EventDetailsProps) {
         <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           {/* Colonne gauche — infos */}
           <div>
-            <span className="text-xs font-bold uppercase tracking-widest text-amber-700 mb-4 block">
+            <span className="text-xs font-bold uppercase tracking-widest text-gold-600 mb-4 block">
               Détails de l&apos;événement
             </span>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8 text-balance">
@@ -24,8 +24,8 @@ export default function EventDetails({ registrationUrl }: EventDetailsProps) {
 
             <ul className="space-y-5 mb-10">
               <li className="flex items-start gap-4">
-                <span className="flex-shrink-0 w-10 h-10 bg-amber-100 rounded-full flex items-center justify-center">
-                  <Calendar className="w-5 h-5 text-amber-700" />
+                <span className="flex-shrink-0 w-10 h-10 bg-gold-100 rounded-full flex items-center justify-center">
+                  <Calendar className="w-5 h-5 text-gold-700" />
                 </span>
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-wide text-gray-500 mb-0.5">Date &amp; heure</p>
@@ -33,20 +33,20 @@ export default function EventDetails({ registrationUrl }: EventDetailsProps) {
                 </div>
               </li>
               <li className="flex items-start gap-4">
-                <span className="flex-shrink-0 w-10 h-10 bg-amber-100 rounded-full flex items-center justify-center">
-                  <MapPin className="w-5 h-5 text-amber-700" />
+                <span className="flex-shrink-0 w-10 h-10 bg-gold-100 rounded-full flex items-center justify-center">
+                  <MapPin className="w-5 h-5 text-gold-700" />
                 </span>
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-wide text-gray-500 mb-0.5">Lieu</p>
                   <p className="text-gray-900 font-semibold">
-                    Paris
-                    <span className="block text-gray-600 font-normal text-sm">L&apos;adresse sera communiquée après l&apos;inscription</span>
+                    TSF, le Cercle Rouge
+                    <span className="block text-gray-600 font-normal text-sm">30 avenue Georges Sand, 93210 Saint-Denis</span>
                   </p>
                 </div>
               </li>
               <li className="flex items-start gap-4">
-                <span className="flex-shrink-0 w-10 h-10 bg-amber-100 rounded-full flex items-center justify-center">
-                  <Film className="w-5 h-5 text-amber-700" />
+                <span className="flex-shrink-0 w-10 h-10 bg-gold-100 rounded-full flex items-center justify-center">
+                  <Film className="w-5 h-5 text-gold-700" />
                 </span>
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-wide text-gray-500 mb-0.5">Format</p>
@@ -54,8 +54,8 @@ export default function EventDetails({ registrationUrl }: EventDetailsProps) {
                 </div>
               </li>
               <li className="flex items-start gap-4">
-                <span className="flex-shrink-0 w-10 h-10 bg-amber-100 rounded-full flex items-center justify-center">
-                  <Mic2 className="w-5 h-5 text-amber-700" />
+                <span className="flex-shrink-0 w-10 h-10 bg-gold-100 rounded-full flex items-center justify-center">
+                  <Mic2 className="w-5 h-5 text-gold-700" />
                 </span>
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-wide text-gray-500 mb-0.5">Invité</p>

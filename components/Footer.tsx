@@ -31,7 +31,7 @@ export default function Footer() {
           {/* Logo et description */}
           <div className="md:col-span-2">
             <Link href="/" className="flex items-center gap-3 mb-4">
-              <div className="relative w-20 h-20 rounded-2xl overflow-hidden p-2 hover:opacity-90 transition-all" style={{ backgroundColor: '#F5F3F2' }}>
+              <div className="relative w-20 h-20 rounded-2xl overflow-hidden p-2 hover:opacity-90 transition-all" style={{ backgroundColor: '#F7F4EE' }}>
                 <Image
                   src="/logo.png"
                   alt="Logo Génération Diaspora"

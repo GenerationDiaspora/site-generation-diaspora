@@ -11,16 +11,6 @@ export const metadata: Metadata = {
 
 const newsItems = [
   {
-    id: -3,
-    title: "Webinaire — Retour Estival des MRE : Mieux se comprendre, mieux avancer ensemble",
-    date: "2026-06-25",
-    category: "Webinaire",
-    excerpt:
-      "Jeudi 25 juin à 21h (heure française). Comment améliorer la perception entre jeunes MRE et jeunes du Royaume ? Un webinaire gratuit et ouvert à tous, en partenariat avec Oxy'Jeunes.",
-    imageSrc: "/images/events/webinaire-retour-mre/poster.jpg",
-    href: "/news/webinaire-retour-mre",
-  },
-  {
     id: -2,
     title: "Diaspora Ciné Talk — Mon Oriental : Entre mémoire et identité",
     date: "2026-05-10",

@@ -10,7 +10,7 @@ export default function Home() {
       <section className="bg-gradient-to-br from-primary-600 to-primary-800 text-white">
         <div className="container mx-auto px-4 py-20 md:py-32">
           <div className="flex flex-col items-center text-center">
-            <div className="mb-8 relative w-32 h-32 md:w-40 md:h-40 rounded-3xl overflow-hidden p-3" style={{ backgroundColor: '#F5F3F2' }}>
+            <div className="mb-8 relative w-32 h-32 md:w-40 md:h-40 rounded-3xl overflow-hidden p-3" style={{ backgroundColor: '#F7F4EE' }}>
               <Image
                 src="/logo.png"
                 alt="Logo Génération Diaspora"
@@ -96,38 +96,9 @@ export default function Home() {
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {/* Webinaire Retour Estival MRE — À venir */}
+            {/* Diaspora Ciné Talk — À venir */}
             <div className="bg-beige rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow relative">
-              <div className="relative h-48 overflow-hidden bg-gradient-to-b from-red-950 via-red-900 to-orange-800">
-                <Image
-                  src="/images/events/webinaire-retour-mre/poster.jpg"
-                  alt="Webinaire Retour Estival des MRE"
-                  fill
-                  className="object-cover"
-                />
-                <div className="absolute top-3 left-3">
-                  <span className="bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full animate-pulse">
-                    25 juin 2026
-                  </span>
-                </div>
-              </div>
-              <div className="p-6">
-                <span className="text-xs font-semibold text-red-700 uppercase tracking-wide">Webinaire · Gratuit</span>
-                <h3 className="text-xl font-bold mt-1 mb-3 text-gray-900">
-                  Retour Estival des MRE — 25 juin à 21h
-                </h3>
-                <p className="text-gray-600 mb-4 text-sm">
-                  Deux jeunesses qui se croisent. Comment améliorer la perception mutuelle ? En partenariat avec Oxy&apos;Jeunes.
-                </p>
-                <Link href="/news/webinaire-retour-mre" className="text-primary-600 font-semibold hover:text-primary-700 inline-flex items-center gap-1">
-                  Je m&apos;inscris <ArrowRight className="w-4 h-4" />
-                </Link>
-              </div>
-            </div>
-
-            {/* Diaspora Ciné Talk — Passé */}
-            <div className="bg-beige rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-              <div className="relative h-48 overflow-hidden bg-gradient-to-b from-amber-950 via-orange-900 to-amber-800">
+              <div className="relative h-48 overflow-hidden bg-gradient-to-b from-primary-900 via-primary-800 to-primary-700">
                 <Image
                   src="/images/events/cine-talk-mon-oriental/poster.webp"
                   alt="Diaspora Ciné Talk Mon Oriental"
@@ -135,20 +106,49 @@ export default function Home() {
                   className="object-cover"
                 />
                 <div className="absolute top-3 left-3">
-                  <span className="bg-gray-800/70 text-white text-xs font-semibold px-3 py-1 rounded-full">
+                  <span className="bg-secondary-500 text-white text-xs font-bold px-3 py-1 rounded-full animate-pulse">
                     10 mai 2026
                   </span>
                 </div>
               </div>
               <div className="p-6">
-                <span className="text-xs font-semibold text-amber-700 uppercase tracking-wide">Diaspora Ciné Talk</span>
+                <span className="text-xs font-semibold text-gold-600 uppercase tracking-wide">Diaspora Ciné Talk</span>
                 <h3 className="text-xl font-bold mt-1 mb-3 text-gray-900">
                   Mon Oriental — Entre mémoire et identité
                 </h3>
                 <p className="text-gray-600 mb-4 text-sm">
-                  Projection & débat du film de Khalid Zaouche. En sa présence, à Paris.
+                  Projection & débat du film de Khalid Zaouche. En sa présence, à Paris. Sur inscription.
                 </p>
                 <Link href="/news/cine-talk-mon-oriental" className="text-primary-600 font-semibold hover:text-primary-700 inline-flex items-center gap-1">
+                  Je m&apos;inscris <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+            </div>
+
+            {/* Webinaire — Passé */}
+            <div className="bg-beige rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+              <div className="relative h-48 overflow-hidden">
+                <Image
+                  src="/images/events/webinaire-diaspora-mars-2026/affiche.jpeg"
+                  alt="Webinaire Diaspora Marocaine"
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute top-3 left-3">
+                  <span className="bg-gray-800/70 text-white text-xs font-semibold px-3 py-1 rounded-full">
+                    26 mars 2026
+                  </span>
+                </div>
+              </div>
+              <div className="p-6">
+                <span className="text-xs font-semibold text-primary-600 uppercase tracking-wide">Webinaire</span>
+                <h3 className="text-xl font-bold mt-1 mb-3 text-gray-900">
+                  Diaspora Marocaine : Entre perception, contribution et avenir commun
+                </h3>
+                <p className="text-gray-600 mb-4 text-sm">
+                  Plus de 2h de débat en live sur l&apos;engagement de la jeunesse MRE, avec Ahmed Ghayet et Mehdi Heurteloup.
+                </p>
+                <Link href="/news/webinaire-diaspora-mars-2026" className="text-primary-600 font-semibold hover:text-primary-700 inline-flex items-center gap-1">
                   Voir l&apos;événement <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>

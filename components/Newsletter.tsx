@@ -84,7 +84,7 @@ export default function Newsletter() {
           </div>
 
           {submitStatus === "success" && (
-            <div className="bg-green-500/20 border border-green-300 rounded-lg p-4 flex items-center justify-center gap-3 text-white">
+            <div className="bg-gold-500/20 border border-gold-300 rounded-lg p-4 flex items-center justify-center gap-3 text-white">
               <CheckCircle2 className="w-5 h-5" />
               <p className="text-sm font-medium">
                 Merci ! Votre inscription a été prise en compte.
@@ -93,7 +93,7 @@ export default function Newsletter() {
           )}
 
           {submitStatus === "error" && (
-            <div className="bg-red-500/20 border border-red-300 rounded-lg p-4 text-white">
+            <div className="bg-secondary-500/20 border border-secondary-300 rounded-lg p-4 text-white">
               <p className="text-sm">
                 Une erreur est survenue. Veuillez réessayer.
               </p>

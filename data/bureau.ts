@@ -72,7 +72,7 @@ export const bureauLegal: BureauMember[] = [
     name: "Mehdi Bennis",
     role: "Trésorier Adjoint",
     initials: "BM",
-    description: "Support financier",
+    description: "Support financier.",
   },
 ];
 
