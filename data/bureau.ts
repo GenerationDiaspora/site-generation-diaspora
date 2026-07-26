@@ -61,9 +61,9 @@ export const bureauLegal: BureauMember[] = [
     availability: "4–6h/semaine",
   },
   {
-    name: "Youness Slimane",
+    name: "Youness Drissi Slimani",
     role: "Trésorier",
-    initials: "YS",
+    initials: "YDS",
     photo: "/images/membre-gd/Trésorier.Youness.Slimane.webp",
     description: "Gestion financière de l'association",
     availability: "4–6h/semaine",
