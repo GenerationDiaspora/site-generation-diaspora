@@ -18,9 +18,8 @@ import {
   membres,
   roadmap2026,
   stats,
-  type BureauMember,
-  type Membre,
 } from "@/data/bureau";
+import TeamShowcase from "@/components/about/TeamShowcase";
 
 
 export const metadata: Metadata = {
@@ -28,80 +27,6 @@ export const metadata: Metadata = {
   description:
     "Découvrez l'histoire de Génération Diaspora, notre équipe et notre mission pour la diaspora.",
 };
-
-function InitialsAvatar({
-  initials,
-  size = "md",
-  variant = "primary",
-}: {
-  initials: string;
-  size?: "sm" | "md" | "lg" | "xl";
-  variant?: "primary" | "secondary" | "gold" | "teal";
-}) {
-  const sizes = {
-    sm: "w-16 h-16 text-lg",
-    md: "w-20 h-20 text-xl",
-    lg: "w-24 h-24 text-2xl",
-    xl: "w-32 h-32 text-3xl",
-  };
-  const gradients = {
-    primary: "from-primary-500 to-primary-700",
-    secondary: "from-secondary-400 to-secondary-600",
-    gold: "from-gold-400 to-gold-600",
-    teal: "from-primary-500 to-primary-700",
-  };
-  return (
-    <div
-      className={`${sizes[size]} mx-auto rounded-full bg-gradient-to-br ${gradients[variant]} flex items-center justify-center`}
-    >
-      <span className="font-bold text-white">{initials}</span>
-    </div>
-  );
-}
-
-function BureauCard({
-  member,
-  size = "md",
-  variant = "primary",
-}: {
-  member: BureauMember;
-  size?: "sm" | "md" | "lg" | "xl";
-  variant?: "primary" | "secondary" | "gold" | "teal";
-}) {
-  return (
-    <div className="text-center">
-      <InitialsAvatar initials={member.initials} size={size} variant={variant} />
-      <h3 className="font-semibold mt-3 mb-1 text-gray-900">{member.name}</h3>
-      <p
-        className={`text-sm font-medium ${
-          variant === "gold"
-            ? "text-gold-600"
-            : variant === "secondary"
-            ? "text-secondary-600"
-            : "text-primary-600"
-        }`}
-      >
-        {member.role}
-      </p>
-      {member.description && (
-        <p className="text-xs text-gray-500 mt-1">{member.description}</p>
-      )}
-    </div>
-  );
-}
-
-function MembreCard({ membre }: { membre: Membre }) {
-  return (
-    <div className="text-center group">
-      <div className="w-16 h-16 mx-auto rounded-full bg-gradient-to-br from-primary-400 to-primary-600 flex items-center justify-center">
-        <span className="font-bold text-white text-lg">{membre.initials}</span>
-      </div>
-      <p className="text-sm font-semibold text-gray-900 mt-2 leading-tight">
-        {membre.name}
-      </p>
-    </div>
-  );
-}
 
 export default function AboutPage() {
   return (
@@ -248,110 +173,14 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Notre Bureau 2026 */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold mb-4 text-center text-gray-900">
-              Notre Bureau 2026
-            </h2>
-            <p className="text-center text-gray-600 mb-16 max-w-2xl mx-auto">
-              Une équipe renouvelée, engagée et passionnée au service de la
-              jeunesse marocaine
-            </p>
-
-            {/* Parrain & Président d'honneur */}
-            <div className="mb-12 text-center">
-              <BureauCard member={presidentHonneur} size="md" variant="gold" />
-            </div>
-
-            {/* Bureau légal */}
-            <div className="mb-12">
-              <div className="flex items-center gap-3 mb-8">
-                <div className="h-px flex-1 bg-gray-200" />
-                <h3 className="text-lg font-semibold text-gray-500 uppercase tracking-wider px-4">
-                  Bureau légal
-                </h3>
-                <div className="h-px flex-1 bg-gray-200" />
-              </div>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-                {bureauLegal.map((member) => (
-                  <BureauCard
-                    key={member.name}
-                    member={member}
-                    size={member.role === "Président" ? "lg" : "md"}
-                    variant="primary"
-                  />
-                ))}
-              </div>
-            </div>
-
-            {/* Postes opérationnels */}
-            <div className="mb-12">
-              <div className="flex items-center gap-3 mb-8">
-                <div className="h-px flex-1 bg-gray-200" />
-                <h3 className="text-lg font-semibold text-gray-500 uppercase tracking-wider px-4">
-                  Poste opérationnel
-                </h3>
-                <div className="h-px flex-1 bg-gray-200" />
-              </div>
-              <div className="flex justify-center">
-                {postesOperationnels.map((member) => (
-                  <BureauCard
-                    key={member.name}
-                    member={member}
-                    size="md"
-                    variant="teal"
-                  />
-                ))}
-              </div>
-            </div>
-
-            {/* Conseillers */}
-            <div>
-              <div className="flex items-center gap-3 mb-8">
-                <div className="h-px flex-1 bg-gray-200" />
-                <h3 className="text-lg font-semibold text-gray-500 uppercase tracking-wider px-4">
-                  Conseillers
-                </h3>
-                <div className="h-px flex-1 bg-gray-200" />
-              </div>
-              <div className="bg-gray-50 rounded-2xl p-8">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-                  {conseillers.map((member) => (
-                    <BureauCard
-                      key={member.name}
-                      member={member}
-                      size="sm"
-                      variant="secondary"
-                    />
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Nos Membres */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold mb-4 text-center text-gray-900">
-              Nos Membres
-            </h2>
-            <p className="text-center text-gray-600 mb-12">
-              {membres.length} membres engagés pour faire rayonner la diaspora
-              marocaine
-            </p>
-            <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-7 gap-6">
-              {membres.map((membre) => (
-                <MembreCard key={membre.name} membre={membre} />
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Notre Bureau & Nos Membres */}
+      <TeamShowcase
+        presidentHonneur={presidentHonneur}
+        bureauLegal={bureauLegal}
+        postesOperationnels={postesOperationnels}
+        conseillers={conseillers}
+        membres={membres}
+      />
 
       {/* Feuille de route 2026 */}
       <section className="py-20 bg-gray-50">
