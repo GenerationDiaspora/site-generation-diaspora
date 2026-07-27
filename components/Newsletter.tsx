@@ -2,8 +2,10 @@
 
 import { useState, FormEvent } from "react";
 import { Mail, CheckCircle2 } from "lucide-react";
+import { useTranslate } from "@/lib/i18n";
 
 export default function Newsletter() {
+  const { t } = useTranslate();
   const [email, setEmail] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
@@ -58,10 +60,10 @@ export default function Newsletter() {
       <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 md:p-12">
         <Mail className="w-16 h-16 mx-auto mb-6 text-white" />
         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
-          Restez informés
+          {t("newsletter.title")}
         </h2>
         <p className="text-lg mb-8 text-white/90">
-          Inscrivez-vous à notre newsletter pour recevoir toutes nos actualités, événements et opportunités
+          {t("newsletter.subtitle")}
         </p>
 
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -70,7 +72,7 @@ export default function Newsletter() {
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="Votre adresse email"
+              placeholder={t("newsletter.placeholder")}
               required
               className="flex-1 px-6 py-4 rounded-lg text-gray-900 placeholder-gray-500 focus:ring-2 focus:ring-white focus:outline-none"
             />
@@ -79,7 +81,7 @@ export default function Newsletter() {
               disabled={isSubmitting}
               className="bg-white text-primary-700 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors disabled:bg-gray-300 disabled:cursor-not-allowed whitespace-nowrap"
             >
-              {isSubmitting ? "Inscription..." : "S'inscrire"}
+              {isSubmitting ? t("newsletter.submitLoading") : t("newsletter.submitIdle")}
             </button>
           </div>
 
@@ -87,7 +89,7 @@ export default function Newsletter() {
             <div className="bg-gold-500/20 border border-gold-300 rounded-lg p-4 flex items-center justify-center gap-3 text-white">
               <CheckCircle2 className="w-5 h-5" />
               <p className="text-sm font-medium">
-                Merci ! Votre inscription a été prise en compte.
+                {t("newsletter.success")}
               </p>
             </div>
           )}
@@ -95,14 +97,14 @@ export default function Newsletter() {
           {submitStatus === "error" && (
             <div className="bg-secondary-500/20 border border-secondary-300 rounded-lg p-4 text-white">
               <p className="text-sm">
-                Une erreur est survenue. Veuillez réessayer.
+                {t("newsletter.error")}
               </p>
             </div>
           )}
         </form>
 
         <p className="text-sm text-white/70 mt-4">
-          Nous respectons votre vie privée. Vos données ne seront jamais partagées.
+          {t("newsletter.privacy")}
         </p>
       </div>
     </div>

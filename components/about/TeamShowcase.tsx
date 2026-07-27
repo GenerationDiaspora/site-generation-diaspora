@@ -4,13 +4,14 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { Maximize2, X } from "lucide-react";
 import type { BureauMember, Membre } from "@/data/bureau";
+import { useTranslate } from "@/lib/i18n";
 
 type Tier = "honneur" | "legal" | "operationnel" | "conseiller" | "membre";
 
 interface DisplayMember {
   name: string;
-  role?: string;
-  description?: string;
+  roleKey?: string;
+  descriptionKey?: string;
   photo: string;
   tier: Tier;
 }
@@ -75,13 +76,16 @@ function MemberTile({
   size?: "xl" | "lg" | "md" | "sm";
   onOpen: (member: DisplayMember, trigger: HTMLElement) => void;
 }) {
+  const { t } = useTranslate();
+  const role = member.roleKey ? t(member.roleKey) : undefined;
+
   return (
     <div className="flex flex-col items-center text-center w-32 sm:w-36">
       <button
         type="button"
         onClick={(e) => onOpen(member, e.currentTarget)}
         className="group relative rounded-full cursor-pointer focus:outline-none focus-visible:ring-4 focus-visible:ring-primary-300 focus-visible:ring-offset-2 focus-visible:ring-offset-beige"
-        aria-label={`Agrandir la photo de ${member.name}`}
+        aria-label={member.name}
       >
         <span
           className={`relative block ${SIZE_DIMS[size]} rounded-full overflow-hidden ring-2 ring-offset-4 ring-offset-beige transition-all duration-500 motion-reduce:transition-none group-hover:ring-[3px] ${RING_IDLE[member.tier]} ${RING_HOVER[member.tier]} shadow-sm group-hover:shadow-xl`}
@@ -104,9 +108,9 @@ function MemberTile({
       <p className="mt-4 text-sm sm:text-base font-semibold text-gray-900 leading-tight">
         {member.name}
       </p>
-      {member.role && (
+      {role && (
         <p className={`text-[11px] sm:text-xs font-medium uppercase tracking-wider mt-1 ${ROLE_TEXT[member.tier]}`}>
-          {member.role}
+          {role}
         </p>
       )}
     </div>
@@ -120,6 +124,7 @@ function MemberModal({
   member: DisplayMember | null;
   onClose: () => void;
 }) {
+  const { t } = useTranslate();
   const [visible, setVisible] = useState(false);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
 
@@ -148,6 +153,9 @@ function MemberModal({
 
   if (!member) return null;
 
+  const role = member.roleKey ? t(member.roleKey) : undefined;
+  const description = member.descriptionKey ? t(member.descriptionKey) : undefined;
+
   return (
     <div
       className={`fixed inset-0 z-50 flex items-center justify-center bg-black/85 backdrop-blur-sm p-4 transition-opacity duration-300 motion-reduce:transition-none ${
@@ -155,7 +163,7 @@ function MemberModal({
       }`}
       role="dialog"
       aria-modal="true"
-      aria-label={`Photo de ${member.name}`}
+      aria-label={member.name}
       onClick={onClose}
     >
       <div
@@ -169,7 +177,7 @@ function MemberModal({
           type="button"
           onClick={onClose}
           className="absolute -top-4 -right-4 z-10 w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center text-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
-          aria-label="Fermer"
+          aria-label={t("gallery.close")}
         >
           <X className="w-5 h-5" />
         </button>
@@ -187,13 +195,13 @@ function MemberModal({
 
         <div className="mt-5 text-center">
           <p className="text-xl font-bold text-white">{member.name}</p>
-          {member.role && (
+          {role && (
             <p className="text-gold-300 text-sm font-semibold uppercase tracking-wider mt-1">
-              {member.role}
+              {role}
             </p>
           )}
-          {member.description && (
-            <p className="text-white/70 text-sm mt-2">{member.description}</p>
+          {description && (
+            <p className="text-white/70 text-sm mt-2">{description}</p>
           )}
         </div>
       </div>
@@ -208,6 +216,7 @@ export default function TeamShowcase({
   conseillers,
   membres,
 }: TeamShowcaseProps) {
+  const { t } = useTranslate();
   const [selected, setSelected] = useState<DisplayMember | null>(null);
   const lastTrigger = useRef<HTMLElement | null>(null);
 
@@ -228,6 +237,7 @@ export default function TeamShowcase({
   const simples: DisplayMember[] = membres.map((m) => ({ ...m, tier: "membre" }));
 
   const totalMembres = 1 + legal.length + operationnel.length + conseil.length + simples.length;
+  const presidentRoleKey = "about.team.roles.president";
 
   return (
     <>
@@ -237,11 +247,11 @@ export default function TeamShowcase({
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16 md:mb-20">
               <span className="inline-block text-xs font-semibold tracking-[0.2em] uppercase text-gold-600 mb-3">
-                Gouvernance 2026
+                {t("about.team.eyebrow")}
               </span>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Notre Bureau</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900">{t("about.team.title")}</h2>
               <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
-                Une équipe renouvelée, engagée et passionnée au service de la jeunesse marocaine
+                {t("about.team.subtitle")}
               </p>
             </div>
 
@@ -251,20 +261,20 @@ export default function TeamShowcase({
             </div>
 
             {/* Bureau légal */}
-            <TierDivider label="Bureau légal" />
+            <TierDivider label={t("about.team.bureauLegal")} />
             <div className="flex flex-wrap justify-center gap-x-8 sm:gap-x-12 gap-y-12 mb-16 md:mb-20">
               {legal.map((member) => (
                 <MemberTile
                   key={member.name}
                   member={member}
-                  size={member.role === "Président" ? "lg" : "md"}
+                  size={member.roleKey === presidentRoleKey ? "lg" : "md"}
                   onOpen={openMember}
                 />
               ))}
             </div>
 
             {/* Poste opérationnel */}
-            <TierDivider label="Poste opérationnel" />
+            <TierDivider label={t("about.team.posteOperationnel")} />
             <div className="flex flex-wrap justify-center gap-x-8 sm:gap-x-12 gap-y-12 mb-16 md:mb-20">
               {operationnel.map((member) => (
                 <MemberTile key={member.name} member={member} size="md" onOpen={openMember} />
@@ -272,7 +282,7 @@ export default function TeamShowcase({
             </div>
 
             {/* Conseillers */}
-            <TierDivider label="Conseillers" />
+            <TierDivider label={t("about.team.conseillers")} />
             <div className="bg-white/60 rounded-3xl p-8 sm:p-10 ring-1 ring-gray-100">
               <div className="flex flex-wrap justify-center gap-x-10 gap-y-10">
                 {conseil.map((member) => (
@@ -289,11 +299,11 @@ export default function TeamShowcase({
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto text-center">
             <span className="inline-block text-xs font-semibold tracking-[0.2em] uppercase text-primary-600 mb-3">
-              La communauté
+              {t("about.team.communityEyebrow")}
             </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Nos Membres</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900">{t("about.team.membresTitle")}</h2>
             <p className="mt-4 mb-14 text-gray-600">
-              {totalMembres} membres engagés pour faire rayonner la diaspora marocaine
+              {t("about.team.membresCount", { count: totalMembres })}
             </p>
             <div className="flex flex-wrap justify-center gap-x-10 gap-y-10">
               {simples.map((member) => (

@@ -1,9 +1,9 @@
 export interface BureauMember {
   name: string;
-  role: string;
+  roleKey: string;
   initials: string;
   photo: string;
-  description?: string;
+  descriptionKey?: string;
   availability?: string;
 }
 
@@ -18,13 +18,11 @@ export interface Membre {
 }
 
 export interface RoadmapPhase {
-  phase: string;
-  period: string;
-  description: string;
+  key: "t1" | "t2" | "t3" | "t4";
 }
 
 export interface Stat {
-  label: string;
+  labelKey: string;
   value: string;
 }
 
@@ -32,7 +30,7 @@ export interface Stat {
 
 export const presidentHonneur: BureauMember = {
   name: "Ahmed Ghayat",
-  role: "Parrain & Président d'honneur",
+  roleKey: "about.team.roles.presidentHonneur",
   initials: "AG",
   photo: "/images/membre-gd/PresidentDhonneur.Ahmed.Ghayat.jpg",
 };
@@ -40,50 +38,50 @@ export const presidentHonneur: BureauMember = {
 export const bureauLegal: BureauMember[] = [
   {
     name: "Hamid Lafredi",
-    role: "Président",
+    roleKey: "about.team.roles.president",
     initials: "HL",
     photo: "/images/membre-gd/President.Hamid.Lafredi.jpg",
-    description: "Direction stratégique et représentation",
+    descriptionKey: "about.team.descriptions.president",
   },
   {
     name: "Morad Fadil",
-    role: "Vice-Président",
+    roleKey: "about.team.roles.vicePresident",
     initials: "MF",
     photo: "/images/membre-gd/Vice.President.Morad.Fadil.jpg",
-    description: "Support et coordination",
+    descriptionKey: "about.team.descriptions.vicePresident",
   },
   {
     name: "Omar Walali Loudiyi",
-    role: "Secrétaire Général",
+    roleKey: "about.team.roles.secretaireGeneral",
     initials: "OW",
     photo: "/images/membre-gd/SecretaireGeneral.Omar.Walali.Loudiyi.jpg",
-    description: "Organisation et administration",
+    descriptionKey: "about.team.descriptions.secretaireGeneral",
     availability: "4–6h/semaine",
   },
   {
     name: "Youness Slimane",
-    role: "Trésorier",
+    roleKey: "about.team.roles.tresorier",
     initials: "YS",
     photo: "/images/membre-gd/Trésorier.Youness.Slimane.webp",
-    description: "Gestion financière de l'association",
+    descriptionKey: "about.team.descriptions.tresorier",
     availability: "4–6h/semaine",
   },
   {
     name: "Mehdi Bennis",
-    role: "Trésorier Adjoint",
+    roleKey: "about.team.roles.tresorierAdjoint",
     initials: "BM",
     photo: "/images/membre-gd/TrésorierAdjoint.Mehdi.Bennis.jpg",
-    description: "Support financier",
+    descriptionKey: "about.team.descriptions.tresorierAdjoint",
   },
 ];
 
 export const postesOperationnels: BureauMember[] = [
   {
     name: "Smaïn Qasimi",
-    role: "Responsable Événements",
+    roleKey: "about.team.roles.responsableEvenements",
     initials: "SQ",
     photo: "/images/membre-gd/Smaïn.Qasimi.jpg",
-    description: "Sport, Jeunesse, Éducation",
+    descriptionKey: "about.team.descriptions.responsableEvenements",
     availability: "4–6h/semaine",
   },
 ];
@@ -91,14 +89,14 @@ export const postesOperationnels: BureauMember[] = [
 export const conseillers: BureauMember[] = [
   {
     name: "Tarik Jaabouki",
-    role: "Conseiller",
+    roleKey: "about.team.roles.conseiller",
     initials: "TJ",
     photo: "/images/membre-gd/Tarik.Jaabouki.jpg",
     availability: "< 1h/semaine",
   },
   {
     name: "Rhissam Boudina",
-    role: "Conseiller",
+    roleKey: "about.team.roles.conseiller",
     initials: "RB",
     photo: "/images/membre-gd/Rhissam.Boudina.jpg",
     availability: "2–4h/semaine",
@@ -129,35 +127,15 @@ export const membres: Membre[] = [
 ];
 
 export const roadmap2026: RoadmapPhase[] = [
-  {
-    phase: "T1 – Connexion & Culture",
-    period: "Janvier – Mars 2026",
-    description:
-      "Organisation de webinaires thématiques et d'activités culturelles en ligne pour fédérer la communauté, partager les savoirs et renforcer le sentiment d'appartenance à travers les frontières.",
-  },
-  {
-    phase: "T2 – Dialogue institutionnel",
-    period: "Avril – Juin 2026",
-    description:
-      "Organisation de rencontres physiques avec des ambassades et consulats représentant la diaspora marocaine. Un espace de dialogue structuré pour faire entendre la voix des Marocains du monde et tisser des liens durables avec les institutions.",
-  },
-  {
-    phase: "T3 – Célébrer la jeunesse",
-    period: "Juillet – Septembre 2026",
-    description:
-      "Événement physique dédié à la mise en valeur de la jeunesse marocaine de la diaspora — parcours, talents et réussites. Un moment de visibilité, de fierté collective et d'inspiration pour la nouvelle génération.",
-  },
-  {
-    phase: "T4 – Plateforme Diaspora",
-    period: "Octobre – Décembre 2026",
-    description:
-      "Lancement de la plateforme numérique de Génération Diaspora : un espace centralisé pour connecter les membres, accéder aux ressources, suivre les projets et renforcer l'impact collectif de la diaspora marocaine.",
-  },
+  { key: "t1" },
+  { key: "t2" },
+  { key: "t3" },
+  { key: "t4" },
 ];
 
 export const stats: Stat[] = [
-  { label: "Membres", value: "13" },
-  { label: "Candidatures bureau", value: "8" },
-  { label: "Postes pourvus", value: "6" },
-  { label: "Engagement", value: "100%" },
+  { labelKey: "about.stats.membres", value: "13" },
+  { labelKey: "about.stats.candidatures", value: "8" },
+  { labelKey: "about.stats.postes", value: "6" },
+  { labelKey: "about.stats.engagement", value: "100%" },
 ];

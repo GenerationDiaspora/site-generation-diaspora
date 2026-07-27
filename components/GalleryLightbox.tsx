@@ -3,12 +3,14 @@
 import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
+import { useTranslate } from "@/lib/i18n";
 
 interface GalleryLightboxProps {
   photos: { src: string; alt: string }[];
 }
 
 export default function GalleryLightbox({ photos }: GalleryLightboxProps) {
+  const { t } = useTranslate();
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   const isOpen = activeIndex !== null;
@@ -71,21 +73,21 @@ export default function GalleryLightbox({ photos }: GalleryLightboxProps) {
           <button
             onClick={close}
             className="absolute top-4 right-4 z-10 w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center text-white transition-colors"
-            aria-label="Fermer"
+            aria-label={t("gallery.close")}
           >
             <X className="w-5 h-5" />
           </button>
 
           {/* Compteur */}
           <div className="absolute top-4 left-1/2 -translate-x-1/2 text-white/70 text-sm">
-            {activeIndex + 1} / {photos.length}
+            {t("gallery.counter", { current: activeIndex + 1, total: photos.length })}
           </div>
 
           {/* Bouton précédent */}
           <button
             onClick={(e) => { e.stopPropagation(); prev(); }}
             className="absolute left-4 z-10 w-12 h-12 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center text-white transition-colors"
-            aria-label="Photo précédente"
+            aria-label={t("gallery.prev")}
           >
             <ChevronLeft className="w-6 h-6" />
           </button>
@@ -108,7 +110,7 @@ export default function GalleryLightbox({ photos }: GalleryLightboxProps) {
           <button
             onClick={(e) => { e.stopPropagation(); next(); }}
             className="absolute right-4 z-10 w-12 h-12 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center text-white transition-colors"
-            aria-label="Photo suivante"
+            aria-label={t("gallery.next")}
           >
             <ChevronRight className="w-6 h-6" />
           </button>

@@ -1,20 +1,24 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import { Facebook, Instagram, Linkedin, Mail } from "lucide-react";
+import { useTranslate } from "@/lib/i18n";
 
 export default function Footer() {
+  const { t } = useTranslate();
   const currentYear = new Date().getFullYear();
 
   const footerLinks = {
     association: [
-      { name: "À propos", href: "/about" },
-      { name: "Actualités", href: "/news" },
-      { name: "Contact", href: "/contact" },
+      { name: t("nav.about"), href: "/about" },
+      { name: t("nav.news"), href: "/news" },
+      { name: t("nav.contact"), href: "/contact" },
     ],
     legal: [
-      { name: "Mentions légales", href: "#" },
-      { name: "Politique de confidentialité", href: "#" },
-      { name: "Conditions d'utilisation", href: "#" },
+      { name: t("footer.legal.mentions"), href: "#" },
+      { name: t("footer.legal.privacy"), href: "#" },
+      { name: t("footer.legal.terms"), href: "#" },
     ],
   };
 
@@ -34,7 +38,7 @@ export default function Footer() {
               <div className="relative w-20 h-20 rounded-2xl overflow-hidden p-2 hover:opacity-90 transition-all" style={{ backgroundColor: '#F7F4EE' }}>
                 <Image
                   src="/logo.png"
-                  alt="Logo Génération Diaspora"
+                  alt={t("common.logoAlt")}
                   width={64}
                   height={64}
                   className="object-contain"
@@ -43,8 +47,7 @@ export default function Footer() {
               <span className="font-bold text-xl">Génération Diaspora</span>
             </Link>
             <p className="text-gray-400 mb-4 max-w-md">
-              Association dédiée à l'épanouissement de la jeunesse franco-marocaine en France.
-              Outil au service des deux rives de la Méditerranée, fondée sur la proximité, l'humanité, la solidarité et la fraternité.
+              {t("footer.description")}
             </p>
             <div className="space-y-2 text-gray-400 text-sm">
               <div className="flex items-center gap-2">
@@ -61,10 +64,10 @@ export default function Footer() {
 
           {/* Liens rapides */}
           <div>
-            <h3 className="font-semibold text-lg mb-4">Navigation</h3>
+            <h3 className="font-semibold text-lg mb-4">{t("footer.navigationTitle")}</h3>
             <ul className="space-y-2">
               {footerLinks.association.map((link) => (
-                <li key={link.name}>
+                <li key={link.href}>
                   <Link
                     href={link.href}
                     className="text-gray-400 hover:text-white transition-colors"
@@ -78,7 +81,7 @@ export default function Footer() {
 
           {/* Informations légales */}
           <div>
-            <h3 className="font-semibold text-lg mb-4">Informations</h3>
+            <h3 className="font-semibold text-lg mb-4">{t("footer.informationTitle")}</h3>
             <ul className="space-y-2">
               {footerLinks.legal.map((link) => (
                 <li key={link.name}>
@@ -97,7 +100,7 @@ export default function Footer() {
         {/* Réseaux sociaux et copyright */}
         <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-gray-400 text-sm">
-            © {currentYear} Génération Diaspora. Tous droits réservés.
+            {t("footer.copyright", { year: currentYear })}
           </p>
           <div className="flex items-center gap-4">
             {socialLinks.map((social) => {
@@ -121,4 +124,3 @@ export default function Footer() {
     </footer>
   );
 }
-

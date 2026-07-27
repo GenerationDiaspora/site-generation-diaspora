@@ -2,8 +2,10 @@
 
 import { useState, FormEvent, useEffect } from "react";
 import { Mail, User, MessageSquare, Send, Facebook, Instagram, Linkedin } from "lucide-react";
+import { useTranslate } from "@/lib/i18n";
 
 export default function ContactPage() {
+  const { t } = useTranslate();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -57,10 +59,9 @@ export default function ContactPage() {
       <section className="bg-gradient-to-br from-primary-600 to-primary-800 text-beige py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">Contactez-nous</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">{t("contact.hero.title")}</h1>
             <p className="text-xl opacity-90">
-              Une question ? Un projet ? Vous souhaitez rejoindre Génération Diaspora ?
-              N'hésitez pas à nous écrire, nous vous répondrons dans les plus brefs délais
+              {t("contact.hero.subtitle")}
             </p>
           </div>
         </div>
@@ -75,14 +76,14 @@ export default function ContactPage() {
 
                 {/* Honeypot — invisible pour les humains, rempli par les bots */}
                 <div aria-hidden="true" style={{ position: "absolute", left: "-9999px", height: 0, overflow: "hidden" }}>
-                  <label htmlFor="_hp">Ne pas remplir</label>
+                  <label htmlFor="_hp">{t("contact.form.honeypotLabel")}</label>
                   <input type="text" id="_hp" name="_hp" tabIndex={-1} autoComplete="off" />
                 </div>
 
                 {/* Nom */}
                 <div>
                   <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-2">
-                    Nom complet *
+                    {t("contact.form.nameLabel")}
                   </label>
                   <div className="relative">
                     <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -96,7 +97,7 @@ export default function ContactPage() {
                       onChange={handleChange}
                       required
                       className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
-                      placeholder="Votre nom"
+                      placeholder={t("contact.form.namePlaceholder")}
                     />
                   </div>
                 </div>
@@ -104,7 +105,7 @@ export default function ContactPage() {
                 {/* Email */}
                 <div>
                   <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
-                    Adresse email *
+                    {t("contact.form.emailLabel")}
                   </label>
                   <div className="relative">
                     <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -118,7 +119,7 @@ export default function ContactPage() {
                       onChange={handleChange}
                       required
                       className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
-                      placeholder="votre@email.com"
+                      placeholder={t("contact.form.emailPlaceholder")}
                     />
                   </div>
                 </div>
@@ -126,7 +127,7 @@ export default function ContactPage() {
                 {/* Message */}
                 <div>
                   <label htmlFor="message" className="block text-sm font-semibold text-gray-700 mb-2">
-                    Votre message *
+                    {t("contact.form.messageLabel")}
                   </label>
                   <div className="relative">
                     <div className="absolute top-3 left-3 pointer-events-none">
@@ -140,7 +141,7 @@ export default function ContactPage() {
                       required
                       rows={6}
                       className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all resize-none"
-                      placeholder="Décrivez votre demande..."
+                      placeholder={t("contact.form.messagePlaceholder")}
                     />
                   </div>
                 </div>
@@ -152,7 +153,7 @@ export default function ContactPage() {
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
                     <p className="text-sm text-primary-700">
-                      Merci pour votre message ! Nous vous répondrons dans les plus brefs délais.
+                      {t("contact.form.successMsg")}
                     </p>
                   </div>
                 )}
@@ -163,7 +164,7 @@ export default function ContactPage() {
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
                     </svg>
                     <p className="text-sm text-secondary-700">
-                      Une erreur est survenue. Veuillez réessayer.
+                      {t("contact.form.errorMsg")}
                     </p>
                   </div>
                 )}
@@ -180,12 +181,12 @@ export default function ContactPage() {
                         <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
                         <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
                       </svg>
-                      Envoi en cours...
+                      {t("contact.form.submitLoading")}
                     </>
                   ) : (
                     <>
                       <Send className="w-5 h-5" />
-                      Envoyer le message
+                      {t("contact.form.submitIdle")}
                     </>
                   )}
                 </button>
@@ -194,7 +195,7 @@ export default function ContactPage() {
 
             {/* Informations de contact */}
             <div className="mt-12 text-center">
-              <h3 className="text-2xl font-bold mb-4 text-gray-900">Autres moyens de nous contacter</h3>
+              <h3 className="text-2xl font-bold mb-4 text-gray-900">{t("contact.otherWays.title")}</h3>
               <div className="flex flex-col items-center gap-6">
                 <div className="flex items-center gap-2 text-gray-600">
                   <Mail className="w-5 h-5 text-primary-600" />
@@ -203,7 +204,7 @@ export default function ContactPage() {
                   </a>
                 </div>
                 <div>
-                  <p className="text-gray-600 mb-4 font-semibold">Suivez-nous sur les réseaux sociaux :</p>
+                  <p className="text-gray-600 mb-4 font-semibold">{t("contact.otherWays.followUs")}</p>
                   <div className="flex justify-center gap-4">
                     <a href="https://www.facebook.com/groups/1013728587602196" target="_blank" rel="noopener noreferrer"
                       className="w-12 h-12 bg-primary-600 rounded-full flex items-center justify-center hover:bg-primary-700 transition-colors" aria-label="Facebook">
