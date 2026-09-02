@@ -1,13 +1,13 @@
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { Calendar, MapPin, ArrowLeft, ExternalLink } from "lucide-react";
+import { Calendar, MapPin, ArrowLeft } from "lucide-react";
 import GalleryLightbox from "@/components/GalleryLightbox";
 
 export const metadata: Metadata = {
-  title: "Ftour Pluriel 2026 — Génération Diaspora",
+  title: "Au rendez-vous de la fraternité — Génération Diaspora",
   description:
-    "Hamid Lafredi, président de Génération Diaspora, représentait l'association à la 16ème édition du Ftour Pluriel à Casablanca, réunissant 180 invités autour du vivre-ensemble.",
+    "À Casablanca, la 16ème édition du Ftour Pluriel a réuni 180 invités autour d'une rupture du jeûne placée sous le signe de la jeunesse, du dialogue et du vivre-ensemble. Un mot d'ordre : Fraternité.",
 };
 
 const galleryPhotos = [
@@ -85,89 +85,46 @@ export default function FtourPluriel2026Page() {
           </div>
 
           <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 leading-tight">
-            Génération Diaspora au Ftour Pluriel — 16ème édition
+            Au rendez-vous de la fraternité
           </h1>
 
           {/* Chapeau */}
           <p className="text-xl text-gray-600 leading-relaxed mb-10 border-l-4 border-primary-500 pl-5 italic">
             À Casablanca, la 16ème édition du Ftour Pluriel a réuni 180 invités
-            autour d&apos;une rupture du jeûne placée sous le signe de la jeunesse, du
-            dialogue, du vivre-ensemble et de la tamaghrabit. Génération Diaspora
-            y était représentée par son président, Hamid Lafredi.
+            autour d&apos;une rupture du jeûne placée sous le signe de la jeunesse,
+            du dialogue et du vivre-ensemble. Un moment fort de Tamaghrabit,
+            cette identité marocaine plurielle et rassembleuse, à laquelle
+            Génération Diaspora est particulièrement attachée.
           </p>
 
           {/* Corps */}
           <div className="prose prose-lg max-w-none text-gray-700 space-y-6">
             <p className="leading-relaxed">
-              Il est 17h30 passées lorsque les premiers invités arrivent. Les
-              poignées de main se prolongent, les sourires sont francs. Dans la
-              salle, des tables dressées avec soin : dattes, lait et gâteaux
-              marocains. L&apos;atmosphère est chaleureuse.
+              L&apos;association y était représentée par son président, Hamid Lafredi,
+              aux côtés d&apos;invités venus d&apos;horizons variés, réunis autour d&apos;une même
+              table pour partager bien plus qu&apos;un repas. Ce type de rendez-vous
+              illustre une conviction que porte Génération Diaspora depuis sa
+              création : les liens les plus solides se tissent dans des moments
+              simples, partagés, où la parole circule librement.
             </p>
 
-            {/* Citation Hamid */}
-            <blockquote className="border-l-4 border-primary-500 pl-6 py-2 bg-primary-50 rounded-r-xl my-8">
-              <p className="text-gray-800 italic text-lg leading-relaxed mb-3">
-                &ldquo;Le ftour est un moment très important pour nous. Le partager
-                dans cet esprit d&apos;ouverture, avec des Marocains venus d&apos;horizons
-                différents et des amis d&apos;autres pays, c&apos;est fort.&rdquo;
-              </p>
-              <footer className="text-sm font-semibold text-primary-700">
-                — Hamid Lafredi, président de Génération Diaspora
-              </footer>
-            </blockquote>
-
             <p className="leading-relaxed">
-              Il a ajouté que cette rencontre donnait une image fidèle des liens
-              qui unissent les Marocains établis en France et ceux qui vivent au
-              Royaume — dans les deux sens.
+              Participer au Ftour Pluriel, c&apos;était aussi affirmer une présence :
+              celle d&apos;une jeunesse de la diaspora qui ne se contente pas de
+              regarder le Maroc de loin, mais qui prend part, activement, aux
+              moments qui rassemblent le pays.
             </p>
 
             <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">
-              Un rendez-vous incontournable du Ramadan
+              Un mot d&apos;ordre : Fraternité
             </h2>
 
             <p className="leading-relaxed">
-              Le Ftour Pluriel est porté par les associations{" "}
-              <strong>Marocains Pluriels</strong> et{" "}
-              <strong>Salam Lekoulam</strong>. Réunir des femmes et des hommes
-              aux parcours variés pour partager un moment à la fois intime et
-              public, ancré dans la tradition mais ouvert sur le monde — telle
-              est l&apos;ambition de cet événement.
-            </p>
-
-            <p className="leading-relaxed">
-              À 18h32, l&apos;appel à la prière s&apos;élève. Chacun rompt le jeûne à sa
-              table. Autour des tables, musulmans, juifs et chrétiens partagent
-              un moment collectif. Un imam, un rabbin et un prêtre s&apos;expriment
-              successivement devant l&apos;assemblée.
-            </p>
-
-            <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">
-              La jeunesse à l&apos;honneur
-            </h2>
-
-            <p className="leading-relaxed">
-              Cette 16ème édition a placé la jeunesse au centre. Sept jeunes
-              Marocains s&apos;illustrant à travers le monde ont été sélectionnés et
-              honorés d&apos;un médaillon symbolique du vivre-ensemble.
-            </p>
-
-            {/* Citation Ahmed Ghayat */}
-            <blockquote className="border-l-4 border-secondary-500 pl-6 py-2 bg-secondary-50 rounded-r-xl my-8">
-              <p className="text-gray-800 italic text-lg leading-relaxed mb-3">
-                &ldquo;Ces jeunes, où qu&apos;ils vivent, portent une part du Maroc avec
-                eux.&rdquo;
-              </p>
-              <footer className="text-sm font-semibold text-secondary-700">
-                — Ahmed Ghayat, président de Marocains Pluriels
-              </footer>
-            </blockquote>
-
-            <p className="leading-relaxed">
-              La soirée s&apos;est conclue par une prestation musicale de{" "}
-              <strong>Rita Soko</strong>, après un dîner convivial où les
-              échanges se sont poursuivis bien au-delà de la rupture du jeûne.
+              De cette soirée est né un mot d&apos;ordre : Fraternité. Une valeur que
+              Génération Diaspora s&apos;efforce de faire vivre à chaque occasion, en
+              tissant des ponts entre les jeunes de la diaspora et celles et ceux
+              qui, au Maroc, partagent la même volonté de dialogue et de
+              rassemblement.
             </p>
           </div>
 
@@ -189,23 +146,6 @@ export default function FtourPluriel2026Page() {
                 </li>
               ))}
             </ul>
-          </div>
-
-          {/* Source presse */}
-          <div className="mt-8 flex items-center gap-3 text-sm text-gray-500">
-            <ExternalLink className="w-4 h-4 flex-shrink-0" />
-            <span>
-              Source :{" "}
-              <a
-                href="https://fr.le360.ma/societe/mille-visages-mille-horizons-une-identite-quand-le-ftour-pluriel-celebre-la-jeunesse-et-la_2ELRC3VOLRD7RO4DPDWF37FFGU/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-primary-600 hover:text-primary-700 underline"
-              >
-                Lire l&apos;article complet sur Le360
-              </a>{" "}
-              — Hajar Kharroubi et Adil Gadrouz, 02/03/2026
-            </span>
           </div>
         </div>
       </article>

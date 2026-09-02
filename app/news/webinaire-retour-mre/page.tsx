@@ -1,144 +1,178 @@
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, Facebook, Twitter } from "lucide-react";
-import HeroSection from "@/components/events/WebinaireMRE/HeroSection";
-import EventDetails from "@/components/events/WebinaireMRE/EventDetails";
-import AboutWebinaire from "@/components/events/WebinaireMRE/AboutWebinaire";
-import RegistrationForm from "@/components/events/WebinaireMRE/RegistrationForm";
-
-const PAGE_URL = "https://www.generationdiaspora.com/news/webinaire-retour-mre";
+import { ArrowLeft, Calendar, Monitor } from "lucide-react";
+import GalleryLightbox from "@/components/GalleryLightbox";
 
 export const metadata: Metadata = {
-  title: "Webinaire — Retour Estival des MRE | Génération Diaspora",
+  title: "Déconstruire les mirages, bâtir des ponts — Génération Diaspora",
   description:
-    "Webinaire gratuit le jeudi 25 juin 2026 à 21h. Retour estival des MRE : comment améliorer la perception entre jeunes MRE et jeunes du Royaume ? En partenariat avec Oxy'Jeunes.",
-  openGraph: {
-    title: "Webinaire — Retour Estival des MRE | Génération Diaspora",
-    description:
-      "Webinaire gratuit le jeudi 25 juin 2026 à 21h. Retour estival des MRE : comment améliorer la perception entre jeunes MRE et jeunes du Royaume ?",
-    url: PAGE_URL,
-    images: [
-      {
-        url: "/images/events/webinaire-retour-mre/poster.jpg",
-        width: 600,
-        height: 900,
-        alt: "Affiche — Retour Estival des MRE — Webinaire 25 Juin 2026",
-      },
-    ],
-    type: "website",
-  },
+    "Génération Diaspora et Oxy'Jeunes ont réuni jeunes MRE et jeunes du Royaume autour d'une question centrale : comment se voient-ils vraiment, au-delà des apparences et des préjugés ? Un mot d'ordre : Réalité.",
 };
+
+const galleryPhotos: { src: string; alt: string }[] = [];
+
+const speakers = [
+  {
+    name: "Younes Boumehdi",
+    role: "Intervenant — Jeunesse et diaspora",
+  },
+  {
+    name: "Oumaima El Mansouri",
+    role: "Intervenante — Oxy'Jeunes",
+  },
+  {
+    name: "Rhissam Boudina",
+    role: "Modérateur — Génération Diaspora",
+  },
+];
 
 export default function WebinaireMREPage() {
   return (
     <div className="bg-beige">
       {/* Retour */}
-      <div className="container mx-auto px-4 py-4">
+      <div className="container mx-auto px-4 pt-8">
         <Link
           href="/news"
-          className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-primary-600 transition-colors"
+          className="inline-flex items-center gap-2 text-primary-600 hover:text-primary-700 font-medium transition-colors"
         >
           <ArrowLeft className="w-4 h-4" />
           Retour aux actualités
         </Link>
       </div>
 
-      {/* 1. Hero */}
-      <HeroSection />
-
-      {/* 2. Détails */}
-      <EventDetails />
-
-      {/* 3. À propos */}
-      <AboutWebinaire />
-
-      {/* 4. Formulaire d'inscription */}
-      <section id="inscription" className="py-20 bg-beige">
-        <div className="container mx-auto px-4">
-          <div className="max-w-xl mx-auto text-center mb-10">
-            <span className="text-xs font-bold uppercase tracking-widest text-red-700 mb-3 block">
-              Inscription
+      {/* Cover image */}
+      <div className="relative h-72 md:h-96 lg:h-[500px] mt-6 overflow-hidden bg-gradient-to-b from-red-950 via-red-900 to-orange-800">
+        <Image
+          src="/images/events/webinaire-retour-mre/poster.jpg"
+          alt="Webinaire Retour Estival des MRE"
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 p-6 md:p-10">
+          <div className="container mx-auto">
+            <span className="bg-red-700 text-white text-sm font-semibold px-3 py-1 rounded-full">
+              Webinaire
             </span>
-            <h2 className="text-3xl font-bold text-gray-900 text-balance">
-              Réservez votre place
+          </div>
+        </div>
+      </div>
+
+      {/* Contenu principal */}
+      <article className="container mx-auto px-4 py-12">
+        <div className="max-w-3xl mx-auto">
+          {/* En-tête */}
+          <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500 mb-6">
+            <span className="flex items-center gap-1">
+              <Calendar className="w-4 h-4" />
+              25 juin 2026 · 21h
+            </span>
+            <span className="flex items-center gap-1">
+              <Monitor className="w-4 h-4" />
+              En ligne — En partenariat avec Oxy&apos;Jeunes
+            </span>
+          </div>
+
+          <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 leading-tight">
+            Déconstruire les mirages, bâtir des ponts
+          </h1>
+
+          {/* Chapeau */}
+          <p className="text-xl text-gray-600 leading-relaxed mb-10 border-l-4 border-red-500 pl-5 italic">
+            Génération Diaspora a organisé un webinaire fondateur en collaboration
+            avec Oxy&apos;Jeunes, réunissant jeunes de la diaspora et du Royaume autour
+            d&apos;une question centrale : comment se voient-ils vraiment, au-delà des
+            apparences et des préjugés ?
+          </p>
+
+          {/* Corps */}
+          <div className="prose prose-lg max-w-none text-gray-700 space-y-6">
+            <p className="leading-relaxed">
+              Pendant cette rencontre, les intervenants ont mis à nu les
+              représentations que chacun porte de l&apos;autre. D&apos;un côté, les MRE,
+              souvent perçus comme distants, nostalgiques ou en quête perpétuelle
+              d&apos;ostentation. De l&apos;autre, les jeunes du Maroc, parfois vus, à tort,
+              comme inexpérimentés face aux opportunités du monde occidental, ou au
+              contraire, comme les gardiens exclusifs de l&apos;identité marocaine.
+            </p>
+
+            <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">
+              Au-delà des clichés
             </h2>
-            <p className="text-gray-500 mt-3">
-              Webinaire gratuit · Le lien vous sera envoyé par email.
+
+            <p className="leading-relaxed">
+              Au-delà de ces clichés, l&apos;échange a révélé une vérité plus riche :
+              une jeunesse partagée, animée par les mêmes aspirations, traversée
+              par les mêmes doutes, capable de se comprendre lorsqu&apos;on lui en donne
+              l&apos;occasion. Les jeunes présents ont compris que leurs différences de
+              contexte n&apos;étaient pas des obstacles, mais des moyens de s&apos;entre-connaître.
+            </p>
+
+            <p className="leading-relaxed">
+              Ce webinaire, orchestré au moment du traditionnel retour estival de
+              la diaspora, a posé les bases d&apos;une conviction nouvelle : on ne bâtit
+              pas la solidarité en niant les différences, mais en les traversant
+              ensemble, honnêtement.
+            </p>
+
+            <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">
+              Un mot d&apos;ordre : Réalité
+            </h2>
+
+            <p className="leading-relaxed">
+              De cette soirée est né un mot d&apos;ordre : Réalité. Voir l&apos;autre tel
+              qu&apos;il est, sans les voiles de l&apos;idéalisation ni les ombres du doute.
+              Génération Diaspora s&apos;engage à poursuivre ce travail de clarté, car
+              c&apos;est sur des fondations vraies que se construisent les liens durables.
             </p>
           </div>
-          <RegistrationForm />
-        </div>
-      </section>
 
-      {/* 5. Footer page */}
-      <footer className="bg-gray-900 text-white py-12">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto flex flex-col items-center gap-6 text-center">
-            <div className="w-16 h-16 bg-white/10 rounded-xl p-2 flex items-center justify-center">
-              <Image
-                src="/logo.png"
-                alt="Logo Génération Diaspora"
-                width={48}
-                height={48}
-                className="object-contain"
-              />
-            </div>
-
-            <a
-              href="https://www.generationdiaspora.com"
-              className="text-white/60 hover:text-white text-sm transition-colors"
-            >
-              www.generationdiaspora.com
-            </a>
-
-            <Link
-              href="/news"
-              className="inline-flex items-center gap-2 text-sm text-white/60 hover:text-white transition-colors"
-            >
-              <ArrowLeft className="w-4 h-4" />
-              Voir tous les événements
-            </Link>
-
-            {/* Partage */}
-            <div className="flex items-center gap-3 pt-2">
-              <p className="text-white/40 text-xs uppercase tracking-widest">Partager :</p>
-              <a
-                href={`https://wa.me/?text=${encodeURIComponent("Webinaire Retour Estival des MRE — Jeudi 25 Juin à 21h. Gratuit et en ligne. Organisé par Génération Diaspora & Oxy'Jeunes : " + PAGE_URL)}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Partager sur WhatsApp"
-                className="flex items-center gap-1.5 bg-green-600 hover:bg-green-700 text-white text-xs font-semibold px-3 py-2 rounded-full transition-colors"
-              >
-                <svg viewBox="0 0 24 24" className="w-3.5 h-3.5 fill-current" aria-hidden="true">
-                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-                </svg>
-                WhatsApp
-              </a>
-              <a
-                href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(PAGE_URL)}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Partager sur Facebook"
-                className="flex items-center gap-1.5 bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold px-3 py-2 rounded-full transition-colors"
-              >
-                <Facebook className="w-3.5 h-3.5" aria-hidden="true" />
-                Facebook
-              </a>
-              <a
-                href={`https://twitter.com/intent/tweet?text=${encodeURIComponent("Webinaire Retour Estival des MRE · 25 Juin 2026 · 21h @GenerationDiaspora")}&url=${encodeURIComponent(PAGE_URL)}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Partager sur X / Twitter"
-                className="flex items-center gap-1.5 bg-gray-700 hover:bg-gray-600 text-white text-xs font-semibold px-3 py-2 rounded-full transition-colors"
-              >
-                <Twitter className="w-3.5 h-3.5" aria-hidden="true" />
-                X / Twitter
-              </a>
-            </div>
+          {/* Intervenants */}
+          <div className="mt-12 bg-red-50 rounded-2xl p-6 md:p-8 border border-red-100">
+            <h2 className="text-xl font-bold text-gray-900 mb-6">
+              Intervenants
+            </h2>
+            <ul className="space-y-4">
+              {speakers.map((s) => (
+                <li key={s.name} className="flex gap-3">
+                  <div className="w-2 h-2 mt-2 rounded-full bg-red-500 flex-shrink-0" />
+                  <div>
+                    <span className="font-semibold text-gray-900">{s.name}</span>
+                    <span className="text-gray-600"> — {s.role}</span>
+                  </div>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
-      </footer>
+      </article>
+
+      {/* Galerie */}
+      {galleryPhotos.length > 0 && (
+        <section className="py-12 bg-gray-50">
+          <div className="container mx-auto px-4">
+            <div className="max-w-5xl mx-auto">
+              <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">
+                Galerie
+              </h2>
+              <GalleryLightbox photos={galleryPhotos} />
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Retour */}
+      <div className="container mx-auto px-4 py-12 text-center">
+        <Link
+          href="/news"
+          className="inline-flex items-center gap-2 bg-primary-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-primary-700 transition-colors"
+        >
+          <ArrowLeft className="w-4 h-4" />
+          Voir toutes les actualités
+        </Link>
+      </div>
     </div>
   );
 }

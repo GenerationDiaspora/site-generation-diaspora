@@ -11,42 +11,52 @@ export const metadata: Metadata = {
 
 const newsItems = [
   {
-    id: -3,
-    title: "Webinaire — Retour Estival des MRE : Mieux se comprendre, mieux avancer ensemble",
+    id: -4,
+    title: "Déconstruire les mirages, bâtir des ponts",
     date: "2026-06-25",
     category: "Webinaire",
     excerpt:
-      "Jeudi 25 juin à 21h (heure française). Comment améliorer la perception entre jeunes MRE et jeunes du Royaume ? Un webinaire gratuit et ouvert à tous, en partenariat avec Oxy'Jeunes.",
+      "En partenariat avec Oxy'Jeunes, Génération Diaspora a réuni jeunes MRE et jeunes du Royaume pour déconstruire leurs représentations mutuelles. Un mot d'ordre : Réalité.",
     imageSrc: "/images/events/webinaire-retour-mre/poster.jpg",
     href: "/news/webinaire-retour-mre",
   },
   {
-    id: -2,
-    title: "Diaspora Ciné Talk — Mon Oriental : Entre mémoire et identité",
+    id: -3,
+    title: "Diaspora Ciné Talk : quand l'identité prend vie à l'écran",
     date: "2026-05-10",
     category: "Diaspora Ciné Talk",
     excerpt:
-      "Projection & débat autour du film documentaire Mon Oriental de Khalid Zaouche. Le 10 mai 2026 à 15h à Paris. En présence du réalisateur. Inscription obligatoire.",
+      "Premier événement physique de Génération Diaspora. Projection du film Mon Oriental de Khalid Zaouche, en présence de Samira Sitail, Ambassadeure du Maroc en France. Un mot d'ordre : Identité.",
     imageSrc: "/images/events/cine-talk-mon-oriental/poster.webp",
     href: "/news/cine-talk-mon-oriental",
   },
   {
+    id: -2,
+    title: "Inspirer la réussite par le sport",
+    date: "2026-04-15",
+    category: "Webinaire",
+    excerpt:
+      "Webinaire avec Mustapha Hadji, légende du football marocain. Persévérance, discipline, transmission : des conseils concrets pour les jeunes de la diaspora. Un mot d'ordre : Inspirer.",
+    href: "/news/webinaire-mustapha-hadji",
+    gradient: "from-primary-700 to-gold-600",
+  },
+  {
     id: -1,
-    title: "Webinaire : Diaspora Marocaine — Entre perception, contribution et avenir commun",
+    title: "Fédérer notre jeunesse",
     date: "2026-03-26",
     category: "Webinaire",
     excerpt:
-      "Plus de 2 heures de débat, d'échanges et de prises de parole pour fédérer les jeunesses de la diaspora et du Royaume autour d'un idéal commun. Ahmed Ghayet et Mehdi Heurteloup parmi les intervenants.",
+      "Premier webinaire de Génération Diaspora. Plus de deux heures d'échanges sur l'engagement des jeunes MRE. Un mot d'ordre sorti des discussions : Fédérer.",
     imageSrc: "/images/events/webinaire-diaspora-mars-2026/affiche.jpeg",
     href: "/news/webinaire-diaspora-mars-2026",
   },
   {
     id: 0,
-    title: "Génération Diaspora au Ftour Pluriel — 16ème édition",
+    title: "Au rendez-vous de la fraternité",
     date: "2026-03-01",
     category: "Événement",
     excerpt:
-      "Hamid Lafredi, président de Génération Diaspora, était présent à la 16ème édition du Ftour Pluriel à Casablanca, aux côtés de 180 invités réunis pour célébrer la jeunesse marocaine et le vivre-ensemble.",
+      "Hamid Lafredi représentait Génération Diaspora à la 16ème édition du Ftour Pluriel à Casablanca — 180 invités réunis sous le signe de la Tamaghrabit. Un mot d'ordre : Fraternité.",
     imageSrc: "/images/events/ftour-pluriel-2026/main-ftour.jpg",
     href: "/news/ftour-pluriel-2026",
   },
