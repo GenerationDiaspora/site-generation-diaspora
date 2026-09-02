@@ -2,6 +2,7 @@ export interface BureauMember {
   name: string;
   role: string;
   initials: string;
+  photo: string;
   description?: string;
   availability?: string;
 }
@@ -9,6 +10,7 @@ export interface BureauMember {
 export interface Membre {
   name: string;
   initials: string;
+  photo: string;
   isNew?: boolean;
   joinDate?: string;
   city?: string;
@@ -32,46 +34,45 @@ export const presidentHonneur: BureauMember = {
   name: "Ahmed Ghayat",
   role: "Parrain & Président d'honneur",
   initials: "AG",
+  photo: "/images/membre-gd/PresidentDhonneur.Ahmed.Ghayat.jpg",
 };
 
 export const bureauLegal: BureauMember[] = [
   {
-    name: "Hamid LAFREDI",
+    name: "Hamid Lafredi",
     role: "Président",
     initials: "HL",
+    photo: "/images/membre-gd/President.Hamid.Lafredi.jpg",
     description: "Direction stratégique et représentation",
   },
   {
-    name: "Morad FADIL",
+    name: "Morad Fadil",
     role: "Vice-Président",
     initials: "MF",
+    photo: "/images/membre-gd/Vice.President.Morad.Fadil.jpg",
     description: "Support et coordination",
   },
   {
-    name: "Zakaria El Rhosn",
+    name: "Omar Walali Loudiyi",
     role: "Secrétaire Général",
-    initials: "ZE",
+    initials: "OW",
+    photo: "/images/membre-gd/SecretaireGeneral.Omar.Walali.Loudiyi.jpg",
     description: "Organisation et administration",
     availability: "4–6h/semaine",
   },
   {
-    name: "Omar Walali Loudyi",
-    role: "Trésorier & Responsable Communication",
-    initials: "OW",
-    description: "Gestion financière et porte-parole",
+    name: "Youness Drissi Slimani",
+    role: "Trésorier",
+    initials: "YDS",
+    photo: "/images/membre-gd/Trésorier.Youness.Slimane.webp",
+    description: "Gestion financière de l'association",
     availability: "4–6h/semaine",
-  },
-  {
-    name: "Youness DRISSI SLIMANI",
-    role: "Secrétaire Adjoint",
-    initials: "YD",
-    description: "Assistance administrative et développement de projets",
-    availability: "2–4h/semaine",
   },
   {
     name: "Mehdi Bennis",
     role: "Trésorier Adjoint",
     initials: "BM",
+    photo: "/images/membre-gd/TrésorierAdjoint.Mehdi.Bennis.jpg",
     description: "Support financier",
   },
 ];
@@ -81,6 +82,7 @@ export const postesOperationnels: BureauMember[] = [
     name: "Smaïn Qasimi",
     role: "Responsable Événements",
     initials: "SQ",
+    photo: "/images/membre-gd/Smaïn.Qasimi.jpg",
     description: "Sport, Jeunesse, Éducation",
     availability: "4–6h/semaine",
   },
@@ -91,58 +93,39 @@ export const conseillers: BureauMember[] = [
     name: "Tarik Jaabouki",
     role: "Conseiller",
     initials: "TJ",
+    photo: "/images/membre-gd/Tarik.Jaabouki.jpg",
     availability: "< 1h/semaine",
   },
   {
     name: "Rhissam Boudina",
     role: "Conseiller",
     initials: "RB",
+    photo: "/images/membre-gd/Rhissam.Boudina.jpg",
     availability: "2–4h/semaine",
-  },
-  {
-    name: "Imane Kaaouch",
-    role: "Conseillère",
-    initials: "IK",
-    availability: "< 2h/semaine",
   },
 ];
 
 export const membres: Membre[] = [
-  { name: "Ahmed Ghayat", initials: "AG" },
   {
-    name: "Mehdi Bennis",
-    initials: "BM",
-    isNew: true,
-    joinDate: "20 janvier 2026",
-    city: "Montpellier",
-    fonction: "Développeur informatique freelance",
+    name: "Fady Aït Azza",
+    initials: "FA",
+    photo: "/images/membre-gd/Fady.Aït.Azza.jpg",
   },
-  { name: "Hamid LAFREDI", initials: "HL" },
-  { name: "Imane Kaaouch", initials: "IK" },
   {
-    name: "Lamia Haddou",
-    initials: "LH",
-    isNew: true,
-    joinDate: "16 janvier 2026",
-    city: "Saint-Ouen-sur-Seine",
-    fonction: "Responsable programmes transition numérique",
+    name: "Joudi Jaoudi",
+    initials: "JJ",
+    photo: "/images/membre-gd/Joudi.Jaoudi.jpg",
   },
-  { name: "Morad Fadil", initials: "MF" },
-  { name: "Omar WALALI LOUDYI", initials: "OW" },
-  { name: "Rhissam Boudina", initials: "RB" },
   {
-    name: "Safaa Ez-ziani",
-    initials: "SE",
-    isNew: true,
-    joinDate: "14 janvier 2026",
-    city: "Annecy / Clermont-Ferrand",
-    fonction: "Growth Marketing Manager",
+    name: "Zirar",
+    initials: "ZS",
+    photo: "/images/membre-gd/Zirar.Sizare.jpg",
   },
-  { name: "Smaïn QASIMI", initials: "SQ" },
-  { name: "Tarik JAABOUKI", initials: "TJ" },
-  { name: "Youness DRISSI SLIMANI", initials: "YD" },
-  { name: "Zakaria El Rhosn", initials: "ZE" },
-  { name: "Zirare", initials: "ZI" },
+  {
+    name: "Manal Hanini",
+    initials: "MH",
+    photo: "/images/membre-gd/Manal.HANINI.jpg",
+  },
 ];
 
 export const roadmap2026: RoadmapPhase[] = [
@@ -173,8 +156,8 @@ export const roadmap2026: RoadmapPhase[] = [
 ];
 
 export const stats: Stat[] = [
-  { label: "Membres", value: "14" },
+  { label: "Membres", value: "13" },
   { label: "Candidatures bureau", value: "8" },
-  { label: "Postes pourvus", value: "7" },
+  { label: "Postes pourvus", value: "6" },
   { label: "Engagement", value: "100%" },
 ];

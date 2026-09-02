@@ -50,60 +50,6 @@ const newsItems = [
     imageSrc: "/images/events/ftour-pluriel-2026/main-ftour.jpg",
     href: "/news/ftour-pluriel-2026",
   },
-  {
-    id: 1,
-    title: "Lancement de notre nouveau programme de mentorat",
-    date: "2025-11-01",
-    category: "Programme",
-    excerpt:
-      "Nous sommes ravis d'annoncer le lancement de notre programme de mentorat qui mettra en relation des entrepreneurs expérimentés avec de jeunes porteurs de projets.",
-    gradient: "from-primary-400 to-primary-600",
-  },
-  {
-    id: 2,
-    title: "Retour sur notre festival culturel annuel",
-    date: "2025-10-15",
-    category: "Événement",
-    excerpt:
-      "Plus de 500 personnes ont participé à notre festival culturel annuel. Retrouvez les moments forts de cette journée exceptionnelle riche en partages et en émotions.",
-    gradient: "from-secondary-400 to-secondary-600",
-  },
-  {
-    id: 3,
-    title: "Partenariat avec des organisations locales",
-    date: "2025-10-01",
-    category: "Partenariat",
-    excerpt:
-      "Génération Diaspora renforce son réseau en signant de nouveaux partenariats avec des organisations locales pour amplifier notre impact sur le terrain.",
-    gradient: "from-primary-500 to-secondary-500",
-  },
-  {
-    id: 4,
-    title: "Atelier entrepreneuriat : Les clés du succès",
-    date: "2025-09-20",
-    category: "Atelier",
-    excerpt:
-      "Notre dernier atelier sur l'entrepreneuriat a réuni 50 participants désireux d'apprendre les meilleures pratiques pour lancer et développer leur entreprise.",
-    gradient: "from-primary-600 to-primary-400",
-  },
-  {
-    id: 5,
-    title: "Nouvelle initiative pour l'éducation des jeunes",
-    date: "2025-09-05",
-    category: "Projet",
-    excerpt:
-      "Lancement d'un nouveau projet éducatif destiné aux jeunes de la diaspora pour les accompagner dans leur parcours scolaire et professionnel.",
-    gradient: "from-secondary-500 to-primary-500",
-  },
-  {
-    id: 6,
-    title: "Soirée networking : Connecter les talents",
-    date: "2025-08-25",
-    category: "Événement",
-    excerpt:
-      "Une soirée de networking exceptionnelle a permis à nos membres de créer de nouvelles connexions et d'explorer des opportunités de collaboration.",
-    gradient: "from-primary-400 to-secondary-400",
-  },
 ];
 
 export default function NewsPage() {
