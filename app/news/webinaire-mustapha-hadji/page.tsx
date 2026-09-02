@@ -1,12 +1,28 @@
 import { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, Calendar, Monitor } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Inspirer la réussite par le sport — Génération Diaspora",
+  title: "Rencontre avec le foot marocain — Génération Diaspora",
   description:
-    "Génération Diaspora a organisé un webinaire avec Mustapha Hadji, légende du football marocain. Un échange consacré à la réussite par le sport : persévérance, discipline et transmission. Un mot d'ordre : Inspirer.",
+    "Webinaire avec Mustapha Hadji, légende du football marocain, et Ayoub Koutar, DG de Wanaut. Modéré par Morad Fadil, entraîneur UEFA. Un échange sur la réussite, la persévérance et la transmission. Un mot d'ordre : Inspirer.",
 };
+
+const speakers = [
+  {
+    name: "Mustapha Hadji",
+    role: "Légende du football marocain et international",
+  },
+  {
+    name: "Ayoub Koutar",
+    role: "DG de la start-up Wanaut, prestataire de la CAN",
+  },
+  {
+    name: "Morad Fadil",
+    role: "Modérateur — Entraîneur UEFA",
+  },
+];
 
 export default function WebinaireMustaphaHadjiPage() {
   return (
@@ -22,14 +38,16 @@ export default function WebinaireMustaphaHadjiPage() {
         </Link>
       </div>
 
-      {/* Cover — gradient sport */}
-      <div className="relative h-72 md:h-96 lg:h-[500px] mt-6 overflow-hidden bg-gradient-to-br from-primary-900 via-primary-700 to-gold-600">
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-center text-white px-4">
-            <p className="text-6xl mb-4">⚽</p>
-            <p className="text-2xl font-bold opacity-80">Inspirer la réussite par le sport</p>
-          </div>
-        </div>
+      {/* Cover image */}
+      <div className="relative h-72 md:h-96 lg:h-[500px] mt-6 overflow-hidden bg-gradient-to-br from-amber-950 via-yellow-900 to-amber-800">
+        <Image
+          src="/images/events/webinaire-mustapha-hadji/poster.jpg"
+          alt="Webinaire Rencontre avec le foot marocain — Mustapha Hadji"
+          fill
+          className="object-contain"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
         <div className="absolute bottom-0 left-0 right-0 p-6 md:p-10">
           <div className="container mx-auto">
             <span className="bg-primary-600 text-white text-sm font-semibold px-3 py-1 rounded-full">
@@ -46,11 +64,11 @@ export default function WebinaireMustaphaHadjiPage() {
           <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500 mb-6">
             <span className="flex items-center gap-1">
               <Calendar className="w-4 h-4" />
-              2026
+              17 décembre 2025 · 20h30 (heure Maroc)
             </span>
             <span className="flex items-center gap-1">
               <Monitor className="w-4 h-4" />
-              En ligne
+              En ligne — Live Google Meet
             </span>
           </div>
 
@@ -75,6 +93,13 @@ export default function WebinaireMustaphaHadjiPage() {
               de l&apos;anecdote sportive, ce sont des conseils concrets qu&apos;il a livrés
               aux jeunes présents : sur la persévérance, l&apos;exigence envers
               soi-même, et la capacité à transformer chaque échec en apprentissage.
+            </p>
+
+            <p className="leading-relaxed">
+              Ayoub Koutar, DG de la start-up Wanaut et prestataire de la CAN 2025,
+              a complété cet échange en illustrant comment l&apos;entrepreneuriat et le
+              sport peuvent se nourrir mutuellement — deux terrains où l&apos;ambition,
+              la rigueur et la vision font la différence.
             </p>
 
             <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">
@@ -102,18 +127,22 @@ export default function WebinaireMustaphaHadjiPage() {
             </p>
           </div>
 
-          {/* Invité */}
+          {/* Intervenants */}
           <div className="mt-12 bg-primary-50 rounded-2xl p-6 md:p-8">
             <h2 className="text-xl font-bold text-gray-900 mb-6">
-              Invité d&apos;honneur
+              Intervenants
             </h2>
-            <div className="flex gap-3">
-              <div className="w-2 h-2 mt-2 rounded-full bg-primary-500 flex-shrink-0" />
-              <div>
-                <span className="font-semibold text-gray-900">Mustapha Hadji</span>
-                <span className="text-gray-600"> — Ancien international marocain, légende du football africain</span>
-              </div>
-            </div>
+            <ul className="space-y-4">
+              {speakers.map((s) => (
+                <li key={s.name} className="flex gap-3">
+                  <div className="w-2 h-2 mt-2 rounded-full bg-primary-500 flex-shrink-0" />
+                  <div>
+                    <span className="font-semibold text-gray-900">{s.name}</span>
+                    <span className="text-gray-600"> — {s.role}</span>
+                  </div>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </article>

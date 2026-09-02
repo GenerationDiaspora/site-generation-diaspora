@@ -33,12 +33,12 @@ const newsItems = [
   {
     id: -2,
     title: "Inspirer la réussite par le sport",
-    date: "2026-04-15",
+    date: "2025-12-17",
     category: "Webinaire",
     excerpt:
-      "Webinaire avec Mustapha Hadji, légende du football marocain. Persévérance, discipline, transmission : des conseils concrets pour les jeunes de la diaspora. Un mot d'ordre : Inspirer.",
+      "Webinaire avec Mustapha Hadji, légende du football marocain, et Ayoub Koutar. Persévérance, discipline, transmission : des conseils concrets pour les jeunes de la diaspora. Un mot d'ordre : Inspirer.",
+    imageSrc: "/images/events/webinaire-mustapha-hadji/poster.jpg",
     href: "/news/webinaire-mustapha-hadji",
-    gradient: "from-primary-700 to-gold-600",
   },
   {
     id: -1,
