@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 const newsItems = [
   {
-    id: -4,
+    id: 1,
     title: "Déconstruire les mirages, bâtir des ponts",
     date: "2026-06-25",
     category: "Webinaire",
@@ -21,27 +21,17 @@ const newsItems = [
     href: "/news/webinaire-retour-mre",
   },
   {
-    id: -3,
+    id: 2,
     title: "Diaspora Ciné Talk : quand l'identité prend vie à l'écran",
     date: "2026-05-10",
     category: "Diaspora Ciné Talk",
     excerpt:
       "Premier événement physique de Génération Diaspora. Projection du film Mon Oriental de Khalid Zaouche, en présence de Samira Sitail, Ambassadeure du Maroc en France. Un mot d'ordre : Identité.",
-    imageSrc: "/images/events/cine-talk-mon-oriental/poster.webp",
+    imageSrc: "/images/events/cine-talk-mon-oriental/photo-1.jpg",
     href: "/news/cine-talk-mon-oriental",
   },
   {
-    id: -2,
-    title: "Inspirer la réussite par le sport",
-    date: "2025-12-17",
-    category: "Webinaire",
-    excerpt:
-      "Webinaire avec Mustapha Hadji, légende du football marocain, et Ayoub Koutar. Persévérance, discipline, transmission : des conseils concrets pour les jeunes de la diaspora. Un mot d'ordre : Inspirer.",
-    imageSrc: "/images/events/webinaire-mustapha-hadji/poster.jpg",
-    href: "/news/webinaire-mustapha-hadji",
-  },
-  {
-    id: -1,
+    id: 3,
     title: "Fédérer notre jeunesse",
     date: "2026-03-26",
     category: "Webinaire",
@@ -51,7 +41,7 @@ const newsItems = [
     href: "/news/webinaire-diaspora-mars-2026",
   },
   {
-    id: 0,
+    id: 4,
     title: "Au rendez-vous de la fraternité",
     date: "2026-03-01",
     category: "Événement",
@@ -59,6 +49,16 @@ const newsItems = [
       "Hamid Lafredi représentait Génération Diaspora à la 16ème édition du Ftour Pluriel à Casablanca — 180 invités réunis sous le signe de la Tamaghrabit. Un mot d'ordre : Fraternité.",
     imageSrc: "/images/events/ftour-pluriel-2026/main-ftour.jpg",
     href: "/news/ftour-pluriel-2026",
+  },
+  {
+    id: 5,
+    title: "Inspirer la réussite par le sport",
+    date: "2025-12-17",
+    category: "Webinaire",
+    excerpt:
+      "Webinaire avec Mustapha Hadji, légende du football marocain, et Ayoub Koutar. Persévérance, discipline, transmission : des conseils concrets pour les jeunes de la diaspora. Un mot d'ordre : Inspirer.",
+    imageSrc: "/images/events/webinaire-mustapha-hadji/poster.jpg",
+    href: "/news/webinaire-mustapha-hadji",
   },
 ];
 
