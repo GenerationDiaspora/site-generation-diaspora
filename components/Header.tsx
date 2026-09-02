@@ -3,11 +3,10 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
-import { Menu, X, Monitor } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [announcementVisible, setAnnouncementVisible] = useState(true);
 
   const navigation = [
     { name: "Accueil", href: "/" },
@@ -18,38 +17,6 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50">
-      {/* Barre d'annonce — Webinaire Retour Estival MRE */}
-      {announcementVisible && (
-        <div className="bg-gradient-to-r from-red-900 via-red-700 to-orange-700 text-white">
-          <div className="container mx-auto px-4 py-2 flex items-center justify-between gap-3">
-            <div className="flex items-center gap-2 min-w-0">
-              <Monitor className="w-4 h-4 flex-shrink-0 text-red-200" />
-              <p className="text-xs sm:text-sm font-medium truncate">
-                <span className="font-bold">Webinaire — Retour Estival des MRE</span>
-                <span className="hidden sm:inline text-white/80"> · Jeudi 25 Juin 2026 · 21h · Gratuit</span>
-              </p>
-            </div>
-            <div className="flex items-center gap-2 flex-shrink-0">
-              <Link
-                href="/news/webinaire-retour-mre#inscription"
-                className="bg-white text-red-900 text-xs font-bold px-3 py-1 rounded-full hover:bg-red-50 transition-colors whitespace-nowrap"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Je m&apos;inscris →
-              </Link>
-              <button
-                type="button"
-                aria-label="Fermer l'annonce"
-                onClick={() => setAnnouncementVisible(false)}
-                className="p-1 rounded-full hover:bg-white/20 transition-colors"
-              >
-                <X className="w-3.5 h-3.5" />
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-
       {/* Navbar principale */}
       <div className="shadow-sm" style={{ backgroundColor: '#F7F4EE' }}>
       <nav className="container mx-auto px-4">
