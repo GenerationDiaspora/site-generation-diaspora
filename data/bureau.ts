@@ -72,15 +72,7 @@ export const bureauLegal: BureauMember[] = [
   },
 ];
 
-export const conseillers: BureauMember[] = [
-  {
-    name: "Rhissam Boudina",
-    role: "Conseiller",
-    initials: "RB",
-    photo: "/images/membre-gd/Rhissam.Boudina.jpg",
-    availability: "2–4h/semaine",
-  },
-];
+export const conseillers: BureauMember[] = [];
 
 export const membres: Membre[] = [
   {
@@ -107,6 +99,11 @@ export const membres: Membre[] = [
     name: "Tarik Jaabouki",
     initials: "TJ",
     photo: "/images/membre-gd/Tarik.Jaabouki.jpg",
+  },
+  {
+    name: "Rhissam Boudina",
+    initials: "RB",
+    photo: "/images/membre-gd/Rhissam.Boudina.jpg",
   },
   {
     name: "Zirar",

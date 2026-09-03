@@ -249,15 +249,19 @@ export default function TeamShowcase({
               ))}
             </div>
 
-            {/* Conseillers */}
-            <TierDivider label="Conseillers" />
-            <div className="bg-white/60 rounded-3xl p-8 sm:p-10 ring-1 ring-gray-100">
-              <div className="flex flex-wrap justify-center gap-x-10 gap-y-10">
-                {conseil.map((member) => (
-                  <MemberTile key={member.name} member={member} size="sm" onOpen={openMember} />
-                ))}
-              </div>
-            </div>
+            {/* Conseillers — masqué si vide */}
+            {conseil.length > 0 && (
+              <>
+                <TierDivider label="Conseillers" />
+                <div className="bg-white/60 rounded-3xl p-8 sm:p-10 ring-1 ring-gray-100">
+                  <div className="flex flex-wrap justify-center gap-x-10 gap-y-10">
+                    {conseil.map((member) => (
+                      <MemberTile key={member.name} member={member} size="sm" onOpen={openMember} />
+                    ))}
+                  </div>
+                </div>
+              </>
+            )}
           </div>
         </div>
       </section>
