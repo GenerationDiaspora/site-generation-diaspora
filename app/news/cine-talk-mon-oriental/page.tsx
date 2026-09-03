@@ -11,10 +11,9 @@ export const metadata: Metadata = {
 };
 
 const galleryPhotos: { src: string; alt: string }[] = [
+  { src: "/images/events/cine-talk-mon-oriental/photo-3.jpg", alt: "Diaspora Ciné Talk — Débat avec le panel, écran Mon Oriental" },
   { src: "/images/events/cine-talk-mon-oriental/photo-1.jpg", alt: "Diaspora Ciné Talk — Photo de groupe" },
-  { src: "/images/events/cine-talk-mon-oriental/photo-2.jpg", alt: "Diaspora Ciné Talk — Rencontre avec Khalid Zaouche" },
-  { src: "/images/events/cine-talk-mon-oriental/photo-3.jpg", alt: "Diaspora Ciné Talk — Échanges dans la salle" },
-  { src: "/images/events/cine-talk-mon-oriental/photo-4.jpg", alt: "Diaspora Ciné Talk — Prise de parole Génération Diaspora" },
+  { src: "/images/events/cine-talk-mon-oriental/photo-2.jpg", alt: "Diaspora Ciné Talk — Accueil de Samira Sitail" },
 ];
 
 export default function CineTalkMonOrientalPage() {
@@ -34,8 +33,8 @@ export default function CineTalkMonOrientalPage() {
       {/* Cover image */}
       <div className="relative h-72 md:h-96 lg:h-[500px] mt-6 overflow-hidden bg-gradient-to-b from-amber-950 via-orange-900 to-amber-800">
         <Image
-          src="/images/events/cine-talk-mon-oriental/photo-1.jpg"
-          alt="Diaspora Ciné Talk — Mon Oriental"
+          src="/images/events/cine-talk-mon-oriental/photo-3.jpg"
+          alt="Diaspora Ciné Talk — Mon Oriental, débat avec le panel"
           fill
           className="object-cover"
           priority

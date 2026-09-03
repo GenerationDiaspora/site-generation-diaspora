@@ -37,7 +37,7 @@ const newsItems = [
     category: "Diaspora Ciné Talk",
     excerpt:
       "Premier événement physique de Génération Diaspora. Projection du film Mon Oriental de Khalid Zaouche, en présence de Samira Sitail, Ambassadeure du Maroc en France. Un mot d'ordre : Identité.",
-    imageSrc: "/images/events/cine-talk-mon-oriental/photo-1.jpg",
+    imageSrc: "/images/events/cine-talk-mon-oriental/photo-3.jpg",
     href: "/news/cine-talk-mon-oriental",
   },
   {

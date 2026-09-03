@@ -158,7 +158,7 @@ export default function Home() {
             <div className="bg-beige rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
               <div className="relative h-48 overflow-hidden bg-gradient-to-b from-amber-950 via-orange-900 to-amber-800">
                 <Image
-                  src="/images/events/cine-talk-mon-oriental/photo-1.jpg"
+                  src="/images/events/cine-talk-mon-oriental/photo-3.jpg"
                   alt="Diaspora Ciné Talk Mon Oriental"
                   fill
                   className="object-cover"
