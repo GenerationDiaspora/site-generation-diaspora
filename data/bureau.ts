@@ -48,7 +48,7 @@ export const bureauLegal: BureauMember[] = [
     description: "Support et coordination",
   },
   {
-    name: "Omar Walali Loudiyi",
+    name: "Omar Walali Loudyi",
     role: "Secrétaire Général",
     initials: "OW",
     photo: "/images/membre-gd/SecretaireGeneral.Omar.Walali.Loudiyi.jpg",
@@ -89,7 +89,7 @@ export const membres: Membre[] = [
     photo: "/images/membre-gd/PresidentDhonneur.Ahmed.Ghayat.jpg",
   },
   {
-    name: "Fady Aït Azza",
+    name: "Fady Ait Yazza",
     initials: "FA",
     photo: "/images/membre-gd/Fady.Aït.Azza.jpg",
   },
