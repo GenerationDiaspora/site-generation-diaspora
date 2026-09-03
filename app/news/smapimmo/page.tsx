@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, Calendar, MapPin } from "lucide-react";
 import GalleryLightbox from "@/components/GalleryLightbox";
@@ -9,7 +10,11 @@ export const metadata: Metadata = {
     "À l'occasion du SMAPIMMO, Génération Diaspora, Marocains Pluriels et TFT Maroc ont réuni un public nombreux autour du football marocain, du rôle de la diaspora et des perspectives d'avenir.",
 };
 
-const galleryPhotos: { src: string; alt: string }[] = [];
+const galleryPhotos: { src: string; alt: string }[] = [
+  { src: "/images/events/smapimmo/photo-1.jpg", alt: "Panel — Grande Rencontre du Foot marocain et de la diaspora" },
+  { src: "/images/events/smapimmo/photo-2.jpg", alt: "Espace conférences SMAPIMMO" },
+  { src: "/images/events/smapimmo/photo-3.jpg", alt: "Le public lors de la conférence-débat" },
+];
 
 const speakers = [
   { name: "Jawad El Hajri", role: "Intervenant — Monde sportif" },
@@ -33,9 +38,16 @@ export default function SmapimmoPage() {
         </Link>
       </div>
 
-      {/* Cover — gradient football Maroc */}
+      {/* Cover */}
       <div className="relative h-72 md:h-96 lg:h-[500px] mt-6 overflow-hidden bg-gradient-to-br from-green-950 via-red-900 to-green-950">
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+        <Image
+          src="/images/events/smapimmo/photo-1.jpg"
+          alt="Grande Rencontre du Foot marocain et de la diaspora — SMAPIMMO"
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
         <div className="absolute bottom-0 left-0 right-0 p-6 md:p-10">
           <div className="container mx-auto">
             <span className="bg-primary-600 text-white text-sm font-semibold px-3 py-1 rounded-full">

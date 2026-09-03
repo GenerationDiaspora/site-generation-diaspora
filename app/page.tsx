@@ -128,6 +128,12 @@ export default function Home() {
             {/* SMAPIMMO — Foot marocain & diaspora — Passé */}
             <div className="bg-beige rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
               <div className="relative h-48 overflow-hidden bg-gradient-to-br from-green-950 via-red-900 to-green-950">
+                <Image
+                  src="/images/events/smapimmo/photo-1.jpg"
+                  alt="Grande Rencontre du Foot marocain et de la diaspora"
+                  fill
+                  className="object-cover"
+                />
                 <div className="absolute top-3 left-3">
                   <span className="bg-gray-800/70 text-white text-xs font-semibold px-3 py-1 rounded-full">
                     13 juin 2026

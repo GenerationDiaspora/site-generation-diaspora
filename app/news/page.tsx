@@ -27,7 +27,7 @@ const newsItems = [
     category: "Conférence-débat",
     excerpt:
       "À l'occasion du SMAPIMMO, Génération Diaspora a co-organisé avec Marocains Pluriels et TFT Maroc un débat fédérateur autour du sport, de l'engagement et de l'avenir. Mobilisation, Transmission, Impact.",
-    gradient: "from-green-950 via-red-900 to-green-950",
+    imageSrc: "/images/events/smapimmo/photo-1.jpg",
     href: "/news/smapimmo",
   },
   {
