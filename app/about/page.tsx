@@ -13,11 +13,9 @@ import {
 import {
   presidentHonneur,
   bureauLegal,
-  postesOperationnels,
   conseillers,
   membres,
   roadmap2026,
-  stats,
 } from "@/data/bureau";
 import TeamShowcase from "@/components/about/TeamShowcase";
 
@@ -157,27 +155,10 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Chiffres clés */}
-      <section className="py-16 bg-primary-800">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            {stats.map((stat) => (
-              <div key={stat.label}>
-                <div className="text-4xl font-bold text-white mb-2">
-                  {stat.value}
-                </div>
-                <div className="text-primary-200 text-sm">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Notre Bureau & Nos Membres */}
       <TeamShowcase
         presidentHonneur={presidentHonneur}
         bureauLegal={bureauLegal}
-        postesOperationnels={postesOperationnels}
         conseillers={conseillers}
         membres={membres}
       />

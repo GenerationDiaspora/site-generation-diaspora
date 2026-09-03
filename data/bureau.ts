@@ -23,11 +23,6 @@ export interface RoadmapPhase {
   description: string;
 }
 
-export interface Stat {
-  label: string;
-  value: string;
-}
-
 // Bureau 2026
 
 export const presidentHonneur: BureauMember = {
@@ -77,25 +72,7 @@ export const bureauLegal: BureauMember[] = [
   },
 ];
 
-export const postesOperationnels: BureauMember[] = [
-  {
-    name: "Smaïn Qasimi",
-    role: "Responsable Événements",
-    initials: "SQ",
-    photo: "/images/membre-gd/Smaïn.Qasimi.jpg",
-    description: "Sport, Jeunesse, Éducation",
-    availability: "4–6h/semaine",
-  },
-];
-
 export const conseillers: BureauMember[] = [
-  {
-    name: "Tarik Jaabouki",
-    role: "Conseiller",
-    initials: "TJ",
-    photo: "/images/membre-gd/Tarik.Jaabouki.jpg",
-    availability: "< 1h/semaine",
-  },
   {
     name: "Rhissam Boudina",
     role: "Conseiller",
@@ -107,24 +84,39 @@ export const conseillers: BureauMember[] = [
 
 export const membres: Membre[] = [
   {
+    name: "Ahmed",
+    initials: "AH",
+    photo: "/images/membre-gd/avatar-placeholder.svg",
+  },
+  {
     name: "Fady Aït Azza",
     initials: "FA",
     photo: "/images/membre-gd/Fady.Aït.Azza.jpg",
   },
   {
-    name: "Joudi Jaoudi",
-    initials: "JJ",
-    photo: "/images/membre-gd/Joudi.Jaoudi.jpg",
-  },
-  {
-    name: "Zirar",
-    initials: "ZS",
-    photo: "/images/membre-gd/Zirar.Sizare.jpg",
+    name: "Hassan",
+    initials: "HS",
+    photo: "/images/membre-gd/avatar-placeholder.svg",
   },
   {
     name: "Manal Hanini",
     initials: "MH",
     photo: "/images/membre-gd/Manal.HANINI.jpg",
+  },
+  {
+    name: "Smaïn Qasimi",
+    initials: "SQ",
+    photo: "/images/membre-gd/Smaïn.Qasimi.jpg",
+  },
+  {
+    name: "Tarik Jaabouki",
+    initials: "TJ",
+    photo: "/images/membre-gd/Tarik.Jaabouki.jpg",
+  },
+  {
+    name: "Zirar",
+    initials: "ZS",
+    photo: "/images/membre-gd/Zirar.Sizare.jpg",
   },
 ];
 
@@ -153,11 +145,4 @@ export const roadmap2026: RoadmapPhase[] = [
     description:
       "Lancement de la plateforme numérique de Génération Diaspora : un espace centralisé pour connecter les membres, accéder aux ressources, suivre les projets et renforcer l'impact collectif de la diaspora marocaine.",
   },
-];
-
-export const stats: Stat[] = [
-  { label: "Membres", value: "13" },
-  { label: "Candidatures bureau", value: "8" },
-  { label: "Postes pourvus", value: "6" },
-  { label: "Engagement", value: "100%" },
 ];

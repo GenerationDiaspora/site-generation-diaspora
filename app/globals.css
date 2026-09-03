@@ -19,3 +19,12 @@ body {
   }
 }
 
+@keyframes tricolor-slide {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.animate-tricolor {
+  animation: tricolor-slide 3s linear infinite;
+}
+

@@ -5,7 +5,7 @@ import Image from "next/image";
 import { Maximize2, X } from "lucide-react";
 import type { BureauMember, Membre } from "@/data/bureau";
 
-type Tier = "honneur" | "legal" | "operationnel" | "conseiller" | "membre";
+type Tier = "honneur" | "legal" | "conseiller" | "membre";
 
 interface DisplayMember {
   name: string;
@@ -18,7 +18,6 @@ interface DisplayMember {
 interface TeamShowcaseProps {
   presidentHonneur: BureauMember;
   bureauLegal: BureauMember[];
-  postesOperationnels: BureauMember[];
   conseillers: BureauMember[];
   membres: Membre[];
 }
@@ -26,7 +25,6 @@ interface TeamShowcaseProps {
 const ROLE_TEXT: Record<Tier, string> = {
   honneur: "text-gold-600",
   legal: "text-primary-600",
-  operationnel: "text-primary-600",
   conseiller: "text-secondary-600",
   membre: "text-gray-500",
 };
@@ -34,7 +32,6 @@ const ROLE_TEXT: Record<Tier, string> = {
 const RING_HOVER: Record<Tier, string> = {
   honneur: "group-hover:ring-gold-500",
   legal: "group-hover:ring-primary-500/70",
-  operationnel: "group-hover:ring-primary-500/70",
   conseiller: "group-hover:ring-secondary-500/70",
   membre: "group-hover:ring-gray-400/70",
 };
@@ -42,7 +39,6 @@ const RING_HOVER: Record<Tier, string> = {
 const RING_IDLE: Record<Tier, string> = {
   honneur: "ring-gold-300/70",
   legal: "ring-transparent",
-  operationnel: "ring-transparent",
   conseiller: "ring-transparent",
   membre: "ring-transparent",
 };
@@ -204,7 +200,6 @@ function MemberModal({
 export default function TeamShowcase({
   presidentHonneur,
   bureauLegal,
-  postesOperationnels,
   conseillers,
   membres,
 }: TeamShowcaseProps) {
@@ -223,11 +218,10 @@ export default function TeamShowcase({
 
   const honneur: DisplayMember = { ...presidentHonneur, tier: "honneur" };
   const legal: DisplayMember[] = bureauLegal.map((m) => ({ ...m, tier: "legal" }));
-  const operationnel: DisplayMember[] = postesOperationnels.map((m) => ({ ...m, tier: "operationnel" }));
   const conseil: DisplayMember[] = conseillers.map((m) => ({ ...m, tier: "conseiller" }));
   const simples: DisplayMember[] = membres.map((m) => ({ ...m, tier: "membre" }));
 
-  const totalMembres = 1 + legal.length + operationnel.length + conseil.length + simples.length;
+  const totalMembres = 1 + legal.length + conseil.length + simples.length;
 
   return (
     <>
@@ -260,14 +254,6 @@ export default function TeamShowcase({
                   size={member.role === "Président" ? "lg" : "md"}
                   onOpen={openMember}
                 />
-              ))}
-            </div>
-
-            {/* Poste opérationnel */}
-            <TierDivider label="Poste opérationnel" />
-            <div className="flex flex-wrap justify-center gap-x-8 sm:gap-x-12 gap-y-12 mb-16 md:mb-20">
-              {operationnel.map((member) => (
-                <MemberTile key={member.name} member={member} size="md" onOpen={openMember} />
               ))}
             </div>
 

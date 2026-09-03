@@ -13,6 +13,7 @@ export default function Header() {
     { name: "À propos", href: "/about" },
     { name: "Actualités", href: "/news" },
     { name: "Contact", href: "/contact" },
+    { name: "Rejoindre", href: "/rejoindre" },
   ];
 
   return (

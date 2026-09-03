@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import TricolorBanner from "@/components/TricolorBanner";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/next";
 
@@ -43,6 +44,7 @@ export default function RootLayout({
       </head>
       <body className={`${inter.variable} font-sans antialiased`}>
         <Header />
+        <TricolorBanner />
         <main className="min-h-screen">{children}</main>
         <Footer />
         <SpeedInsights />
