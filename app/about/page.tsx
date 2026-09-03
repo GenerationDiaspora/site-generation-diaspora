@@ -11,7 +11,6 @@ import {
   Calendar,
 } from "lucide-react";
 import {
-  presidentHonneur,
   bureauLegal,
   conseillers,
   membres,
@@ -157,7 +156,6 @@ export default function AboutPage() {
 
       {/* Notre Bureau & Nos Membres */}
       <TeamShowcase
-        presidentHonneur={presidentHonneur}
         bureauLegal={bureauLegal}
         conseillers={conseillers}
         membres={membres}

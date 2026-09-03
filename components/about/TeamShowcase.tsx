@@ -16,7 +16,6 @@ interface DisplayMember {
 }
 
 interface TeamShowcaseProps {
-  presidentHonneur: BureauMember;
   bureauLegal: BureauMember[];
   conseillers: BureauMember[];
   membres: Membre[];
@@ -198,7 +197,6 @@ function MemberModal({
 }
 
 export default function TeamShowcase({
-  presidentHonneur,
   bureauLegal,
   conseillers,
   membres,
@@ -216,12 +214,11 @@ export default function TeamShowcase({
     lastTrigger.current?.focus();
   }, []);
 
-  const honneur: DisplayMember = { ...presidentHonneur, tier: "honneur" };
   const legal: DisplayMember[] = bureauLegal.map((m) => ({ ...m, tier: "legal" }));
   const conseil: DisplayMember[] = conseillers.map((m) => ({ ...m, tier: "conseiller" }));
   const simples: DisplayMember[] = membres.map((m) => ({ ...m, tier: "membre" }));
 
-  const totalMembres = 1 + legal.length + conseil.length + simples.length;
+  const totalMembres = legal.length + conseil.length + simples.length;
 
   return (
     <>
@@ -237,11 +234,6 @@ export default function TeamShowcase({
               <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
                 Une équipe renouvelée, engagée et passionnée au service de la jeunesse marocaine
               </p>
-            </div>
-
-            {/* Parrain & Président d'honneur */}
-            <div className="flex justify-center mb-16 md:mb-20">
-              <MemberTile member={honneur} size="xl" onOpen={openMember} />
             </div>
 
             {/* Bureau légal */}
