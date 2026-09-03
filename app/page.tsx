@@ -125,11 +125,34 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Diaspora Ciné Talk — Passé */}
+            {/* SMAPIMMO — Foot marocain & diaspora — Passé */}
+            <div className="bg-beige rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+              <div className="relative h-48 overflow-hidden bg-gradient-to-br from-green-950 via-red-900 to-green-950">
+                <div className="absolute top-3 left-3">
+                  <span className="bg-gray-800/70 text-white text-xs font-semibold px-3 py-1 rounded-full">
+                    13 juin 2026
+                  </span>
+                </div>
+              </div>
+              <div className="p-6">
+                <span className="text-xs font-semibold text-primary-600 uppercase tracking-wide">Conférence-débat</span>
+                <h3 className="text-xl font-bold mt-1 mb-3 text-gray-900">
+                  Grande Rencontre du Foot marocain et de la diaspora
+                </h3>
+                <p className="text-gray-600 mb-4 text-sm">
+                  Au SMAPIMMO, avec Marocains Pluriels et TFT Maroc. Un débat fédérateur autour du sport, de l&apos;engagement et de l&apos;avenir.
+                </p>
+                <Link href="/news/smapimmo" className="text-primary-600 font-semibold hover:text-primary-700 inline-flex items-center gap-1">
+                  Voir l&apos;événement <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+            </div>
+
+            {/* Diaspora Ciné Talk */}
             <div className="bg-beige rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
               <div className="relative h-48 overflow-hidden bg-gradient-to-b from-amber-950 via-orange-900 to-amber-800">
                 <Image
-                  src="/images/events/cine-talk-mon-oriental/poster.webp"
+                  src="/images/events/cine-talk-mon-oriental/photo-1.jpg"
                   alt="Diaspora Ciné Talk Mon Oriental"
                   fill
                   className="object-cover"
@@ -146,38 +169,9 @@ export default function Home() {
                   Mon Oriental — Entre mémoire et identité
                 </h3>
                 <p className="text-gray-600 mb-4 text-sm">
-                  Projection & débat du film de Khalid Zaouche. En sa présence, à Paris.
+                  Projection & débat du film de Khalid Zaouche. En présence de Samira Sitail, Ambassadeure du Maroc en France.
                 </p>
                 <Link href="/news/cine-talk-mon-oriental" className="text-primary-600 font-semibold hover:text-primary-700 inline-flex items-center gap-1">
-                  Voir l&apos;événement <ArrowRight className="w-4 h-4" />
-                </Link>
-              </div>
-            </div>
-
-            {/* Ftour Pluriel */}
-            <div className="bg-beige rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-              <div className="relative h-48 overflow-hidden">
-                <Image
-                  src="/images/events/ftour-pluriel-2026/main-ftour.jpg"
-                  alt="Ftour Pluriel 2026"
-                  fill
-                  className="object-cover"
-                />
-                <div className="absolute top-3 left-3">
-                  <span className="bg-gray-800/70 text-white text-xs font-semibold px-3 py-1 rounded-full">
-                    1 mars 2026
-                  </span>
-                </div>
-              </div>
-              <div className="p-6">
-                <span className="text-xs font-semibold text-primary-600 uppercase tracking-wide">Événement</span>
-                <h3 className="text-xl font-bold mt-1 mb-3 text-gray-900">
-                  Génération Diaspora au Ftour Pluriel — 16ème édition
-                </h3>
-                <p className="text-gray-600 mb-4 text-sm">
-                  180 invités réunis à Casablanca pour célébrer la jeunesse marocaine et le vivre-ensemble.
-                </p>
-                <Link href="/news/ftour-pluriel-2026" className="text-primary-600 font-semibold hover:text-primary-700 inline-flex items-center gap-1">
                   Voir l&apos;événement <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>

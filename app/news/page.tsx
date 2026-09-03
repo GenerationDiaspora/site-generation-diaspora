@@ -22,6 +22,16 @@ const newsItems = [
   },
   {
     id: 2,
+    title: "Grande Rencontre du Foot marocain et de la diaspora",
+    date: "2026-06-13",
+    category: "Conférence-débat",
+    excerpt:
+      "À l'occasion du SMAPIMMO, Génération Diaspora a co-organisé avec Marocains Pluriels et TFT Maroc un débat fédérateur autour du sport, de l'engagement et de l'avenir. Mobilisation, Transmission, Impact.",
+    gradient: "from-green-950 via-red-900 to-green-950",
+    href: "/news/smapimmo",
+  },
+  {
+    id: 3,
     title: "Diaspora Ciné Talk : quand l'identité prend vie à l'écran",
     date: "2026-05-10",
     category: "Diaspora Ciné Talk",
@@ -31,7 +41,7 @@ const newsItems = [
     href: "/news/cine-talk-mon-oriental",
   },
   {
-    id: 3,
+    id: 4,
     title: "Fédérer notre jeunesse",
     date: "2026-03-26",
     category: "Webinaire",
@@ -41,7 +51,7 @@ const newsItems = [
     href: "/news/webinaire-diaspora-mars-2026",
   },
   {
-    id: 4,
+    id: 5,
     title: "Au rendez-vous de la fraternité",
     date: "2026-03-01",
     category: "Événement",
@@ -51,7 +61,7 @@ const newsItems = [
     href: "/news/ftour-pluriel-2026",
   },
   {
-    id: 5,
+    id: 6,
     title: "Inspirer la réussite par le sport",
     date: "2025-12-17",
     category: "Webinaire",
