@@ -84,9 +84,9 @@ export const conseillers: BureauMember[] = [
 
 export const membres: Membre[] = [
   {
-    name: "Ahmed",
-    initials: "AH",
-    photo: "/images/membre-gd/avatar-placeholder.svg",
+    name: "Ahmed Ghayat",
+    initials: "AG",
+    photo: "/images/membre-gd/PresidentDhonneur.Ahmed.Ghayat.jpg",
   },
   {
     name: "Fady Aït Azza",
