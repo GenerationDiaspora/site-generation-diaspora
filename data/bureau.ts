@@ -94,11 +94,6 @@ export const membres: Membre[] = [
     photo: "/images/membre-gd/Fady.Aït.Azza.jpg",
   },
   {
-    name: "Hassan",
-    initials: "HS",
-    photo: "/images/membre-gd/avatar-placeholder.svg",
-  },
-  {
     name: "Manal Hanini",
     initials: "MH",
     photo: "/images/membre-gd/Manal.HANINI.jpg",
