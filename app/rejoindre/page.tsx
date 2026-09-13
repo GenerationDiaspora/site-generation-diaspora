@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import { Users, Heart, Globe } from "lucide-react";
+import CandidatureForm from "@/components/rejoindre/CandidatureForm";
 
 export const metadata: Metadata = {
   title: "Rejoindre Génération Diaspora",
@@ -59,41 +60,19 @@ export default function RejoindreGDPage() {
         </div>
       </section>
 
-      {/* Formulaire Google */}
-      <section className="pb-20">
+      {/* Formulaire */}
+      <section className="pb-24">
         <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto">
+          <div className="max-w-2xl mx-auto">
             <h2 className="text-2xl font-bold text-gray-900 mb-2 text-center">
               Ta candidature
             </h2>
             <p className="text-gray-500 text-center mb-8 text-sm">
               Quelques minutes suffisent pour nous rejoindre.
             </p>
-            <div className="bg-white rounded-2xl shadow-sm overflow-hidden">
-              <iframe
-                src="https://docs.google.com/forms/d/e/1FAIpQLSdnvJvqxliSOzEyfJ2An2E2cwhxxtYn_Fcy50YnYLckY9un4A/viewform?embedded=true"
-                width="100%"
-                height="900"
-                frameBorder="0"
-                marginHeight={0}
-                marginWidth={0}
-                title="Formulaire de candidature Génération Diaspora"
-              >
-                Chargement du formulaire…
-              </iframe>
+            <div className="bg-white rounded-2xl shadow-sm p-8 sm:p-10">
+              <CandidatureForm />
             </div>
-            <p className="text-xs text-gray-400 text-center mt-4">
-              Si le formulaire ne s&apos;affiche pas,{" "}
-              <a
-                href="https://forms.gle/dcqgSv1uUKB5re9m9"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-primary-600 underline"
-              >
-                cliquez ici pour y accéder directement
-              </a>
-              .
-            </p>
           </div>
         </div>
       </section>

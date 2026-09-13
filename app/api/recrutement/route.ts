@@ -1,60 +1,109 @@
 import { NextResponse } from "next/server";
 
+function escHtml(s: string) {
+  return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+}
+
+function row(label: string, value: string | undefined) {
+  if (!value) return "";
+  return `<tr><td style="padding:6px 12px;font-weight:600;color:#374151;white-space:nowrap;vertical-align:top">${escHtml(label)}</td><td style="padding:6px 12px;color:#111827">${escHtml(value)}</td></tr>`;
+}
+
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { prenom, nom, email, ville, telephone, competences, motivation } = body;
+    const {
+      nomComplet,
+      email,
+      anneeNaissance,
+      villeResidence,
+      nationalite,
+      villeOrigineMaroc,
+      telephone,
+      linkedin,
+      reseauxSociaux,
+      situation,
+      formation,
+      profession,
+    } = body;
 
-    if (!prenom || !nom || !email || !email.includes("@") || !ville) {
-      return NextResponse.json({ error: "Champs obligatoires manquants" }, { status: 400 });
+    const requiredFields = { nomComplet, email, anneeNaissance, villeResidence, nationalite, villeOrigineMaroc, telephone, situation };
+    const missing = Object.entries(requiredFields).filter(([, v]) => !v || !String(v).trim());
+    if (missing.length > 0 || !email.includes("@")) {
+      return NextResponse.json({ error: "Champs obligatoires manquants ou email invalide" }, { status: 400 });
     }
 
     const apiKey = process.env.NEXT_PUBLIC_BREVO_API_KEY;
-    if (apiKey) {
-      // Créer/mettre à jour le contact Brevo avec ses infos
-      await fetch("https://api.brevo.com/v3/contacts", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "api-key": apiKey,
-        },
-        body: JSON.stringify({
-          email,
-          attributes: {
-            PRENOM: prenom,
-            NOM: nom,
-            VILLE: ville,
-            SMS: telephone || "",
-          },
-          listIds: [parseInt(process.env.BREVO_RECRUTEMENT_LIST_ID || "14")],
-          updateEnabled: true,
-        }),
-      });
-
-      // Envoyer un email de notification à l'association
-      await fetch("https://api.brevo.com/v3/smtp/email", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "api-key": apiKey,
-        },
-        body: JSON.stringify({
-          sender: { name: "Génération Diaspora", email: "contact@generationdiaspora.com" },
-          to: [{ email: "contact@generationdiaspora.com", name: "Génération Diaspora" }],
-          subject: `Nouvelle candidature — ${prenom} ${nom}`,
-          htmlContent: `
-            <h2>Nouvelle candidature reçue</h2>
-            <p><strong>Prénom :</strong> ${prenom}</p>
-            <p><strong>Nom :</strong> ${nom}</p>
-            <p><strong>Email :</strong> ${email}</p>
-            <p><strong>Ville :</strong> ${ville}</p>
-            ${telephone ? `<p><strong>Téléphone :</strong> ${telephone}</p>` : ""}
-            ${competences ? `<p><strong>Compétences / Domaines :</strong> ${competences}</p>` : ""}
-            ${motivation ? `<p><strong>Motivation :</strong> ${motivation}</p>` : ""}
-          `,
-        }),
-      });
+    if (!apiKey) {
+      return NextResponse.json({ error: "Configuration Brevo manquante" }, { status: 500 });
     }
+
+    // Sépare prénom / nom sur le premier espace pour Brevo
+    const spaceIdx = nomComplet.trim().indexOf(" ");
+    const prenom = spaceIdx > 0 ? nomComplet.slice(0, spaceIdx) : nomComplet;
+    const nom = spaceIdx > 0 ? nomComplet.slice(spaceIdx + 1) : "";
+
+    // 1. Créer / mettre à jour le contact Brevo
+    await fetch("https://api.brevo.com/v3/contacts", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "api-key": apiKey },
+      body: JSON.stringify({
+        email,
+        attributes: {
+          PRENOM: prenom,
+          NOM: nom,
+          SMS: telephone,
+          ANNEE_NAISSANCE: String(anneeNaissance),
+          VILLE_RESIDENCE: villeResidence,
+          NATIONALITE: nationalite,
+          VILLE_ORIGINE_MAROC: villeOrigineMaroc,
+          LINKEDIN: linkedin || "",
+          RESEAUX_SOCIAUX: reseauxSociaux || "",
+          SITUATION: situation,
+          FORMATION: formation || "",
+          PROFESSION: profession || "",
+        },
+        listIds: [parseInt(process.env.BREVO_RECRUTEMENT_LIST_ID || "14")],
+        updateEnabled: true,
+      }),
+    });
+
+    // 2. Email de notification
+    const htmlContent = `
+      <div style="font-family:Inter,sans-serif;max-width:600px;margin:0 auto;background:#f9fafb;padding:32px 24px;border-radius:12px">
+        <div style="background:#0B5D3B;padding:20px 24px;border-radius:8px 8px 0 0;margin:-32px -24px 24px">
+          <h1 style="margin:0;color:#fff;font-size:20px;font-weight:700">Nouvelle candidature — Génération Diaspora</h1>
+        </div>
+        <table style="width:100%;border-collapse:collapse;background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.08)">
+          <tbody>
+            ${row("Nom complet", nomComplet)}
+            ${row("Email", email)}
+            ${row("Année de naissance", String(anneeNaissance))}
+            ${row("Téléphone", telephone)}
+            ${row("Ville & pays", villeResidence)}
+            ${row("Origine Maroc", villeOrigineMaroc)}
+            ${row("Nationalité(s)", nationalite)}
+            ${row("Situation", situation)}
+            ${row("Formation", formation)}
+            ${row("Profession", profession)}
+            ${row("LinkedIn", linkedin)}
+            ${row("Réseaux sociaux", reseauxSociaux)}
+          </tbody>
+        </table>
+        <p style="margin-top:24px;font-size:12px;color:#9ca3af;text-align:center">Candidature reçue via generationdiaspora.com</p>
+      </div>
+    `;
+
+    await fetch("https://api.brevo.com/v3/smtp/email", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "api-key": apiKey },
+      body: JSON.stringify({
+        sender: { name: "Génération Diaspora", email: "contact@generationdiaspora.com" },
+        to: [{ email: "contact@generationdiaspora.com", name: "Génération Diaspora" }],
+        subject: `Nouvelle candidature — ${nomComplet}`,
+        htmlContent,
+      }),
+    });
 
     return NextResponse.json({ message: "Candidature reçue" }, { status: 200 });
   } catch (error) {
