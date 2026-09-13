@@ -55,13 +55,13 @@ export default function TeamCarousel() {
 
         {/* Carousel */}
         <div
-          className="relative max-w-5xl mx-auto"
+          className="relative max-w-6xl mx-auto"
           onMouseEnter={() => setPaused(true)}
           onMouseLeave={() => setPaused(false)}
         >
           {/* Slide */}
           <div className="relative w-full rounded-2xl overflow-hidden shadow-2xl bg-white"
-            style={{ aspectRatio: "16/6.5" }}>
+            style={{ aspectRatio: "16/9" }}>
             {SLIDES.map((slide, i) => (
               <div
                 key={slide.src}
