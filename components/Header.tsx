@@ -24,12 +24,12 @@ export default function Header() {
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center group">
-            <div className="relative w-28 h-28">
+            <div className="relative w-20 h-20">
               <Image
                 src="/logo.png"
                 alt="Logo Génération Diaspora"
-                width={112}
-                height={112}
+                width={80}
+                height={80}
                 className="object-contain transition-transform"
               />
             </div>

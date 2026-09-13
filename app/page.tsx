@@ -10,7 +10,7 @@ export default function Home() {
       <section className="bg-gradient-to-br from-primary-600 to-primary-800 text-white">
         <div className="container mx-auto px-4 py-20 md:py-32">
           <div className="flex flex-col items-center text-center">
-            <div className="mb-8 relative w-48 h-48 md:w-64 md:h-64">
+            <div className="mb-2 relative w-48 h-48 md:w-64 md:h-64">
               <Image
                 src="/logo-white.png"
                 alt="Logo Génération Diaspora"
