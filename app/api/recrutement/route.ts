@@ -44,7 +44,9 @@ export async function POST(request: Request) {
     const nom = spaceIdx > 0 ? nomComplet.slice(spaceIdx + 1) : "";
 
     // 1. Créer / mettre à jour le contact Brevo
-    await fetch("https://api.brevo.com/v3/contacts", {
+    // On n'utilise que les attributs standards Brevo pour éviter les erreurs
+    // si les attributs custom ne sont pas encore créés dans le compte
+    const brevoRes = await fetch("https://api.brevo.com/v3/contacts", {
       method: "POST",
       headers: { "Content-Type": "application/json", "api-key": apiKey },
       body: JSON.stringify({
@@ -53,20 +55,20 @@ export async function POST(request: Request) {
           PRENOM: prenom,
           NOM: nom,
           SMS: telephone,
-          ANNEE_NAISSANCE: String(anneeNaissance),
-          VILLE_RESIDENCE: villeResidence,
-          NATIONALITE: nationalite,
-          VILLE_ORIGINE_MAROC: villeOrigineMaroc,
-          LINKEDIN: linkedin || "",
-          RESEAUX_SOCIAUX: reseauxSociaux || "",
-          SITUATION: situation,
-          FORMATION: formation || "",
-          PROFESSION: profession || "",
         },
-        listIds: [parseInt(process.env.BREVO_RECRUTEMENT_LIST_ID || "14")],
         updateEnabled: true,
       }),
     });
+
+    // Si une liste de recrutement est configurée, on l'ajoute séparément
+    const listId = parseInt(process.env.BREVO_RECRUTEMENT_LIST_ID || "0");
+    if (listId > 0 && (brevoRes.ok || brevoRes.status === 204)) {
+      await fetch(`https://api.brevo.com/v3/contacts/lists/${listId}/contacts/add`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "api-key": apiKey },
+        body: JSON.stringify({ emails: [email] }),
+      });
+    }
 
     // 2. Email de notification
     const htmlContent = `
