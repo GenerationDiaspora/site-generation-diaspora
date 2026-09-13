@@ -31,12 +31,12 @@ export default function Footer() {
           {/* Logo et description */}
           <div className="md:col-span-2">
             <Link href="/" className="flex items-center gap-3 mb-4 group">
-              <div className="relative w-16 h-16 flex-shrink-0 group-hover:opacity-80 transition-opacity">
+              <div className="relative w-24 h-24 flex-shrink-0 group-hover:opacity-80 transition-opacity">
                 <Image
                   src="/logo-white-footer.png"
                   alt="Logo Génération Diaspora"
-                  width={64}
-                  height={64}
+                  width={96}
+                  height={96}
                   className="object-contain"
                 />
               </div>
