@@ -10,12 +10,12 @@ export default function Home() {
       <section className="bg-gradient-to-br from-primary-600 to-primary-800 text-white">
         <div className="container mx-auto px-4 py-20 md:py-32">
           <div className="flex flex-col items-center text-center">
-            <div className="mb-8 relative w-32 h-32 md:w-40 md:h-40 rounded-3xl overflow-hidden p-3" style={{ backgroundColor: '#F7F4EE' }}>
+            <div className="mb-8 relative w-36 h-36 md:w-48 md:h-48">
               <Image
-                src="/logo.png"
+                src="/logo-white.png"
                 alt="Logo Génération Diaspora"
-                width={160}
-                height={160}
+                width={192}
+                height={192}
                 className="object-contain"
                 priority
               />

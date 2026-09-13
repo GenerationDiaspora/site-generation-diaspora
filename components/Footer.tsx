@@ -30,10 +30,10 @@ export default function Footer() {
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           {/* Logo et description */}
           <div className="md:col-span-2">
-            <Link href="/" className="flex items-center gap-3 mb-4">
-              <div className="relative w-20 h-20 rounded-2xl overflow-hidden p-2 hover:opacity-90 transition-all" style={{ backgroundColor: '#F7F4EE' }}>
+            <Link href="/" className="flex items-center gap-3 mb-4 group">
+              <div className="relative w-16 h-16 flex-shrink-0 group-hover:opacity-80 transition-opacity">
                 <Image
-                  src="/logo.png"
+                  src="/logo-white-footer.png"
                   alt="Logo Génération Diaspora"
                   width={64}
                   height={64}
