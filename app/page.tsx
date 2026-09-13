@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Users, Heart, Globe } from "lucide-react";
 import Newsletter from "@/components/Newsletter";
+import TeamCarousel from "@/components/home/TeamCarousel";
 
 export default function Home() {
   return (
@@ -192,43 +193,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* About Preview Section */}
-      <section className="py-20 bg-beige">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900">
-                À propos de nous
-              </h2>
-              <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                Créée le 6 septembre 2025 conformément à la loi française du 1er juillet 1901,
-                Génération Diaspora est née d'une dynamique citoyenne et collective. Notre association
-                ambitionne de devenir une plateforme durable de mobilisation, de créativité et de solidarité.
-              </p>
-              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                Nous souhaitons contribuer à l'émergence d'une génération engagée, responsable et fière de son héritage,
-                pleinement intégrée dans son présent et tournée vers l'avenir, tout en favorisant le rapprochement
-                entre les deux rives de la Méditerranée.
-              </p>
-              <Link
-                href="/about"
-                className="inline-flex items-center gap-2 bg-primary-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-700 transition-colors"
-              >
-                Découvrir notre histoire
-                <ArrowRight className="w-5 h-5" />
-              </Link>
-            </div>
-            <div className="relative h-96 rounded-2xl overflow-hidden shadow-2xl">
-              <Image
-                src="/images/about/team.jpg"
-                alt="L'équipe Génération Diaspora"
-                fill
-                className="object-cover"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+      <TeamCarousel />
 
       {/* Newsletter Section */}
       <section id="newsletter" className="py-20 bg-gradient-to-br from-primary-600 to-primary-800">
