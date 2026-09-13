@@ -47,7 +47,12 @@ export default function TeamCarousel() {
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Ils font Génération Diaspora</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+            Ils font{" "}
+            <span className="text-primary-600">Génération</span>
+            {" "}
+            <span className="text-secondary-600">Diaspora</span>
+          </h2>
         </div>
 
         {/* Carousel */}
