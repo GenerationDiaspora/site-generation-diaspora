@@ -21,6 +21,8 @@ interface TeamShowcaseProps {
   membres: Membre[];
 }
 
+// conseillers and membres kept in props for future use
+
 const ROLE_TEXT: Record<Tier, string> = {
   honneur: "text-gold-600",
   legal: "text-primary-600",
@@ -215,14 +217,10 @@ export default function TeamShowcase({
   }, []);
 
   const legal: DisplayMember[] = bureauLegal.map((m) => ({ ...m, tier: "legal" }));
-  const conseil: DisplayMember[] = conseillers.map((m) => ({ ...m, tier: "conseiller" }));
-  const simples: DisplayMember[] = membres.map((m) => ({ ...m, tier: "membre" }));
-
-  const totalMembres = legal.length + conseil.length + simples.length;
 
   return (
     <>
-      {/* Notre Bureau */}
+      {/* Notre Bureau — tous les membres */}
       <section className="py-20 md:py-28">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
@@ -232,13 +230,11 @@ export default function TeamShowcase({
               </span>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Notre Bureau</h2>
               <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
-                Une équipe renouvelée, engagée et passionnée au service de la jeunesse marocaine
+                Une équipe engagée et passionnée au service de la jeunesse marocaine
               </p>
             </div>
 
-            {/* Bureau légal */}
-            <TierDivider label="Bureau légal" />
-            <div className="flex flex-wrap justify-center gap-x-8 sm:gap-x-12 gap-y-12 mb-16 md:mb-20">
+            <div className="flex flex-wrap justify-center gap-x-8 sm:gap-x-12 gap-y-12">
               {legal.map((member) => (
                 <MemberTile
                   key={member.name}
@@ -246,40 +242,6 @@ export default function TeamShowcase({
                   size={member.role === "Président" ? "lg" : "md"}
                   onOpen={openMember}
                 />
-              ))}
-            </div>
-
-            {/* Conseillers — masqué si vide */}
-            {conseil.length > 0 && (
-              <>
-                <TierDivider label="Conseillers" />
-                <div className="bg-white/60 rounded-3xl p-8 sm:p-10 ring-1 ring-gray-100">
-                  <div className="flex flex-wrap justify-center gap-x-10 gap-y-10">
-                    {conseil.map((member) => (
-                      <MemberTile key={member.name} member={member} size="sm" onOpen={openMember} />
-                    ))}
-                  </div>
-                </div>
-              </>
-            )}
-          </div>
-        </div>
-      </section>
-
-      {/* Nos Membres */}
-      <section className="py-20 md:py-24 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-5xl mx-auto text-center">
-            <span className="inline-block text-xs font-semibold tracking-[0.2em] uppercase text-primary-600 mb-3">
-              La communauté
-            </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Nos Membres</h2>
-            <p className="mt-4 mb-14 text-gray-600">
-              {totalMembres} membres engagés pour faire rayonner la diaspora marocaine
-            </p>
-            <div className="flex flex-wrap justify-center gap-x-10 gap-y-10">
-              {simples.map((member) => (
-                <MemberTile key={member.name} member={member} size="md" onOpen={openMember} />
               ))}
             </div>
           </div>
