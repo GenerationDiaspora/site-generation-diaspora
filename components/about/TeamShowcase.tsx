@@ -217,6 +217,9 @@ export default function TeamShowcase({
   }, []);
 
   const legal: DisplayMember[] = bureauLegal.map((m) => ({ ...m, tier: "legal" }));
+  const topRoles = ["Président", "Président d'honneur"];
+  const topMembers = legal.filter((m) => topRoles.includes(m.role ?? ""));
+  const restMembers = legal.filter((m) => !topRoles.includes(m.role ?? ""));
 
   return (
     <>
@@ -234,14 +237,17 @@ export default function TeamShowcase({
               </p>
             </div>
 
+            {/* Président et Président d'honneur — rangée du haut */}
+            <div className="flex flex-wrap justify-center gap-x-12 sm:gap-x-20 gap-y-12 mb-16 md:mb-20">
+              {topMembers.map((member) => (
+                <MemberTile key={member.name} member={member} size="lg" onOpen={openMember} />
+              ))}
+            </div>
+
+            {/* Tous les autres membres */}
             <div className="flex flex-wrap justify-center gap-x-8 sm:gap-x-12 gap-y-12">
-              {legal.map((member) => (
-                <MemberTile
-                  key={member.name}
-                  member={member}
-                  size={member.role === "Président" ? "lg" : "md"}
-                  onOpen={openMember}
-                />
+              {restMembers.map((member) => (
+                <MemberTile key={member.name} member={member} size="md" onOpen={openMember} />
               ))}
             </div>
           </div>

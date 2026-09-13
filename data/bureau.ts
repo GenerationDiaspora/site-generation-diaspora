@@ -34,17 +34,17 @@ export const presidentHonneur: BureauMember = {
 
 export const bureauLegal: BureauMember[] = [
   {
-    name: "Ahmed Ghayat",
-    role: "Président d'honneur",
-    initials: "AG",
-    photo: "/images/membre-gd/PresidentDhonneur.Ahmed.Ghayat.jpg",
-  },
-  {
     name: "Hamid Lafredi",
     role: "Président",
     initials: "HL",
     photo: "/images/membre-gd/President.Hamid.Lafredi.jpg",
     description: "Direction stratégique et représentation",
+  },
+  {
+    name: "Ahmed Ghayat",
+    role: "Président d'honneur",
+    initials: "AG",
+    photo: "/images/membre-gd/PresidentDhonneur.Ahmed.Ghayat.jpg",
   },
   {
     name: "Morad Fadil",
