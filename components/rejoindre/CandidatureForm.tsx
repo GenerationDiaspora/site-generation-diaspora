@@ -132,7 +132,7 @@ export default function CandidatureForm() {
           <input
             type="text"
             required
-            placeholder="Ex : Youness Drissi"
+            placeholder="Ex : Sara Benali"
             value={form.nomComplet}
             onChange={set("nomComplet")}
             className={inputCls}
