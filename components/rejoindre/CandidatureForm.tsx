@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { CheckCircle, Loader2 } from "lucide-react";
 
 const SITUATIONS = [
@@ -73,6 +73,9 @@ export default function CandidatureForm() {
   const [form, setForm] = useState<FormData>(EMPTY);
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState("");
+  const [loadedAt, setLoadedAt] = useState(0);
+
+  useEffect(() => { setLoadedAt(Date.now()); }, []);
 
   const set = (field: keyof FormData) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
     setForm((prev) => ({ ...prev, [field]: e.target.value }));
@@ -82,9 +85,13 @@ export default function CandidatureForm() {
     setStatus("loading");
     setErrorMsg("");
 
+    const honeypot = (e.currentTarget as HTMLFormElement).elements.namedItem("_hp") as HTMLInputElement | null;
+
     const payload = {
       ...form,
       situation: form.situation === "Autre" ? `Autre : ${form.situationAutre}` : form.situation,
+      _hp: honeypot?.value ?? "",
+      _t: loadedAt,
     };
 
     try {
@@ -126,6 +133,12 @@ export default function CandidatureForm() {
 
   return (
     <form onSubmit={handleSubmit} noValidate className="space-y-6">
+      {/* Honeypot — invisible pour les humains, rempli par les bots */}
+      <div aria-hidden="true" style={{ position: "absolute", left: "-9999px", height: 0, overflow: "hidden" }}>
+        <label htmlFor="_hp">Ne pas remplir</label>
+        <input type="text" id="_hp" name="_hp" tabIndex={-1} autoComplete="off" />
+      </div>
+
       {/* Identité */}
       <div className="grid sm:grid-cols-2 gap-6">
         <Field label="Prénom et nom" required>

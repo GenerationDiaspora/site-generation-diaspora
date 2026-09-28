@@ -1,5 +1,17 @@
 import { NextResponse } from "next/server";
 
+const MIN_FILL_MS = 5000;
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+// Chaîne sans espace mêlant majuscules/minuscules au hasard (ex : "hNTRzoRvwrqVUnoHR")
+function looksRandom(s: string | undefined) {
+  if (!s) return false;
+  const t = s.trim();
+  if (t.length < 12 || /\s/.test(t)) return false;
+  const caseSwitches = (t.match(/[a-z][A-Z]|[A-Z][a-z]/g) || []).length;
+  return caseSwitches >= 4;
+}
+
 function escHtml(s: string) {
   return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 }
@@ -25,12 +37,33 @@ export async function POST(request: Request) {
       situation,
       formation,
       profession,
+      _hp,
+      _t,
     } = body;
+
+    // ── Protection anti-bot ────────────────────────────────────────────────
+    // On répond 200 pour ne pas indiquer au bot qu'il a été détecté
+    const ignore = (reason: string) => {
+      console.warn(`Bot détecté (${reason}) — candidature ignorée`);
+      return NextResponse.json({ message: "Candidature reçue" }, { status: 200 });
+    };
+    if (_hp && String(_hp).trim() !== "") return ignore("honeypot");
+    if (typeof _t !== "number" || !_t || Date.now() - _t < MIN_FILL_MS) return ignore("timing");
+    const gibberish = [nomComplet, villeResidence, nationalite, villeOrigineMaroc, formation, profession, reseauxSociaux]
+      .filter(looksRandom).length;
+    if (gibberish >= 2) return ignore("texte aléatoire");
+    // ──────────────────────────────────────────────────────────────────────
 
     const requiredFields = { nomComplet, email, anneeNaissance, villeResidence, nationalite, villeOrigineMaroc, telephone, situation };
     const missing = Object.entries(requiredFields).filter(([, v]) => !v || !String(v).trim());
-    if (missing.length > 0 || !email.includes("@")) {
+    if (missing.length > 0 || !EMAIL_RE.test(String(email))) {
       return NextResponse.json({ error: "Champs obligatoires manquants ou email invalide" }, { status: 400 });
+    }
+
+    const annee = Number(anneeNaissance);
+    const currentYear = new Date().getFullYear();
+    if (!Number.isInteger(annee) || annee < 1940 || annee > currentYear - 12) {
+      return NextResponse.json({ error: "Année de naissance invalide" }, { status: 400 });
     }
 
     const apiKey = process.env.NEXT_PUBLIC_BREVO_API_KEY;
