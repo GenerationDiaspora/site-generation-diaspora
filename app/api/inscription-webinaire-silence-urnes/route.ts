@@ -8,6 +8,20 @@ const MEET_PHONE = "+33 1 87 40 30 92";
 const MEET_PIN = "730706396";
 const MEET_MORE_NUMBERS = "https://tel.meet/rfh-nmbz-end?pin=1659463244666";
 
+// 21 octobre 2026 21h00–22h00 Paris (UTC+2 → 19h00–20h00 UTC)
+const GOOGLE_CALENDAR_URL =
+  "https://calendar.google.com/calendar/render?" +
+  new URLSearchParams({
+    action: "TEMPLATE",
+    text: EVENT_TITLE,
+    dates: "20261021T190000Z/20261021T200000Z",
+    details:
+      `Lien Google Meet : ${MEET_URL}\n` +
+      `Ou composez le : ${MEET_PHONE} Code : ${MEET_PIN}\n` +
+      `Plus de numéros : ${MEET_MORE_NUMBERS}`,
+    location: MEET_URL,
+  }).toString();
+
 interface RegistrationBody {
   email: string;
   _hp?: string;
@@ -135,11 +149,12 @@ export async function POST(request: Request) {
               </p>
             </div>
 
-            <div style="background: #fef2f2; border: 1px solid #fecaca; border-radius: 8px; padding: 12px 16px; margin: 16px 0;">
-              <p style="margin: 0; color: #991b1b; font-size: 13px;">
-                📎 Un fichier <strong>.ics</strong> est joint à cet email — ajoutez l'événement à votre agenda en un clic.
-              </p>
+            <div style="text-align: center; margin: 28px 0 8px;">
+              <a href="${GOOGLE_CALENDAR_URL}" style="display: inline-block; background: #0B5D3B; color: #ffffff; text-decoration: none; font-weight: 700; font-size: 16px; padding: 14px 28px; border-radius: 8px;">📅 Oui, j'ajoute à mon agenda Google</a>
             </div>
+            <p style="margin: 0 0 16px; color: #6b7280; font-size: 12px; text-align: center;">
+              Outlook, Apple Calendar… : ouvrez le fichier <strong>.ics</strong> joint à cet email.
+            </p>
 
             <p style="color: #6b7280; font-size: 13px; margin-top: 16px;">Avec Mehdi Alaoui et Assad Mohamed.</p>
 
