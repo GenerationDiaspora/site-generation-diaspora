@@ -11,6 +11,16 @@ export const metadata: Metadata = {
 
 const newsItems = [
   {
+    id: 7,
+    title: "Entendez le silence de nos jeunes dans les urnes",
+    date: "2026-10-21",
+    category: "Webinaire",
+    excerpt:
+      "Mercredi 21 octobre à 21h, les jeunes de Génération Diaspora vous invitent à discuter de l’abstention des jeunes, tant en France qu’au Maroc. Avec Mehdi Alaoui et Assad Mohamed. Inscription gratuite.",
+    gradient: "from-primary-500 via-primary-600 to-red-900",
+    href: "/news/webinaire-silence-urnes",
+  },
+  {
     id: 1,
     title: "Déconstruire les mirages, bâtir des ponts",
     date: "2026-06-25",
