@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, Calendar, Monitor } from "lucide-react";
 import RegistrationForm from "@/components/events/WebinaireSilenceUrnes/RegistrationForm";
@@ -34,19 +35,21 @@ export default function WebinaireSilenceUrnesPage() {
         </Link>
       </div>
 
-      {/* Bandeau */}
-      <div className="relative mt-6 overflow-hidden bg-gradient-to-br from-primary-500 via-primary-600 to-red-900">
-        <div className="container mx-auto px-4 py-16 md:py-24">
-          <div className="max-w-3xl mx-auto text-center text-white">
+      {/* Affiche */}
+      <div className="container mx-auto px-4 mt-6">
+        <div className="relative max-w-6xl mx-auto aspect-[1125/469] overflow-hidden rounded-2xl shadow-lg bg-gray-900">
+          <Image
+            src="/images/events/webinaire-silence-urnes/affiche.jpg"
+            alt="Webinaire : Entendre le silence de la jeunesse — mercredi 21 octobre 2026, 21h00"
+            fill
+            sizes="(max-width: 1152px) 100vw, 1152px"
+            className="object-cover"
+            priority
+          />
+          <div className="absolute top-3 left-3 md:top-5 md:left-5">
             <span className="bg-red-700 text-white text-sm font-semibold px-3 py-1 rounded-full">
               Webinaire
             </span>
-            <p className="mt-6 text-4xl md:text-6xl font-black tracking-tight">
-              Silence dans les urnes !
-            </p>
-            <p className="mt-4 text-lg md:text-xl opacity-90">
-              Mercredi 21 octobre · 21h · En ligne
-            </p>
           </div>
         </div>
       </div>

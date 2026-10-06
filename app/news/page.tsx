@@ -17,7 +17,7 @@ const newsItems = [
     category: "Webinaire",
     excerpt:
       "Mercredi 21 octobre à 21h, les jeunes de Génération Diaspora vous invitent à discuter de l’abstention des jeunes, tant en France qu’au Maroc. Avec Mehdi Alaoui et Assad Mohamed. Inscription gratuite.",
-    gradient: "from-primary-500 via-primary-600 to-red-900",
+    imageSrc: "/images/events/webinaire-silence-urnes/affiche.jpg",
     href: "/news/webinaire-silence-urnes",
   },
   {
