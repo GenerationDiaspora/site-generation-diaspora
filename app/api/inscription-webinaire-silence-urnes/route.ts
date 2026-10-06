@@ -42,7 +42,7 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "Configuration email manquante" }, { status: 500 });
     }
 
-    const listId = parseInt(process.env.BREVO_LIST_WEBINAIRE_SILENCE_URNES_ID ?? "0", 10);
+    const listId = parseInt(process.env.BREVO_LIST_WEBINAIRE_SILENCE_URNES_ID ?? "13", 10);
 
     const contactRes = await fetch("https://api.brevo.com/v3/contacts", {
       method: "POST",
