@@ -7,7 +7,7 @@ import RegistrationForm from "@/components/events/WebinaireSilenceUrnes/Registra
 export const metadata: Metadata = {
   title: "Entendez le silence de nos jeunes dans les urnes — Génération Diaspora",
   description:
-    "Webinaire le mercredi 21 octobre à 21h (heure de Paris), 19h (heure de Rabat) : les jeunes de Génération Diaspora vous invitent à discuter de l’abstention des jeunes, tant en France qu’au Maroc. Avec Mehdi Alaoui et Assad Mohamed. Inscription gratuite.",
+    "Webinaire le mercredi 21 octobre à 21h (heure de France), 19h (heure du Maroc) : les jeunes de Génération Diaspora vous invitent à discuter de l’abstention des jeunes, tant en France qu’au Maroc. Avec Mehdi Alaoui et Assad Mohamed. Inscription gratuite.",
 };
 
 const speakers = [
@@ -42,7 +42,7 @@ export default function WebinaireSilenceUrnesPage() {
         <div className="relative max-w-6xl mx-auto aspect-[1125/469] overflow-hidden rounded-2xl shadow-lg bg-gray-900">
           <Image
             src="/images/events/webinaire-silence-urnes/affiche.jpg"
-            alt="Webinaire : Entendre le silence de la jeunesse — mercredi 21 octobre 2026, 21h00 (heure de Paris), 19h00 (heure de Rabat)"
+            alt="Webinaire : Entendre le silence de la jeunesse — mercredi 21 octobre 2026, 21h (heure de France), 19h (heure du Maroc)"
             fill
             sizes="(max-width: 1152px) 100vw, 1152px"
             className="object-cover"
@@ -65,7 +65,7 @@ export default function WebinaireSilenceUrnesPage() {
       <section className="container mx-auto px-4 mt-10">
         <div className="max-w-3xl mx-auto text-center">
           <p className="text-2xl md:text-3xl font-bold text-red-800">
-            Le mercredi 21 octobre à 21 heures (heure de Paris), 19 heures (heure de Rabat)
+            Le mercredi 21 octobre à 21 heures (heure de France), 19 heures (heure du Maroc)
           </p>
           <p className="mt-3 text-gray-600">
             Les interactions en live et par chat seront possibles.
@@ -100,7 +100,7 @@ export default function WebinaireSilenceUrnesPage() {
           <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500 mb-6">
             <span className="flex items-center gap-1">
               <Calendar className="w-4 h-4" />
-              21 octobre 2026 · 21h – 22h (heure de Paris) · 19h – 20h (heure de Rabat)
+              21 octobre 2026 · 21h (heure de France) · 19h (heure du Maroc)
             </span>
             <span className="flex items-center gap-1">
               <Monitor className="w-4 h-4" />

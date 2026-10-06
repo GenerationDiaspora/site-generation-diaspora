@@ -123,14 +123,14 @@ export async function POST(request: Request) {
           <div style="background: linear-gradient(135deg, #0B5D3B, #14532d, #7f1d1d); color: white; padding: 32px 24px; border-radius: 12px 12px 0 0; text-align: center;">
             <p style="margin: 0 0 4px; font-size: 11px; letter-spacing: 4px; opacity: 0.8; text-transform: uppercase;">Génération Diaspora</p>
             <h1 style="margin: 0 0 6px; font-size: 22px; font-weight: 900; letter-spacing: 1px; text-transform: uppercase;">Entendre le silence de la jeunesse dans les urnes</h1>
-            <p style="margin: 0; font-size: 14px; opacity: 0.9;">Webinaire · Mercredi 21 octobre 2026 · 21h00 – 22h00 (heure de Paris) · 19h00 – 20h00 (heure de Rabat)</p>
+            <p style="margin: 0; font-size: 14px; opacity: 0.9;">Webinaire · Mercredi 21 octobre 2026 · 21h (heure de France) · 19h (heure du Maroc)</p>
           </div>
           <div style="background: #fafaf9; padding: 32px 24px; border-radius: 0 0 12px 12px; border: 1px solid #e5e7eb;">
             <p style="font-size: 16px; color: #374151;">Bonjour,</p>
             <p style="color: #374151;">Votre inscription au webinaire <strong>Entendre le silence de la jeunesse dans les urnes</strong> est confirmée ! Voici toutes les informations pour rejoindre la session.</p>
 
             <div style="background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; padding: 20px; margin: 20px 0;">
-              <p style="margin: 0 0 12px; color: #14532d; font-weight: 700; font-size: 15px;">📅 Mercredi 21 octobre 2026 · 21h00 – 22h00 (heure de Paris) · 19h00 – 20h00 (heure de Rabat)</p>
+              <p style="margin: 0 0 12px; color: #14532d; font-weight: 700; font-size: 15px;">📅 Mercredi 21 octobre 2026 · 21h (heure de France) · 19h (heure du Maroc)</p>
 
               <p style="margin: 0 0 6px; color: #0B5D3B; font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: 1px;">Informations de connexion Google Meet</p>
 
