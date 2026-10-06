@@ -61,7 +61,7 @@ export default function RegistrationForm() {
 
   if (status === "success") {
     return (
-      <div className="bg-green-50 border border-green-200 rounded-2xl p-8 text-center max-w-xl mx-auto">
+      <div className="bg-green-50 border border-green-200 rounded-2xl p-8 text-center max-w-3xl mx-auto">
         <p className="text-3xl mb-3">✅</p>
         <p className="text-green-800 font-bold text-lg mb-2">
           Inscription confirmée !
@@ -86,31 +86,31 @@ export default function RegistrationForm() {
   }
 
   return (
-    <div className="bg-white rounded-2xl shadow-xl p-8 md:p-10 max-w-xl mx-auto">
-      <h3 className="text-2xl font-bold text-gray-900 mb-2">
+    <div className="bg-white rounded-2xl shadow-xl p-6 md:p-8 max-w-3xl mx-auto">
+      <h2 className="text-2xl font-bold text-gray-900 mb-1">
         S&apos;inscrire
-      </h3>
-      <p className="text-gray-500 text-sm mb-8">
+      </h2>
+      <p className="text-gray-500 text-sm mb-5">
         Gratuit · L&apos;invitation Google Agenda vous sera envoyée par email
       </p>
 
       {status === "error" && (
-        <div className="bg-red-50 border border-red-200 rounded-lg px-4 py-3 mb-6 text-red-700 text-sm">
+        <div className="bg-red-50 border border-red-200 rounded-lg px-4 py-3 mb-4 text-red-700 text-sm">
           {errorMessage}
         </div>
       )}
 
-      <form onSubmit={handleSubmit} noValidate className="space-y-5">
+      <form onSubmit={handleSubmit} noValidate>
         {/* Honeypot */}
         <div aria-hidden="true" style={{ position: "absolute", left: "-9999px", height: 0, overflow: "hidden" }}>
           <label htmlFor="_hp">Ne pas remplir</label>
           <input type="text" id="_hp" name="_hp" tabIndex={-1} autoComplete="off" />
         </div>
 
-        <div className="space-y-1.5">
-          <label htmlFor="email" className="text-sm font-medium text-gray-700">
-            Email <span className="text-red-500">*</span>
-          </label>
+        <label htmlFor="email" className="sr-only">
+          Email
+        </label>
+        <div className="flex flex-col sm:flex-row gap-3">
           <Input
             id="email"
             name="email"
@@ -121,19 +121,19 @@ export default function RegistrationForm() {
             onChange={(e) => setEmail(e.target.value)}
             placeholder="votre@email.com"
             disabled={status === "loading"}
+            className="h-12 sm:flex-1"
           />
+          <Button
+            type="submit"
+            size="lg"
+            disabled={status === "loading"}
+            className="h-12 sm:w-auto w-full"
+          >
+            {status === "loading" ? "Inscription en cours…" : "S'inscrire"}
+          </Button>
         </div>
 
-        <Button
-          type="submit"
-          size="lg"
-          disabled={status === "loading"}
-          className="w-full"
-        >
-          {status === "loading" ? "Inscription en cours…" : "S'inscrire"}
-        </Button>
-
-        <p className="text-xs text-gray-400 text-center">
+        <p className="text-xs text-gray-400 mt-3">
           Vos données sont utilisées uniquement dans le cadre de cet événement.
         </p>
       </form>

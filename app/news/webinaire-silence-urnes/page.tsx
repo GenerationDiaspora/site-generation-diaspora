@@ -14,10 +14,12 @@ const speakers = [
   {
     name: "Mehdi Alaoui",
     role: "Founder & CEO de Geeks et LaStartupStation",
+    photo: "/images/events/webinaire-silence-urnes/mehdi-alaoui.jpg",
   },
   {
     name: "Assad Mohamed",
     role: "Délégué territorial et départemental groupe SOS",
+    photo: "/images/events/webinaire-silence-urnes/assad-mohamed.jpg",
   },
 ];
 
@@ -54,8 +56,42 @@ export default function WebinaireSilenceUrnesPage() {
         </div>
       </div>
 
+      {/* Inscription */}
+      <section id="inscription" className="container mx-auto px-4 mt-8">
+        <RegistrationForm />
+      </section>
+
+      {/* Infos clés */}
+      <section className="container mx-auto px-4 mt-10">
+        <div className="max-w-3xl mx-auto text-center">
+          <p className="text-2xl md:text-3xl font-bold text-red-800">
+            Le mercredi 21 octobre à 21 heures de Paris
+          </p>
+          <h2 className="mt-6 text-xl font-bold text-gray-900">
+            Autour de deux invités :
+          </h2>
+          <div className="mt-8 grid sm:grid-cols-2 gap-10">
+            {speakers.map((s) => (
+              <div key={s.name} className="flex flex-col items-center">
+                <div className="relative w-36 h-36 md:w-44 md:h-44 rounded-full overflow-hidden ring-4 ring-white shadow-lg">
+                  <Image
+                    src={s.photo}
+                    alt={s.name}
+                    fill
+                    sizes="176px"
+                    className="object-cover"
+                  />
+                </div>
+                <p className="mt-4 text-lg font-semibold text-gray-900">{s.name}</p>
+                <p className="text-gray-600">{s.role}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Contenu principal */}
-      <article className="container mx-auto px-4 py-12">
+      <article className="container mx-auto px-4 py-12 mt-6 border-t border-gray-200">
         <div className="max-w-3xl mx-auto">
           {/* En-tête */}
           <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500 mb-6">
@@ -154,31 +190,16 @@ export default function WebinaireSilenceUrnesPage() {
             <p className="mt-4 text-xl font-bold text-red-800">
               Le mercredi 21 octobre à 21 heures
             </p>
-            <h2 className="mt-6 text-xl font-bold text-gray-900 mb-4">
-              Autour de deux invités :
-            </h2>
-            <ul className="space-y-4">
-              {speakers.map((s) => (
-                <li key={s.name} className="flex gap-3">
-                  <div className="w-2 h-2 mt-2 rounded-full bg-red-500 flex-shrink-0" />
-                  <div>
-                    <span className="font-semibold text-gray-900">{s.name}</span>
-                    <span className="text-gray-600"> — {s.role}</span>
-                  </div>
-                </li>
-              ))}
-            </ul>
             <p className="mt-6 font-bold text-primary-700">Inscription gratuite.</p>
+            <a
+              href="#inscription"
+              className="mt-4 inline-flex items-center gap-2 bg-primary-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-700 transition-colors"
+            >
+              S&apos;inscrire
+            </a>
           </div>
         </div>
       </article>
-
-      {/* Inscription */}
-      <section id="inscription" className="pb-16">
-        <div className="container mx-auto px-4">
-          <RegistrationForm />
-        </div>
-      </section>
 
       {/* Retour */}
       <div className="container mx-auto px-4 pb-12 text-center">
