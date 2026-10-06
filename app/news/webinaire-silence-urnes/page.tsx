@@ -182,6 +182,10 @@ export default function WebinaireSilenceUrnesPage() {
               Que doivent ils faire dès à présent pour retrouver la confiance de la
               jeunesse ?
             </p>
+
+            <p className="text-right text-gray-500 italic">
+              (rédigé par Ahmed Ghayet)
+            </p>
           </div>
         </div>
       </article>
