@@ -67,8 +67,11 @@ export default function WebinaireSilenceUrnesPage() {
           <p className="text-2xl md:text-3xl font-bold text-red-800">
             Le mercredi 21 octobre à 21 heures de Paris
           </p>
+          <p className="mt-3 text-gray-600">
+            Les interactions en live et par chat seront possibles.
+          </p>
           <h2 className="mt-6 text-xl font-bold text-gray-900">
-            Autour de deux invités :
+            Avec nos deux invités :
           </h2>
           <div className="mt-8 grid sm:grid-cols-2 gap-10">
             {speakers.map((s) => (
@@ -179,24 +182,6 @@ export default function WebinaireSilenceUrnesPage() {
               Que doivent ils faire dès à présent pour retrouver la confiance de la
               jeunesse ?
             </p>
-          </div>
-
-          {/* Invitation */}
-          <div className="mt-12 bg-red-50 rounded-2xl p-6 md:p-8 border border-red-100">
-            <p className="text-lg font-semibold text-gray-900 leading-relaxed">
-              C’est de tout cela que les jeunes de Génération Diaspora vous invitent à
-              discuter lors du webinaire qui y sera consacré
-            </p>
-            <p className="mt-4 text-xl font-bold text-red-800">
-              Le mercredi 21 octobre à 21 heures
-            </p>
-            <p className="mt-6 font-bold text-primary-700">Inscription gratuite.</p>
-            <a
-              href="#inscription"
-              className="mt-4 inline-flex items-center gap-2 bg-primary-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-700 transition-colors"
-            >
-              S&apos;inscrire
-            </a>
           </div>
         </div>
       </article>
