@@ -16,7 +16,6 @@ const SLIDES = [
   { src: "/images/bio/bio-mehdi-bennis.png",    name: "Mehdi Bennis",         role: "Trésorier Adjoint" },
   { src: "/images/bio/bio-smain-qasimi.png",    name: "Smaïn Qasimi",        role: "Conseiller" },
   { src: "/images/bio/bio-fady-ait-yazza.png",  name: "Fady Ait Yazza",       role: "Référent Communication" },
-  { src: "/images/bio/bio-manal-hanini.png",    name: "Manal Hanini",         role: "Référente Recrutement" },
   { src: "/images/bio/bio-zirar-focus.png",     name: "Zirar Focus",          role: "Photographe & Créateur de Contenu" },
 ];
 

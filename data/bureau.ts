@@ -99,12 +99,6 @@ export const bureauLegal: BureauMember[] = [
     photo: "/images/membre-gd/Fady.Aït.Azza.jpg",
   },
   {
-    name: "Manal Hanini",
-    role: "Référente Recrutement",
-    initials: "MH",
-    photo: "/images/membre-gd/Manal.HANINI.jpg",
-  },
-  {
     name: "Zirar",
     role: "Photographe & Créateur de Contenu",
     initials: "ZS",
